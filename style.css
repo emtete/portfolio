@@ -1,6 +1,7 @@
 /* Initialization */
 body {
   margin: 0;
+  font-family: "Raleway";
 }
 
 ul {
@@ -21,18 +22,15 @@ button:focus {
 /* Home */
 #home {
   background-color: #0c2a40;
-  /* background-position: center; */
-  /* background-size: cover; */
   height: calc(100vh + 53px);
   width: 100vw;
   top: 0;
-  position: absolute;
+  position: relative;
 
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  font-family: "Raleway";
 }
 
 .home__box {
@@ -67,25 +65,15 @@ button:focus {
 /* Navbar */
 #navbar {
   width: 100%;
-  /* height: 20px; */
-  bottom: 0;
+  bottom: 0px;
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px 18px;
+  padding: 13px 0px;
   background-color: #0a2336;
   border-bottom: 3px solid #04c2c9;
 }
-/* 
-.navbar__logo {
-  color: white;
-  font-size: 24px;
-}
-
-.navbar__logo a {
-  color: white;
-} */
 
 .navbar__menu {
   padding-left: 50px;
@@ -99,4 +87,98 @@ button:focus {
 
 .navbar__menu li {
   padding-right: 50px;
+}
+
+/* ABOUT */
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__header {
+  padding-top: 50px;
+  font-size: 30px;
+  font-weight: 700;
+  padding-bottom: 50px;
+}
+
+/* Hexagon */
+/* .hexagon {
+  position: relative;
+  width: 100px;
+  height: 57.74px;
+  background-color: #64c7cc;
+  margin: 28.87px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 28.87px solid #64c7cc;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 28.87px solid #64c7cc;
+} */
+
+.hexagon {
+  width: 100px;
+  height: 60px;
+  background: #04c2c9;
+  position: relative;
+  top: 100px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.hexagon:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid #04c2c9;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.hexagon:after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid #04c2c9;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hexagon__icon {
+  font-size: 60px;
+  color: white;
 }
