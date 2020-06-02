@@ -18,13 +18,71 @@ button:focus {
   opacity: 0.5;
 }
 
+/* Home */
+#home {
+  /* background-image: url("imgs/background_img_13.png"); */
+  background-color: #0c2a40;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  position: absolute;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Raleway";
+}
+
+.home__box {
+  align-items: center;
+  display: flex;
+  justify-content: column;
+  flex-direction: column;
+}
+
+.home__title {
+  color: white;
+  font-size: 24pt;
+}
+
+.home__button {
+  border: 2px solid #fff;
+  box-sizing: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13pt;
+  padding: 10px 20px;
+  transition: all 0.5s;
+  color: white;
+}
+
+.home__button i {
+  padding: 5px;
+}
+
 /* Navbar */
 #navbar {
+  /* position: absolute;
+  display: flex;
+  justify-content: space-between;
+  
+  background-color: black; */
+  /* left: 0; */
+  /* background: #1b242f; */
+  /* border-bottom: 3px solid #04c2c9; */
+  /* height: 50px; */
+  /* text-align: left; */
+  /* z-index: 99; */
+  width: 100%;
+  bottom: 0;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 18px;
-  background-color: black;
 }
 
 .navbar__logo {
@@ -44,31 +102,4 @@ button:focus {
 
 .navbar__menu2 li {
   padding-right: 20px;
-}
-
-/* Home */
-#home {
-  background-image: url("imgs/space-background_img.png");
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.home__avatar {
-  width: auto;
-  height: auto;
-  max-width: 200px;
-  max-height: 200px;
-  border-radius: 50%;
-}
-
-.home__title {
-  color: white;
-  text-align: center;
-}
-
-.home__description {
-  color: white;
 }
