@@ -20,17 +20,16 @@ button:focus {
 
 /* Home */
 #home {
-  /* background-image: url("imgs/background_img_13.png"); */
   background-color: #0c2a40;
-  background-position: center;
-  background-size: cover;
-  height: 100%;
+  /* background-position: center; */
+  /* background-size: cover; */
+  height: calc(100vh + 53px);
   width: 100vw;
   top: 0;
   position: absolute;
 
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
   font-family: "Raleway";
@@ -46,6 +45,7 @@ button:focus {
 .home__title {
   color: white;
   font-size: 24pt;
+  margin-bottom: 20px;
 }
 
 .home__button {
@@ -57,6 +57,7 @@ button:focus {
   padding: 10px 20px;
   transition: all 0.5s;
   color: white;
+  margin-bottom: 53px;
 }
 
 .home__button i {
@@ -65,26 +66,18 @@ button:focus {
 
 /* Navbar */
 #navbar {
-  /* position: absolute;
-  display: flex;
-  justify-content: space-between;
-  
-  background-color: black; */
-  /* left: 0; */
-  /* background: #1b242f; */
-  /* border-bottom: 3px solid #04c2c9; */
-  /* height: 50px; */
-  /* text-align: left; */
-  /* z-index: 99; */
   width: 100%;
+  /* height: 20px; */
   bottom: 0;
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 18px;
+  padding: 13px 18px;
+  background-color: #0a2336;
+  border-bottom: 3px solid #04c2c9;
 }
-
+/* 
 .navbar__logo {
   color: white;
   font-size: 24px;
@@ -92,14 +85,18 @@ button:focus {
 
 .navbar__logo a {
   color: white;
+} */
+
+.navbar__menu {
+  padding-left: 50px;
 }
 
-.navbar__menu2 {
+.navbar__menu ul {
   display: flex;
   color: white;
   font-size: 20px;
 }
 
-.navbar__menu2 li {
-  padding-right: 20px;
+.navbar__menu li {
+  padding-right: 50px;
 }
