@@ -9,6 +9,15 @@ ul {
   list-style: none;
 }
 
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #ffffff;
+  opacity: 0.5;
+}
+
 /* Navbar */
 #navbar {
   display: flex;
@@ -35,4 +44,31 @@ ul {
 
 .navbar__menu2 li {
   padding-right: 20px;
+}
+
+/* Home */
+#home {
+  background-image: url("imgs/space-background_img.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.home__avatar {
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+}
+
+.home__title {
+  color: white;
+  text-align: center;
+}
+
+.home__description {
+  color: white;
 }
