@@ -1,8 +1,5 @@
 /* ABOUT */
 #about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .about__h1 {
@@ -24,18 +21,9 @@
   text-align: center;
 }
 
-.flex__column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .about__career {
   background-color: #ebebeb;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .about__content {

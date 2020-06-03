@@ -47,9 +47,6 @@
 }
 
 .hex-wrap1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 50%;
 }
 
@@ -74,10 +71,4 @@
   font-size: 60px;
   color: white;
   transform: rotateZ(270deg);
-}
-
-.hexagon.flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

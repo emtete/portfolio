@@ -5,18 +5,7 @@
   width: 100vw;
   top: 0;
   position: relative;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   justify-content: center;
-}
-
-.home__box {
-  align-items: center;
-  display: flex;
-  justify-content: column;
-  flex-direction: column;
 }
 
 .home__title {
@@ -27,14 +16,14 @@
 
 .home__button {
   border: 2px solid #fff;
-  box-sizing: inherit;
   cursor: pointer;
-  display: inline-block;
   font-size: 13pt;
   padding: 10px 20px;
-  transition: all 0.5s;
   color: white;
   margin-bottom: 53px;
+  /* box-sizing: inherit; */
+  /* display: inline-block; */
+  /* transition: all 0.5s; */
 }
 
 .home__button i {
