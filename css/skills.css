@@ -1,0 +1,48 @@
+.skills__h1 {
+  font-size: 30px;
+  font-weight: 700;
+  padding-top: var(--bet-padding);
+}
+
+.hex-wrap {
+  width: 100px;
+  height: 100px;
+}
+
+.hex-wrap1 {
+  width: 50%;
+  height: 230px;
+  justify-content: center;
+}
+
+.hex-wrap2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 0 10px;
+}
+
+.hex-wrap3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.hexagon__icon {
+  font-size: 60px;
+  color: white;
+  transform: rotateZ(270deg);
+}
+
+.skills__h2 {
+  padding-top: 10px;
+}
+
+.skills__h4 {
+  padding-top: 10px;
+  font-weight: 200;
+}
