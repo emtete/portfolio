@@ -9,6 +9,7 @@
 
   /* Size */
   --side-padding: 12px;
+  --bet-padding: 50px;
   --avatar-size: 36px;
 
   /* Font Size */
@@ -29,6 +30,13 @@ ul {
   list-style: none;
 }
 
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
 /* button,
 button:focus {
   border: none;
@@ -42,4 +50,8 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.padding_between {
+  padding-top: 50px;
 }
