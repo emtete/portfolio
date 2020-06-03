@@ -1,3 +1,22 @@
+:root {
+  /* Color */
+  --white-color: white;
+  --black-color: black;
+  --blue-color: blue;
+  --red-color: red;
+  --gray-dark-color: #909090;
+  --gray-light-color: #e0e0e0;
+
+  /* Size */
+  --side-padding: 12px;
+  --avatar-size: 36px;
+
+  /* Font Size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
 /* Initialization */
 body {
   margin: 0;
@@ -103,35 +122,6 @@ button:focus {
   padding-bottom: 50px;
 }
 
-/* Hexagon */
-/* .hexagon {
-  position: relative;
-  width: 100px;
-  height: 57.74px;
-  background-color: #64c7cc;
-  margin: 28.87px 0;
-}
-
-.hexagon:before,
-.hexagon:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-}
-
-.hexagon:before {
-  bottom: 100%;
-  border-bottom: 28.87px solid #64c7cc;
-}
-
-.hexagon:after {
-  top: 100%;
-  width: 0;
-  border-top: 28.87px solid #64c7cc;
-} */
-
 .hexagon {
   width: 100px;
   height: 60px;
@@ -144,6 +134,7 @@ button:focus {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  transform: rotateZ(90deg);
 }
 .hexagon:before {
   content: "";
@@ -178,7 +169,67 @@ button:focus {
   transition: all 0.3s ease-in-out;
 }
 
+.hex-wrap1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.hex-wrap2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 0 10px;
+}
+
+.hex-wrap3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .hexagon__icon {
   font-size: 60px;
   color: white;
+  transform: rotateZ(270deg);
+}
+
+.hexagon.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__h2 {
+  margin-top: 170px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.about__h3 {
+  margin: 0px 0;
+  font-weight: 200;
+  text-align: center;
+}
+
+.flex__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sexy-shadow {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
 }
