@@ -115,13 +115,65 @@ button:focus {
   align-items: center;
 }
 
-.about__header {
+.about__h1 {
   padding-top: 50px;
   font-size: 30px;
   font-weight: 700;
   padding-bottom: 50px;
 }
 
+.about__h2 {
+  margin-top: 170px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.about__h3 {
+  margin: 0px 0;
+  font-weight: 200;
+  text-align: center;
+}
+
+.flex__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__career {
+  background-color: #ebebeb;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 50px 50px;
+}
+
+.about__menu {
+  flex: 1 1 40%;
+  font-size: 20px;
+}
+
+.about__menu li {
+  padding: 10px 0;
+}
+
+.about__detail {
+  flex: 1 1 60%;
+  background-color: #ffffff;
+  height: 225px;
+  border-radius: 0.5em;
+}
+
+/* Hexagon */
 .hexagon {
   width: 100px;
   height: 60px;
@@ -203,55 +255,4 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.about__h2 {
-  margin-top: 170px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.about__h3 {
-  margin: 0px 0;
-  font-weight: 200;
-  text-align: center;
-}
-
-.flex__column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.about__career {
-  background-color: #ebebeb;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.about__content {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 50px 50px;
-}
-
-.about__menu {
-  flex: 1 1 40%;
-  font-size: 20px;
-}
-
-.about__menu li {
-  padding: 10px 0;
-}
-
-.about__detail {
-  flex: 1 1 60%;
-  background-color: #ffffff;
-  height: 225px;
-  border-radius: 0.5em;
 }

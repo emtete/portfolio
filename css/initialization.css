@@ -1,0 +1,39 @@
+:root {
+  /* Color */
+  --white-color: white;
+  --black-color: black;
+  --blue-color: blue;
+  --red-color: red;
+  --gray-dark-color: #909090;
+  --gray-light-color: #e0e0e0;
+
+  /* Size */
+  --side-padding: 12px;
+  --avatar-size: 36px;
+
+  /* Font Size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+/* Initialization */
+body {
+  margin: 0;
+  font-family: "Raleway";
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: #ffffff;
+  opacity: 0.5;
+}

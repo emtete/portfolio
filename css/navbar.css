@@ -1,0 +1,26 @@
+/* Navbar */
+#navbar {
+  width: 100%;
+  bottom: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0px;
+  background-color: #0a2336;
+  border-bottom: 3px solid #04c2c9;
+}
+
+.navbar__menu {
+  padding-left: 50px;
+}
+
+.navbar__menu ul {
+  display: flex;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar__menu li {
+  padding-right: 50px;
+}
