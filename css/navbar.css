@@ -38,3 +38,13 @@
 .navbar__menu li {
   padding-right: 50px;
 }
+
+.navbar__menu li:hover {
+  color: #e31b6d;
+  cursor: pointer;
+}
+
+.active {
+  color: #e31b6d;
+  cursor: pointer;
+}
