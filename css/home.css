@@ -26,6 +26,19 @@
   /* transition: all 0.5s; */
 }
 
+.home__button {
+}
+
+.home__button:hover {
+  background-color: #04c2c9;
+  transition: background-color 1s ease;
+}
+
+.home__button:hover > i {
+  transition: transform 300ms ease-in-out;
+  transform: rotate(90deg);
+}
+
 .home__button i {
   padding: 5px;
 }
