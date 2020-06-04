@@ -11,6 +11,7 @@
   /* padding: 13px 0px; */
   background-color: #0a2336;
   border-bottom: 3px solid #04c2c9;
+  z-index: 1;
 }
 
 .notFixed {
