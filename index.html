@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/initialization.css" />
@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/hexagon.css" />
     <link rel="stylesheet" href="css/skills.css" />
+    <link rel="stylesheet" href="css/work.css" />
     <script src="main.js" defer></script>
   </head>
   <body>
@@ -74,6 +75,7 @@
         </div>
       </div>
     </section>
+
     <!-- Skills -->
     <section id="skills" class="flex_column_center">
       <h1 class="skills__h1">Skills</h1>
@@ -210,8 +212,42 @@
         </div>
       </div>
     </section>
+
     <!-- Work -->
-    <section id="work"></section>
+    <section id="work" class="flex_column_center">
+      <div class="work__h1">My Works</div>
+      <div class="work__categories">
+        <button class="category__btn">
+          All<span class="category__count">4</span>
+        </button>
+        <button class="category__btn">
+          Projects<span class="category__count">1</span>
+        </button>
+        <button class="category__btn">
+          Sub Projects<span class="category__count">1</span>
+        </button>
+        <button class="category__btn">
+          etc<span class="category__count">2</span>
+        </button>
+      </div>
+      <div class="work__img--set">
+        <div class="work__img--one-set">
+          <img src="projects/taeyoung_erp_img.png" alt="" class="work__img" />
+        </div>
+
+        <div class="work__img--one-set">
+          <img src="projects/taeyoung_erp_img.png" alt="" class="work__img" />
+        </div>
+
+        <div class="work__img--one-set">
+          <img src="projects/taeyoung_erp_img.png" alt="" class="work__img" />
+        </div>
+
+        <div class="work__img--one-set">
+          <img src="projects/taeyoung_erp_img.png" alt="" class="work__img" />
+        </div>
+      </div>
+    </section>
     <!-- Testimonials -->
     <section id="testimonials"></section>
     <!-- Contact -->
