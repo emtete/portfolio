@@ -1,12 +1,14 @@
 "use strict";
 
 /* Navbar Fixed setting */
-const home = document.getElementById("home");
-const nav = document.getElementById("navbar");
-const about = document.getElementById("about");
-const skills = document.getElementById("skills");
-const work = document.getElementById("work");
-const contact = document.getElementById("contact");
+// const home = document.getElementById("home");
+const home = document.querySelector("#home");
+const homeBtn = document.querySelector(".home__button");
+const nav = document.querySelector("#navbar");
+const about = document.querySelector("#about");
+const skills = document.querySelector("#skills");
+const work = document.querySelector("#work");
+const contact = document.querySelector("#contact");
 const nav_items = Array.from(
   document.querySelector(".navbar__menu ul").children
 );
@@ -46,13 +48,13 @@ function attachNavbar() {
 function addActiveByScrolling(pageY) {
   if (pageY < homeBottom) {
     addAndRemove(".navbar__home");
-  } else if (homeBottom < pageY && pageY < aboutBottom) {
+  } else if (homeBottom < pageY && pageY < aboutBottom - 53) {
     addAndRemove(".navbar__about");
-  } else if (aboutBottom < pageY && pageY < skillsBottom) {
+  } else if (aboutBottom - 53 < pageY && pageY < skillsBottom - 53) {
     addAndRemove(".navbar__skills");
   } else if (
-    skillsBottom < pageY &&
-    pageY < workBottom &&
+    skillsBottom - 53 < pageY &&
+    pageY < workBottom - 53 &&
     pageY !== contactBottom - window.innerHeight
   ) {
     addAndRemove(".navbar__work");
@@ -71,17 +73,27 @@ function addActiveByScrolling(pageY) {
 }
 
 /* Navbar Scrolling by click element */
-window.addEventListener("click", (element) => {
-  // console.log(element.target);
-  let targetName = element.target.href.split("#")[1];
-  let target = `.navbar__${targetName}`;
+nav.addEventListener("click", (event) => {
+  // console.log(event.target);
+  let li_target = `.${event.target.classList.value}`;
+  let sec_target = `#${event.target.classList.value.split("__")[1]}`;
+
   removeActive();
-  console.log(document.querySelector(target));
-  document.querySelector(target).classList.add("active");
+  let topOfSection =
+    document.querySelector(sec_target).getBoundingClientRect().top +
+    window.pageYOffset -
+    53;
+  window.scrollTo({
+    top: topOfSection,
+    behavior: "smooth",
+  });
+  document.querySelector(li_target).classList.add("active");
 });
 
+// homeBtn.addEventListener("click", (event) => {
+//   about.scrollIntoView({ behavior: "smooth" });
+// });
+
 function removeActive() {
-  nav_items.forEach((element) =>
-    element.children[0].classList.remove("active")
-  );
+  nav_items.forEach((element) => element.classList.remove("active"));
 }
