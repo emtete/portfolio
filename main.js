@@ -78,21 +78,33 @@ nav.addEventListener("click", (event) => {
   let li_target = `.${event.target.classList.value}`;
   let sec_target = `#${event.target.classList.value.split("__")[1]}`;
 
-  removeActive();
   let topOfSection =
     document.querySelector(sec_target).getBoundingClientRect().top +
     window.pageYOffset -
-    53;
+    50;
   window.scrollTo({
     top: topOfSection,
     behavior: "smooth",
   });
+  removeActive();
   document.querySelector(li_target).classList.add("active");
 });
 
-// homeBtn.addEventListener("click", (event) => {
-//   about.scrollIntoView({ behavior: "smooth" });
-// });
+homeBtn.addEventListener("click", (event) => {
+  let li_target = ".navbar__about";
+  let sec_target = "#about";
+
+  let topOfSection =
+    document.querySelector(sec_target).getBoundingClientRect().top +
+    window.pageYOffset -
+    50;
+  window.scrollTo({
+    top: topOfSection,
+    behavior: "smooth",
+  });
+  removeActive();
+  document.querySelector(li_target).classList.add("active");
+});
 
 function removeActive() {
   nav_items.forEach((element) => element.classList.remove("active"));
