@@ -54,6 +54,19 @@ button:focus {
   /* opacity: 0.5; */
 }
 
+a:link {
+  color: white;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: #e31b6d;
+  text-decoration: none;
+}
+
 .flex_column_center {
   display: flex;
   flex-direction: column;

@@ -68,8 +68,20 @@ function addActiveByScrolling(pageY) {
       node.classList.add("active");
     }
   }
+}
 
-  function removeActive() {
-    nav_items.forEach((element) => element.classList.remove("active"));
-  }
+/* Navbar Scrolling by click element */
+window.addEventListener("click", (element) => {
+  // console.log(element.target);
+  let targetName = element.target.href.split("#")[1];
+  let target = `.navbar__${targetName}`;
+  removeActive();
+  console.log(document.querySelector(target));
+  document.querySelector(target).classList.add("active");
+});
+
+function removeActive() {
+  nav_items.forEach((element) =>
+    element.children[0].classList.remove("active")
+  );
 }

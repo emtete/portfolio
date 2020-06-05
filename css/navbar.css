@@ -31,20 +31,20 @@
 
 .navbar__menu ul {
   display: flex;
-  color: white;
-  font-size: 20px;
 }
 
 .navbar__menu li {
   padding-right: 50px;
 }
 
-.navbar__menu li:hover {
-  color: #e31b6d;
-  cursor: pointer;
+.navbar__menu li a {
+  /* color: white; */
+  font-size: 20px;
 }
-
-.active {
+/* .navbar__menu li a:hover {
   color: #e31b6d;
-  cursor: pointer;
+} */
+
+.active:visited {
+  color: #e31b6d;
 }
