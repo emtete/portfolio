@@ -21,22 +21,22 @@
   padding: 10px 20px;
   color: white;
   margin-bottom: 53px;
-  /* box-sizing: inherit; */
-  /* display: inline-block; */
-  /* transition: all 0.5s; */
-}
 
-.home__button {
+  -webkit-transition: background-color 0.5s ease;
 }
 
 .home__button:hover {
   background-color: #04c2c9;
-  transition: background-color 1s ease;
+  -webkit-transition: background-color 0.5s ease;
+}
+
+.home__button > i {
+  -webkit-transition: transform 0.5s ease;
 }
 
 .home__button:hover > i {
-  transition: transform 300ms ease-in-out;
   transform: rotate(90deg);
+  -webkit-transition: transform 0.5s ease;
 }
 
 .home__button i {
