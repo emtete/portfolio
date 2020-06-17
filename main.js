@@ -74,27 +74,9 @@ function addActiveByScrolling(pageY) {
 
 /* Navbar Scrolling by click element */
 nav.addEventListener("click", (event) => {
-  if (event.target.tagName === "LI") scrollAndAppendClass("nav");
-});
-
-homeBtn.addEventListener("click", (event) => {
-  scrollAndAppendClass("homeBtn");
-});
-
-function scrollAndAppendClass(element) {
-  let append_target = "";
-  let sec_target = "";
-
-  switch (element) {
-    case "nav":
-      append_target = `.${event.target.classList.value}`;
-      sec_target = `#${event.target.classList.value.split("__")[1]}`;
-      break;
-    case "homeBtn":
-      append_target = ".navbar__about";
-      sec_target = "#about";
-      break;
-  }
+  // console.log(event.target);
+  let li_target = `.${event.target.classList.value}`;
+  let sec_target = `#${event.target.classList.value.split("__")[1]}`;
 
   let topOfSection =
     document.querySelector(sec_target).getBoundingClientRect().top +
@@ -105,8 +87,24 @@ function scrollAndAppendClass(element) {
     behavior: "smooth",
   });
   removeActive();
-  document.querySelector(append_target).classList.add("active");
-}
+  document.querySelector(li_target).classList.add("active");
+});
+
+homeBtn.addEventListener("click", (event) => {
+  let li_target = ".navbar__about";
+  let sec_target = "#about";
+
+  let topOfSection =
+    document.querySelector(sec_target).getBoundingClientRect().top +
+    window.pageYOffset -
+    50;
+  window.scrollTo({
+    top: topOfSection,
+    behavior: "smooth",
+  });
+  removeActive();
+  document.querySelector(li_target).classList.add("active");
+});
 
 function removeActive() {
   nav_items.forEach((element) => element.classList.remove("active"));
