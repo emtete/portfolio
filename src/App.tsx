@@ -1,7 +1,10 @@
 import React from "react";
+import Home from "./components/Home";
+
+require("./style/initialization.css");
 
 function App() {
-  return <div className='App'>hi</div>;
+  return <Home />;
 }
 
 export default App;
