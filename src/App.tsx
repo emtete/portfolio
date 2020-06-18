@@ -7,16 +7,18 @@ import Contact from "./components/Contact";
 
 require("./style/initialization.css");
 
-function App() {
-  return (
-    <div>
-      <Home />
-      <About />
-      <Skills />
-      <Work />
-      <Contact />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Home />
+        <About />
+        <Skills />
+        <Work />
+        <Contact />
+      </div>
+    );
+  }
 }
 
 export default App;
