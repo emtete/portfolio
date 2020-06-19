@@ -8,10 +8,15 @@ import Contact from "./components/Contact";
 require("./style/initialization.css");
 
 class App extends React.Component {
+  private sec_homeRef = React.createRef<Home>();
+
+  componentDidMount() {
+    console.log(this.sec_homeRef.current?.getHomePosition());
+  }
   render() {
     return (
       <div>
-        <Home />
+        <Home ref={this.sec_homeRef} />
         <About />
         <Skills />
         <Work />
