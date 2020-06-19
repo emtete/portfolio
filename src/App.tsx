@@ -28,8 +28,6 @@ class App extends React.Component<iProps, iState> {
   private sec_workRef = React.createRef<Work>();
   private sec_contactRef = React.createRef<Contact>();
 
-  isFixed: boolean = false;
-
   CV = {
     homeBottom: 0,
     aboutBottom: 0,
@@ -51,25 +49,19 @@ class App extends React.Component<iProps, iState> {
 
     window.addEventListener("scroll", () => {
       const sec = this.getCurrentSection();
-      this.attachNavbar();
+      this.attachNavbar(sec);
       // addActiveByScrolling(window.pageYOffset);
     });
   }
 
-  attachNavbar = () => {
-    const { CV, isFixed } = this;
-    if (CV.homeBottom < window.pageYOffset) {
-      if (!isFixed && CV.nav !== null) {
-        this.isFixed = true; // setter를 만들어야 하는게 아닐까 라는 생각이 든다.
-        CV.nav.classList.add(`${nav_style.fixed}`);
-        CV.nav.classList.remove(`${nav_style.notFixed}`);
-      }
-    } else if (CV.homeBottom > window.pageYOffset) {
-      if (isFixed && CV.nav !== null) {
-        this.isFixed = false; // !
-        CV.nav.classList.remove(`${nav_style.fixed}`);
-        CV.nav.classList.add(`${nav_style.notFixed}`);
-      }
+  attachNavbar = (sec: string) => {
+    const { CV } = this;
+    if (sec !== "home" && CV.nav !== null) {
+      CV.nav.classList.add(`${nav_style.fixed}`);
+      CV.nav.classList.remove(`${nav_style.notFixed}`);
+    } else if (sec === "home" && CV.nav !== null) {
+      CV.nav.classList.remove(`${nav_style.fixed}`);
+      CV.nav.classList.add(`${nav_style.notFixed}`);
     }
   };
 
