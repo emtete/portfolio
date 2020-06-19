@@ -31,6 +31,15 @@ class Navbar extends React.Component<NavProps, NavState> {
     }
   };
 
+  getNav = (): any => {
+    const nav = this.navRef.current;
+    if (nav) {
+      return nav;
+    } else {
+      throw new Error("Navbar items are null");
+    }
+  };
+
   render() {
     return (
       <nav

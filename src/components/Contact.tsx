@@ -4,14 +4,13 @@ import style from "../style/contact.module.css";
 class Contact extends React.Component {
   private contactRef = React.createRef<HTMLDivElement>();
 
-  getContactPosition = (): number | null => {
+  getContactPosition = (): number => {
     const relY = this.contactRef.current?.getBoundingClientRect();
 
     if (relY) {
       return relY.bottom + window.pageYOffset;
     } else {
-      console.log("contact bottom position is null");
-      return null;
+      throw new Error("contact bottom position is null");
     }
   };
 

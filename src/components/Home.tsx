@@ -6,19 +6,22 @@ class Home extends React.Component {
   private homeRef = React.createRef<HTMLDivElement>();
   private sec_navRef = React.createRef<Navbar>();
 
-  getHomePosition = (): number | null => {
+  getHomePosition = (): number => {
     const relY = this.homeRef.current?.getBoundingClientRect();
 
     if (relY) {
       return relY.bottom - 53 + window.pageYOffset;
     } else {
-      console.log("home bottom position is null");
-      return null;
+      throw new Error("home bottom position is null");
     }
   };
 
   getNavItems = () => {
     return this.sec_navRef.current?.getNavItems();
+  };
+
+  getNav = () => {
+    return this.sec_navRef.current?.getNav();
   };
 
   render() {

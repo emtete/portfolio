@@ -5,20 +5,23 @@ import taeyoungImg from "../projects/taeyoung_erp_img.png";
 class Work extends React.Component {
   private workRef = React.createRef<HTMLDivElement>();
 
-  getWorkPosition = (): number | null => {
+  getWorkPosition = (): number => {
     const relY = this.workRef.current?.getBoundingClientRect();
 
     if (relY) {
       return relY.bottom + window.pageYOffset;
     } else {
-      console.log("work bottom position is null");
-      return null;
+      throw new Error("work bottom position is null");
     }
   };
 
   render() {
     return (
-      <section id={`${style.work}`} className={`${style.flex_column_center}`}>
+      <section
+        id={`${style.work}`}
+        className={`${style.flex_column_center}`}
+        ref={this.workRef}
+      >
         <div className={`${style.work__h1}`}>My Works</div>
         <div className={`${style.work__categories}`}>
           <button className={`${style.category__btn}`}>

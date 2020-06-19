@@ -5,20 +5,23 @@ import hexagon from "../style/hexagon.module.css";
 class Skills extends React.Component {
   private skillsRef = React.createRef<HTMLDivElement>();
 
-  getSkillsPosition = (): number | null => {
+  getSkillsPosition = (): number => {
     const relY = this.skillsRef.current?.getBoundingClientRect();
 
     if (relY) {
       return relY.bottom + window.pageYOffset;
     } else {
-      console.log("skills bottom position is null");
-      return null;
+      throw new Error("skills bottom position is null");
     }
   };
 
   render() {
     return (
-      <section id={`${style.skills}`} className={`${style.flex_column_center}`}>
+      <section
+        id={`${style.skills}`}
+        className={`${style.flex_column_center}`}
+        ref={this.skillsRef}
+      >
         <h1 className={`${style.skills__h1}`}>Skills</h1>
         <div className={`${style.hex_wrap3}`}>
           <div className={`${style.hex_wrap2}`}>

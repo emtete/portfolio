@@ -4,6 +4,8 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
+import home_style from "./style/home.module.css";
+import nav_style from "./style/navbar.module.css";
 
 require("./style/initialization.css");
 
@@ -13,6 +15,7 @@ interface iConst {
   skillsBottom: number;
   workBottom: number;
   contactBottom: number;
+  nav: any;
 }
 
 interface iProps {}
@@ -25,12 +28,15 @@ class App extends React.Component<iProps, iState> {
   private sec_workRef = React.createRef<Work>();
   private sec_contactRef = React.createRef<Contact>();
 
+  isFixed: boolean = false;
+
   CV = {
     homeBottom: 0,
     aboutBottom: 0,
     skillsBottom: 0,
     workBottom: 0,
     contactBottom: 0,
+    nav: document.querySelector(`#${home_style.home}`), // 임시값
   };
 
   componentDidMount() {
@@ -40,14 +46,38 @@ class App extends React.Component<iProps, iState> {
       skillsBottom: this.sec_skillsRef.current?.getSkillsPosition()!,
       workBottom: this.sec_workRef.current?.getWorkPosition()!,
       contactBottom: this.sec_contactRef.current?.getContactPosition()!,
+      nav: this.sec_homeRef.current?.getNav()!,
     };
+
+    window.addEventListener("scroll", () => {
+      const sec = this.getCurrentSection();
+      this.attachNavbar();
+      // addActiveByScrolling(window.pageYOffset);
+    });
   }
+
+  attachNavbar = () => {
+    const { CV, isFixed } = this;
+    if (CV.homeBottom < window.pageYOffset) {
+      if (!isFixed && CV.nav !== null) {
+        this.isFixed = true; // setter를 만들어야 하는게 아닐까 라는 생각이 든다.
+        CV.nav.classList.add(`${nav_style.fixed}`);
+        CV.nav.classList.remove(`${nav_style.notFixed}`);
+      }
+    } else if (CV.homeBottom > window.pageYOffset) {
+      if (isFixed && CV.nav !== null) {
+        this.isFixed = false; // !
+        CV.nav.classList.remove(`${nav_style.fixed}`);
+        CV.nav.classList.add(`${nav_style.notFixed}`);
+      }
+    }
+  };
 
   getCurrentSection = (): string => {
     const pageY = window.pageYOffset;
     const { CV } = this;
     let sec: string;
-    
+
     if (pageY < CV.homeBottom) {
       sec = "home";
     } else if (CV.homeBottom < pageY && pageY < CV.aboutBottom - 53) {
@@ -60,7 +90,8 @@ class App extends React.Component<iProps, iState> {
       pageY !== CV.contactBottom - window.innerHeight
     ) {
       sec = "work";
-    } else (pageY === CV.contactBottom - window.innerHeight) {
+    } else {
+      // (pageY === CV.contactBottom - window.innerHeight)
       sec = "contact";
     }
 

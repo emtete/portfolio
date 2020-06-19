@@ -4,14 +4,13 @@ import style from "../style/about.module.css";
 class About extends React.Component {
   private aboutRef = React.createRef<HTMLDivElement>();
 
-  getAboutPosition = (): number | null => {
+  getAboutPosition = (): number => {
     const relY = this.aboutRef.current?.getBoundingClientRect();
 
     if (relY) {
       return relY.bottom + window.pageYOffset;
     } else {
-      console.log("about bottom position is null");
-      return null;
+      throw new Error("about bottom position is null");
     }
   };
 
