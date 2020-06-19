@@ -15,6 +15,15 @@ class Skills extends React.Component {
     }
   };
 
+  getSkills = (): any => {
+    const skills = this.skillsRef.current;
+    if (skills) {
+      return skills;
+    } else {
+      throw new Error("skills is null");
+    }
+  };
+
   render() {
     return (
       <section

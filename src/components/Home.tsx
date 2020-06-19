@@ -16,6 +16,15 @@ class Home extends React.Component {
     }
   };
 
+  getHome = (): any => {
+    const home = this.homeRef.current;
+    if (home) {
+      return home;
+    } else {
+      throw new Error("home is null");
+    }
+  };
+
   getNavItems = () => {
     return this.sec_navRef.current?.getNavItems();
   };

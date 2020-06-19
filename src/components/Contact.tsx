@@ -14,6 +14,15 @@ class Contact extends React.Component {
     }
   };
 
+  getContact = (): any => {
+    const contact = this.contactRef.current;
+    if (contact) {
+      return contact;
+    } else {
+      throw new Error("contact is null");
+    }
+  };
+
   render() {
     return (
       <section

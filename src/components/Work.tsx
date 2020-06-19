@@ -15,6 +15,15 @@ class Work extends React.Component {
     }
   };
 
+  getWork = (): any => {
+    const work = this.workRef.current;
+    if (work) {
+      return work;
+    } else {
+      throw new Error("work is null");
+    }
+  };
+
   render() {
     return (
       <section

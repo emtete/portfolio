@@ -14,6 +14,15 @@ class About extends React.Component {
     }
   };
 
+  getAbout = (): any => {
+    const about = this.aboutRef.current;
+    if (about) {
+      return about;
+    } else {
+      throw new Error("about is null");
+    }
+  };
+
   render() {
     return (
       <section

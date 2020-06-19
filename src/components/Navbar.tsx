@@ -1,6 +1,7 @@
 import React from "react";
 import style from "../style/navbar.module.css";
 import { iConst } from "./Const";
+import { exception } from "console";
 
 interface NavProps {}
 
@@ -21,13 +22,12 @@ class Navbar extends React.Component<NavProps, NavState> {
 
   componentDidMount() {}
 
-  getNavItems = (): Array<Element> | null => {
+  getNavItems = (): Array<Element> => {
     const ul = this.navRef.current?.querySelector(`.${style.navbar__menu} ul`);
     if (ul) {
       return Array.from(ul.children);
     } else {
-      console.log("Navbar items are null");
-      return null;
+      throw new Error("Navbar items are null");
     }
   };
 
@@ -49,11 +49,21 @@ class Navbar extends React.Component<NavProps, NavState> {
       >
         <div className={`${style.navbar__menu}`}>
           <ul>
-            <li className={`${style.navbar__home} ${style.active}`}>Home</li>
-            <li className={`${style.navbar__about}`}>About</li>
-            <li className={`${style.navbar__skills}`}>Skills</li>
-            <li className={`${style.navbar__work}`}>My Work</li>
-            <li className={`${style.navbar__contact}`}>Contact</li>
+            <li id='home' className={`${style.navbar__home} ${style.active}`}>
+              Home
+            </li>
+            <li id='about' className={`${style.navbar__about}`}>
+              About
+            </li>
+            <li id='skills' className={`${style.navbar__skills}`}>
+              Skills
+            </li>
+            <li id='work' className={`${style.navbar__work}`}>
+              My Work
+            </li>
+            <li id='contact' className={`${style.navbar__contact}`}>
+              Contact
+            </li>
           </ul>
         </div>
       </nav>
