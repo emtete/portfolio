@@ -3,15 +3,17 @@ import Navbar from "./Navbar";
 import style from "../style/home.module.css";
 
 class Home extends React.Component {
-  homeRef = React.createRef<HTMLDivElement>();
+  private homeRef = React.createRef<HTMLDivElement>();
   private sec_navRef = React.createRef<Navbar>();
 
-  getHomePosition = () => {
+  getHomePosition = (): number | null => {
     const relY = this.homeRef.current?.getBoundingClientRect();
-    let homeBtm: number;
+
     if (relY) {
-      homeBtm = relY.bottom - 53 + window.pageYOffset;
-      return homeBtm;
+      return relY.bottom - 53 + window.pageYOffset;
+    } else {
+      console.log("home bottom position is null");
+      return null;
     }
   };
 
