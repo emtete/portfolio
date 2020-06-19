@@ -12,6 +12,7 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log(this.sec_homeRef.current?.getHomePosition());
+    console.log(this.sec_homeRef.current?.getNavItems());
   }
   render() {
     return (

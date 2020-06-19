@@ -4,14 +4,19 @@ import style from "../style/home.module.css";
 
 class Home extends React.Component {
   homeRef = React.createRef<HTMLDivElement>();
+  private sec_navRef = React.createRef<Navbar>();
 
   getHomePosition = () => {
     const relY = this.homeRef.current?.getBoundingClientRect();
     let homeBtm: number;
     if (relY) {
       homeBtm = relY.bottom - 53 + window.pageYOffset;
-      console.log(homeBtm);
+      return homeBtm;
     }
+  };
+
+  getNavItems = () => {
+    return this.sec_navRef.current?.getNavItems();
   };
 
   render() {
@@ -31,7 +36,7 @@ class Home extends React.Component {
             View my work <i className='fas fa-arrow-right'></i>
           </div>
         </div>
-        <Navbar />
+        <Navbar ref={this.sec_navRef} />
       </section>
     );
   }

@@ -33,6 +33,7 @@ class Navbar extends React.Component<NavProps, NavState> {
     // this.getPosition = this.getPosition.bind(this);
     // this.abc = this.abc.bind(this);
   }
+  navRef = React.createRef<HTMLDivElement>();
 
   // C: iConst = require("./Const.ts");
 
@@ -127,9 +128,22 @@ class Navbar extends React.Component<NavProps, NavState> {
   //   return "1";
   // };
 
+  getNavItems = (): Array<Element> | null => {
+    const ul = this.navRef.current?.querySelector(`.${style.navbar__menu} ul`);
+    console.log(`${style.navbar__menu} ul`);
+    if (ul) {
+      return Array.from(ul.children);
+    }
+    return null;
+  };
+
   render() {
     return (
-      <nav id={`${style.navbar}`} className={`${style.notFixed}`}>
+      <nav
+        id={`${style.navbar}`}
+        className={`${style.notFixed}`}
+        ref={this.navRef}
+      >
         <div className={`${style.navbar__menu}`}>
           <ul>
             <li className={`${style.navbar__home} ${style.active}`}>Home</li>
