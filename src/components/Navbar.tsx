@@ -49,19 +49,22 @@ class Navbar extends React.Component<NavProps, NavState> {
       >
         <div className={`${style.navbar__menu}`}>
           <ul>
-            <li id='home' className={`${style.navbar__home} ${style.active}`}>
+            <li
+              id='nav__home'
+              className={`${style.navbar__home} ${style.active}`}
+            >
               Home
             </li>
-            <li id='about' className={`${style.navbar__about}`}>
+            <li id='nav__about' className={`${style.navbar__about}`}>
               About
             </li>
-            <li id='skills' className={`${style.navbar__skills}`}>
+            <li id='nav__skills' className={`${style.navbar__skills}`}>
               Skills
             </li>
-            <li id='work' className={`${style.navbar__work}`}>
+            <li id='nav__work' className={`${style.navbar__work}`}>
               My Work
             </li>
-            <li id='contact' className={`${style.navbar__contact}`}>
+            <li id='nav__contact' className={`${style.navbar__contact}`}>
               Contact
             </li>
           </ul>

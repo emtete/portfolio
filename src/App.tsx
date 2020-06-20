@@ -9,19 +9,21 @@ import nav_style from "./style/navbar.module.css";
 
 require("./style/initialization.css");
 
-interface iConst {
-  homeBottom: number;
-  aboutBottom: number;
-  skillsBottom: number;
-  workBottom: number;
-  contactBottom: number;
-  home: any;
-  nav: any;
-  about: any;
-  skills: any;
-  work: any;
-  contact: any;
-}
+type iConst = {
+  [key: string]: number | Element | null;
+  // homeBottom: number;
+  // aboutBottom: number;
+  // skillsBottom: number;
+  // workBottom: number;
+  // contactBottom: number;
+
+  home: Element | null;
+  nav: Element | null;
+  about: Element | null;
+  skills: Element | null;
+  work: Element | null;
+  contact: Element | null;
+};
 
 interface iProps {}
 interface iState {}
@@ -35,35 +37,36 @@ class App extends React.Component<iProps, iState> {
 
   beforeSec: string = "home";
 
-  CV = {
-    homeBottom: 0,
-    aboutBottom: 0,
-    skillsBottom: 0,
-    workBottom: 0,
-    contactBottom: 0,
-    home: document.querySelector(`#${home_style.home}`), // 임시값
-    nav: document.querySelector(`#${home_style.home}`), // 임시값
-    about: document.querySelector(`#${home_style.home}`), // 임시값
-    skills: document.querySelector(`#${home_style.home}`), // 임시값
-    work: document.querySelector(`#${home_style.home}`), // 임시값
-    contact: document.querySelector(`#${home_style.home}`), // 임시값
+  CV: iConst = {
+    // homeBottom: 0,
+    // aboutBottom: 0,
+    // skillsBottom: 0,
+    // workBottom: 0,
+    // contactBottom: 0,
+    home: null,
+    nav: null,
+    about: null,
+    skills: null,
+    work: null,
+    contact: null,
   };
 
   componentDidMount() {
     this.CV = {
-      homeBottom: this.sec_homeRef.current?.getHomePosition()!,
-      aboutBottom: this.sec_aboutRef.current?.getAboutPosition()!,
-      skillsBottom: this.sec_skillsRef.current?.getSkillsPosition()!,
-      workBottom: this.sec_workRef.current?.getWorkPosition()!,
-      contactBottom: this.sec_contactRef.current?.getContactPosition()!,
+      // homeBottom: this.sec_homeRef.current?.getHomePosition()!,
+      // aboutBottom: this.sec_aboutRef.current?.getAboutPosition()!,
+      // skillsBottom: this.sec_skillsRef.current?.getSkillsPosition()!,
+      // workBottom: this.sec_workRef.current?.getWorkPosition()!,
+      // contactBottom: this.sec_contactRef.current?.getContactPosition()!,
 
-      home: this.sec_homeRef.current?.getHome()!,
-      nav: this.sec_homeRef.current?.getNav()!,
-      about: this.sec_aboutRef.current?.getAbout()!,
-      skills: this.sec_skillsRef.current?.getSkills()!,
-      work: this.sec_workRef.current?.getWork()!,
-      contact: this.sec_contactRef.current?.getContact()!,
+      home: this.sec_homeRef.current!.getHome(),
+      nav: this.sec_homeRef.current!.getNav(),
+      about: this.sec_aboutRef.current!.getAbout(),
+      skills: this.sec_skillsRef.current!.getSkills(),
+      work: this.sec_workRef.current!.getWork(),
+      contact: this.sec_contactRef.current!.getContact(),
     };
+    const homeBtn = this.CV.home?.querySelector(`.${home_style.home__button}`)!;
 
     window.addEventListener("scroll", () => {
       const sec = this.getCurrentSection();
@@ -73,7 +76,44 @@ class App extends React.Component<iProps, iState> {
         this.setActive(sec);
       }
     });
+
+    document.addEventListener("click", (event) => {
+      const section = event.target as Element;
+      // this.goTo(section);
+    });
   }
+
+  // goAbout = (element): void => {
+  goTo = (section: Element): void => {
+    let append_target = "";
+    // let sec_target = "";
+    let targetId = section.id.split("__")[1];
+    // switch (element) {
+    //   case "nav":
+    //     append_target = `.${event.target.classList.value}`;
+    //     sec_target = `#${event.target.classList.value.split("__")[1]}`;
+    //     break;
+    //   case "homeBtn":
+    //     append_target = ".navbar__about";
+    //     sec_target = "#about";
+    //     break;
+    // }
+    let topOfSection = this.CV[targetId] as Element;
+    // if (topOfSection !== null) {
+    //   topOfSection!.getBoundingClientRect().top + window.pageYOffset - 50;
+    // }
+    console.log(topOfSection);
+    // const navList: Array<Element> = Array.from(
+    //   (this.CV.nav!.querySelector("ul") as any).children
+    // );
+
+    // window.scrollTo({
+    //   top: topOfSection,
+    //   behavior: "smooth",
+    // });
+    // navList.forEach((element) => element.classList.remove("active"));
+    // document.querySelector("#nav__about")!.classList.add("active");
+  };
 
   setActive = (sec: string): void => {
     switch (sec) {
@@ -96,12 +136,11 @@ class App extends React.Component<iProps, iState> {
   };
 
   addAndRemove = (sec: string): void => {
-    const navList: Array<Element> = Array.from(
-      (this.CV.nav?.querySelector("ul") as any).children
-    );
+    const navList: Array<Element> = Array.from((this.CV.nav?.querySelector("ul") as any).children);
     navList.forEach((element) => {
+      const target = element.id.split("__")[1];
       element.classList.remove(`${nav_style.active}`);
-      if (sec === element.id) element.classList.add(`${nav_style.active}`);
+      if (sec === target) element.classList.add(`${nav_style.active}`);
     });
   };
 
@@ -118,19 +157,20 @@ class App extends React.Component<iProps, iState> {
 
   getCurrentSection = (): string => {
     const pageY = window.pageYOffset;
-    const { CV } = this;
+    const { CV, getPosition } = this;
+    const gp = getPosition;
     let sec: string;
 
-    if (pageY < CV.homeBottom) {
+    if (pageY < gp(CV.home!, "bottom")) {
       sec = "home";
-    } else if (CV.homeBottom < pageY && pageY < CV.aboutBottom - 53) {
+    } else if (gp(CV.home!, "bottom") < pageY && pageY < gp(CV.about!, "bottom") - 53) {
       sec = "about";
-    } else if (CV.aboutBottom - 53 < pageY && pageY < CV.skillsBottom - 53) {
+    } else if (gp(CV.about!, "bottom") - 53 < pageY && pageY < gp(CV.skills!, "bottom") - 53) {
       sec = "skills";
     } else if (
-      CV.skillsBottom - 53 < pageY &&
-      pageY < CV.workBottom - 53 &&
-      pageY !== CV.contactBottom - window.innerHeight
+      gp(CV.skills!, "bottom") - 53 < pageY &&
+      pageY < gp(CV.work!, "bottom") - 53 &&
+      pageY !== gp(CV.contact!, "bottom") - window.innerHeight
     ) {
       sec = "work";
     } else {
@@ -139,6 +179,13 @@ class App extends React.Component<iProps, iState> {
     }
 
     return sec;
+  };
+
+  // direction : top or bottom
+  getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
+    if (!element) throw new Error("Element is null or undefined");
+    const bcr = element.getBoundingClientRect();
+    return bcr[direction] + window.pageYOffset;
   };
 
   render() {

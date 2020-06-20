@@ -22,8 +22,6 @@ export interface iConst {
   skillsBottom: number;
   workBottom: number;
   contactBottom: number;
-  // navActiveFlag: number;
-  // isFixed: boolean;
 }
 
 const home: HTMLElement = document.querySelector(
