@@ -68,6 +68,12 @@ class App extends React.Component<iProps, iState> {
   }
 }
 
+/**
+ * * isNavBtn
+ * * : section 매개변수가 navigation button인지 확인합니다.
+ * TODO 다른 element 의 id의 결과가 true인 경우도 생길것같은 생각이 든다.
+ * @param section
+ */
 const isNavBtn = (section: string) => {
   const keys = Object.keys(getCV());
   for (const key in keys) {
@@ -76,6 +82,12 @@ const isNavBtn = (section: string) => {
   return false;
 };
 
+/**
+ * * goTo
+ *
+ * @param section
+ * @param CV
+ */
 const goTo = (section: string, CV: iConst): void => {
   const top: number = CV[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
   const navList: Array<Element> = Array.from((CV.nav!.querySelector("ul") as any).children);
@@ -88,6 +100,11 @@ const goTo = (section: string, CV: iConst): void => {
   document.querySelector("#nav__about")!.classList.add("active");
 };
 
+/**
+ *
+ * @param CV
+ * @param sec
+ */
 const attachNavbar = (CV: iConst, sec: string): void => {
   if (sec !== "home" && CV.nav !== null) {
     CV.nav.classList.add(`${nav_style.fixed}`);
@@ -98,6 +115,11 @@ const attachNavbar = (CV: iConst, sec: string): void => {
   }
 };
 
+/**
+ *
+ * @param CV
+ * @param sec
+ */
 const setActive = (CV: iConst, sec: string): void => {
   switch (sec) {
     case "home":
@@ -118,6 +140,13 @@ const setActive = (CV: iConst, sec: string): void => {
   }
 };
 
+/**
+ * * addAndRemove
+ * * : add and remove className to Html Element
+ * @param CV
+ * @param sec
+ * @return void
+ */
 const addAndRemove = (CV: iConst, sec: string): void => {
   const navList: Array<Element> = Array.from((CV.nav?.querySelector("ul") as any).children);
   navList.forEach((element) => {
@@ -127,6 +156,11 @@ const addAndRemove = (CV: iConst, sec: string): void => {
   });
 };
 
+/**
+ *
+ * @param CV
+ * @param getPosition
+ */
 const getCurrentSection = (CV: iConst, getPosition: Function): string => {
   const pageY = window.pageYOffset;
   const gp = getPosition;
@@ -151,6 +185,20 @@ const getCurrentSection = (CV: iConst, getPosition: Function): string => {
   return sec;
 };
 
+/**
+ *
+ * @param element
+ * @param direction
+ */
+const getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
+  if (!element) throw new Error("Element is null or undefined");
+  const bcr = element.getBoundingClientRect();
+  return bcr[direction] + window.pageYOffset;
+};
+
+/**
+ *
+ */
 const getCV = (): iConst => {
   const home = document.querySelector(`#${home_style.home}`);
   if (!home) throw new Error("Called before rendering");
@@ -164,12 +212,6 @@ const getCV = (): iConst => {
     contact: document.querySelector(`#${contact_style.contact}`),
   };
   return CV;
-};
-
-const getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
-  if (!element) throw new Error("Element is null or undefined");
-  const bcr = element.getBoundingClientRect();
-  return bcr[direction] + window.pageYOffset;
 };
 
 export default App;
