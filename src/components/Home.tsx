@@ -35,18 +35,14 @@ class Home extends React.Component {
 
   render() {
     return (
-      <section
-        id={`${style.home}`}
-        className={`${style.flex_column_center}`}
-        ref={this.homeRef}
-      >
+      <section id={`${style.home}`} className={`${style.flex_column_center}`} ref={this.homeRef}>
         <div className={`${style.home__box} ${style.flex_column_center}`}>
           <div className={`${style.home__title}`}>
             Full stack web developer.
             <br />
             최종호
           </div>
-          <div id='home__button' className={`${style.home__button}`}>
+          <div id='buttonTo__about' className={`${style.home__button}`}>
             View my work <i className='fas fa-arrow-right'></i>
           </div>
         </div>

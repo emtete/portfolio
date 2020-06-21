@@ -6,16 +6,15 @@ import Work from "./components/Work";
 import Contact from "./components/Contact";
 import home_style from "./style/home.module.css";
 import nav_style from "./style/navbar.module.css";
+import about_style from "./style/about.module.css";
+import skills_style from "./style/skills.module.css";
+import work_style from "./style/work.module.css";
+import contact_style from "./style/contact.module.css";
 
 require("./style/initialization.css");
 
 type iConst = {
-  [key: string]: number | Element | null;
-  // homeBottom: number;
-  // aboutBottom: number;
-  // skillsBottom: number;
-  // workBottom: number;
-  // contactBottom: number;
+  [key: string]: Element | null;
 
   home: Element | null;
   nav: Element | null;
@@ -38,11 +37,6 @@ class App extends React.Component<iProps, iState> {
   beforeSec: string = "home";
 
   CV: iConst = {
-    // homeBottom: 0,
-    // aboutBottom: 0,
-    // skillsBottom: 0,
-    // workBottom: 0,
-    // contactBottom: 0,
     home: null,
     nav: null,
     about: null,
@@ -52,141 +46,22 @@ class App extends React.Component<iProps, iState> {
   };
 
   componentDidMount() {
-    this.CV = {
-      // homeBottom: this.sec_homeRef.current?.getHomePosition()!,
-      // aboutBottom: this.sec_aboutRef.current?.getAboutPosition()!,
-      // skillsBottom: this.sec_skillsRef.current?.getSkillsPosition()!,
-      // workBottom: this.sec_workRef.current?.getWorkPosition()!,
-      // contactBottom: this.sec_contactRef.current?.getContactPosition()!,
-
-      home: this.sec_homeRef.current!.getHome(),
-      nav: this.sec_homeRef.current!.getNav(),
-      about: this.sec_aboutRef.current!.getAbout(),
-      skills: this.sec_skillsRef.current!.getSkills(),
-      work: this.sec_workRef.current!.getWork(),
-      contact: this.sec_contactRef.current!.getContact(),
-    };
-    const homeBtn = this.CV.home?.querySelector(`.${home_style.home__button}`)!;
+    const CV = getCV();
 
     window.addEventListener("scroll", () => {
-      const sec = this.getCurrentSection();
+      const sec = getCurrentSection(CV, getPosition);
       if (sec !== this.beforeSec) {
         this.beforeSec = sec;
-        this.attachNavbar(sec);
-        this.setActive(sec);
+        attachNavbar(CV, sec);
+        setActive(CV, sec);
       }
     });
 
     document.addEventListener("click", (event) => {
       const section = event.target as Element;
-      // this.goTo(section);
+      goTo(section, CV);
     });
   }
-
-  // goAbout = (element): void => {
-  goTo = (section: Element): void => {
-    let append_target = "";
-    // let sec_target = "";
-    let targetId = section.id.split("__")[1];
-    // switch (element) {
-    //   case "nav":
-    //     append_target = `.${event.target.classList.value}`;
-    //     sec_target = `#${event.target.classList.value.split("__")[1]}`;
-    //     break;
-    //   case "homeBtn":
-    //     append_target = ".navbar__about";
-    //     sec_target = "#about";
-    //     break;
-    // }
-    let topOfSection = this.CV[targetId] as Element;
-    // if (topOfSection !== null) {
-    //   topOfSection!.getBoundingClientRect().top + window.pageYOffset - 50;
-    // }
-    console.log(topOfSection);
-    // const navList: Array<Element> = Array.from(
-    //   (this.CV.nav!.querySelector("ul") as any).children
-    // );
-
-    // window.scrollTo({
-    //   top: topOfSection,
-    //   behavior: "smooth",
-    // });
-    // navList.forEach((element) => element.classList.remove("active"));
-    // document.querySelector("#nav__about")!.classList.add("active");
-  };
-
-  setActive = (sec: string): void => {
-    switch (sec) {
-      case "home":
-        this.addAndRemove(sec);
-        break;
-      case "about":
-        this.addAndRemove(sec);
-        break;
-      case "skills":
-        this.addAndRemove(sec);
-        break;
-      case "work":
-        this.addAndRemove(sec);
-        break;
-      case "contact":
-        this.addAndRemove(sec);
-        break;
-    }
-  };
-
-  addAndRemove = (sec: string): void => {
-    const navList: Array<Element> = Array.from((this.CV.nav?.querySelector("ul") as any).children);
-    navList.forEach((element) => {
-      const target = element.id.split("__")[1];
-      element.classList.remove(`${nav_style.active}`);
-      if (sec === target) element.classList.add(`${nav_style.active}`);
-    });
-  };
-
-  attachNavbar = (sec: string): void => {
-    const { CV } = this;
-    if (sec !== "home" && CV.nav !== null) {
-      CV.nav.classList.add(`${nav_style.fixed}`);
-      CV.nav.classList.remove(`${nav_style.notFixed}`);
-    } else if (sec === "home" && CV.nav !== null) {
-      CV.nav.classList.remove(`${nav_style.fixed}`);
-      CV.nav.classList.add(`${nav_style.notFixed}`);
-    }
-  };
-
-  getCurrentSection = (): string => {
-    const pageY = window.pageYOffset;
-    const { CV, getPosition } = this;
-    const gp = getPosition;
-    let sec: string;
-
-    if (pageY < gp(CV.home!, "bottom")) {
-      sec = "home";
-    } else if (gp(CV.home!, "bottom") < pageY && pageY < gp(CV.about!, "bottom") - 53) {
-      sec = "about";
-    } else if (gp(CV.about!, "bottom") - 53 < pageY && pageY < gp(CV.skills!, "bottom") - 53) {
-      sec = "skills";
-    } else if (
-      gp(CV.skills!, "bottom") - 53 < pageY &&
-      pageY < gp(CV.work!, "bottom") - 53 &&
-      pageY !== gp(CV.contact!, "bottom") - window.innerHeight
-    ) {
-      sec = "work";
-    } else {
-      // (pageY === CV.contactBottom - window.innerHeight)
-      sec = "contact";
-    }
-
-    return sec;
-  };
-
-  // direction : top or bottom
-  getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
-    if (!element) throw new Error("Element is null or undefined");
-    const bcr = element.getBoundingClientRect();
-    return bcr[direction] + window.pageYOffset;
-  };
 
   render() {
     return (
@@ -201,4 +76,103 @@ class App extends React.Component<iProps, iState> {
   }
 }
 
+const goTo = (section: Element, CV: iConst): void => {
+  let targetId = section.id.split("__")[1];
+  if (!CV[targetId]) throw new Error("Called before rendering");
+  const top: number = CV[targetId]!.getBoundingClientRect().top + window.pageYOffset - 50;
+  const navList: Array<Element> = Array.from((CV.nav!.querySelector("ul") as any).children);
+
+  window.scrollTo({
+    top: top,
+    behavior: "smooth",
+  });
+  navList.forEach((element) => element.classList.remove("active"));
+  document.querySelector("#nav__about")!.classList.add("active");
+};
+
+const attachNavbar = (CV: iConst, sec: string): void => {
+  if (sec !== "home" && CV.nav !== null) {
+    CV.nav.classList.add(`${nav_style.fixed}`);
+    CV.nav.classList.remove(`${nav_style.notFixed}`);
+  } else if (sec === "home" && CV.nav !== null) {
+    CV.nav.classList.remove(`${nav_style.fixed}`);
+    CV.nav.classList.add(`${nav_style.notFixed}`);
+  }
+};
+
+const setActive = (CV: iConst, sec: string): void => {
+  switch (sec) {
+    case "home":
+      addAndRemove(CV, sec);
+      break;
+    case "about":
+      addAndRemove(CV, sec);
+      break;
+    case "skills":
+      addAndRemove(CV, sec);
+      break;
+    case "work":
+      addAndRemove(CV, sec);
+      break;
+    case "contact":
+      addAndRemove(CV, sec);
+      break;
+  }
+};
+
+const addAndRemove = (CV: iConst, sec: string): void => {
+  const navList: Array<Element> = Array.from((CV.nav?.querySelector("ul") as any).children);
+  navList.forEach((element) => {
+    const target = element.id.split("__")[1];
+    element.classList.remove(`${nav_style.active}`);
+    if (sec === target) element.classList.add(`${nav_style.active}`);
+  });
+};
+
+const getCurrentSection = (CV: iConst, getPosition: Function): string => {
+  const pageY = window.pageYOffset;
+  const gp = getPosition;
+  let sec: string;
+
+  if (pageY < gp(CV.home!, "bottom") - 53) {
+    sec = "home";
+  } else if (gp(CV.home!, "bottom") - 53 < pageY && pageY < gp(CV.about!, "bottom") - 53) {
+    sec = "about";
+  } else if (gp(CV.about!, "bottom") - 53 < pageY && pageY < gp(CV.skills!, "bottom") - 53) {
+    sec = "skills";
+  } else if (
+    gp(CV.skills!, "bottom") - 53 < pageY &&
+    pageY < gp(CV.work!, "bottom") - 53 &&
+    pageY !== gp(CV.contact!, "bottom") - window.innerHeight
+  ) {
+    sec = "work";
+  } else {
+    sec = "contact";
+  }
+
+  return sec;
+};
+
+const getCV = (): iConst => {
+  const home = document.querySelector(`#${home_style.home}`);
+  if (!home) throw new Error("Called before rendering");
+
+  let CV: iConst = {
+    home: document.querySelector(`#${home_style.home}`),
+    nav: document.querySelector(`#${nav_style.navbar}`),
+    about: document.querySelector(`#${about_style.about}`),
+    skills: document.querySelector(`#${skills_style.skills}`),
+    work: document.querySelector(`#${work_style.work}`),
+    contact: document.querySelector(`#${contact_style.contact}`),
+  };
+  return CV;
+};
+
+const getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
+  if (!element) throw new Error("Element is null or undefined");
+  const bcr = element.getBoundingClientRect();
+  return bcr[direction] + window.pageYOffset;
+};
+
+// export { getCV, getCurrentSection, getPosition };
 export default App;
