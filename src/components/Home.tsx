@@ -42,7 +42,7 @@ class Home extends React.Component {
             <br />
             최종호
           </div>
-          <div id='buttonTo__about' className={`${style.home__button}`}>
+          <div id='goTo__about' className={`${style.home__button}`}>
             View my work <i className='fas fa-arrow-right'></i>
           </div>
         </div>

@@ -36,18 +36,8 @@ class App extends React.Component<iProps, iState> {
 
   beforeSec: string = "home";
 
-  CV: iConst = {
-    home: null,
-    nav: null,
-    about: null,
-    skills: null,
-    work: null,
-    contact: null,
-  };
-
   componentDidMount() {
     const CV = getCV();
-
     window.addEventListener("scroll", () => {
       const sec = getCurrentSection(CV, getPosition);
       if (sec !== this.beforeSec) {
@@ -58,7 +48,9 @@ class App extends React.Component<iProps, iState> {
     });
 
     document.addEventListener("click", (event) => {
-      const section = event.target as Element;
+      let section = (event.target as Element).id.split("__")[1];
+      if (!isNavBtn(section)) return;
+      if (!CV[section]) throw new Error("Called before rendering");
       goTo(section, CV);
     });
   }
@@ -76,10 +68,16 @@ class App extends React.Component<iProps, iState> {
   }
 }
 
-const goTo = (section: Element, CV: iConst): void => {
-  let targetId = section.id.split("__")[1];
-  if (!CV[targetId]) throw new Error("Called before rendering");
-  const top: number = CV[targetId]!.getBoundingClientRect().top + window.pageYOffset - 50;
+const isNavBtn = (section: string) => {
+  const keys = Object.keys(getCV());
+  for (const key in keys) {
+    if (keys[key] === section) return true;
+  }
+  return false;
+};
+
+const goTo = (section: string, CV: iConst): void => {
+  const top: number = CV[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
   const navList: Array<Element> = Array.from((CV.nav!.querySelector("ul") as any).children);
 
   window.scrollTo({
@@ -174,5 +172,4 @@ const getPosition = (element: Element, direction: string & ("bottom" | "top")): 
   return bcr[direction] + window.pageYOffset;
 };
 
-// export { getCV, getCurrentSection, getPosition };
 export default App;
