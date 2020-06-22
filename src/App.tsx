@@ -165,6 +165,7 @@ const getPosition = (element: Element, direction: string & ("bottom" | "top")): 
 /**
  * * getSectionsElement
  * * : 각 섹션의 Html Element를 담은 객체를 반환한다.
+ * TODO 가끔씩 객체를 가져올 때 에러가 난다. ref를 통해서 가져오는게 안정적일것 같다.
  * @return Elements
  */
 const getSectionsElement = (): Elements => {
@@ -187,7 +188,7 @@ const getSectionsElement = (): Elements => {
  * * : 각 섹션에 있는 Nav버튼 Html Element를 담은 Html Element를 반환한다.
  * @return Elements
  */
-const getNavBtnsElement = (): NodeListOf<Element> => {
+export const getNavBtnsElement = (): NodeListOf<Element> => {
   const btns = document.querySelector(".nav__btn");
   if (!btns) throw new Error("Called before rendering");
 
