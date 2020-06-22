@@ -26,8 +26,9 @@ class App extends React.Component<iProps, iState> {
   beforeSec: string = "home";
 
   componentDidMount() {
-    const SE = getSectionsElement(this.getElement());
-    const NavBtnElements = getNavBtnsElement();
+    const rootElement = this.getElement();
+    const SE = getSectionsElement(rootElement);
+    const NavBtnElements = getNavBtnsElement(rootElement);
 
     // scroll 이벤트 바인딩
     window.addEventListener("scroll", () => {
@@ -44,7 +45,7 @@ class App extends React.Component<iProps, iState> {
       element.addEventListener("click", (event) => {
         let section = (event.target as Element).id.split("__")[1];
         if (!SE[section]) throw new Error("Called before rendering");
-        goTo(section, SE);
+        goTo(section, SE, rootElement);
       });
     });
   }
@@ -78,7 +79,7 @@ class App extends React.Component<iProps, iState> {
  * @param SE
  * @return void
  */
-const goTo = (section: string, SE: Elements): void => {
+export const goTo = (section: string, SE: Elements, rootElement: Element): void => {
   const top: number = SE[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
   const navList: Array<Element> = Array.from((SE.nav!.querySelector("ul") as any).children);
 
@@ -87,7 +88,7 @@ const goTo = (section: string, SE: Elements): void => {
     behavior: "smooth",
   });
   navList.forEach((element) => element.classList.remove("active"));
-  document.querySelector("#nav__about")!.classList.add("active");
+  rootElement.querySelector("#nav__about")!.classList.add("active");
 };
 
 /**
@@ -97,7 +98,7 @@ const goTo = (section: string, SE: Elements): void => {
  * @param sec
  * @return void
  */
-const attachNavbar = (sec: string, SE: Elements): void => {
+export const attachNavbar = (sec: string, SE: Elements): void => {
   if (sec !== "home" && SE.nav !== null) {
     SE.nav.classList.add(`${nav_style.fixed}`);
     SE.nav.classList.remove(`${nav_style.notFixed}`);
@@ -114,7 +115,7 @@ const attachNavbar = (sec: string, SE: Elements): void => {
  * @param sec
  * @return void
  */
-const setActive = (sec: string, SE: Elements): void => {
+export const setActive = (sec: string, SE: Elements): void => {
   const navList: Array<Element> = Array.from((SE.nav?.querySelector("ul") as any).children);
   navList.forEach((element) => {
     const target = element.id.split("__")[1];
@@ -130,7 +131,7 @@ const setActive = (sec: string, SE: Elements): void => {
  * @param getPosition
  * @return string
  */
-const getCurrentSection = (SE: Elements, getPosition: Function): string => {
+export const getCurrentSection = (SE: Elements, getPosition: Function): string => {
   const pageY = window.pageYOffset;
   const gp = getPosition;
   let sec: string;
@@ -161,7 +162,7 @@ const getCurrentSection = (SE: Elements, getPosition: Function): string => {
  * @param direction
  * @return number
  */
-const getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
+export const getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
   if (!element) throw new Error("Element is null or undefined");
   const bcr = element.getBoundingClientRect();
   return bcr[direction] + window.pageYOffset;
@@ -170,6 +171,7 @@ const getPosition = (element: Element, direction: string & ("bottom" | "top")): 
 /**
  * * getSectionsElement
  * * : 각 섹션의 Html Element를 담은 객체를 반환한다.
+ * @param element
  * @return Elements
  */
 export const getSectionsElement = (element: Element): Elements => {
@@ -187,13 +189,14 @@ export const getSectionsElement = (element: Element): Elements => {
 /**
  * * getNavBtnsElement
  * * : 각 섹션에 있는 Nav버튼 Html Element를 담은 Html Element를 반환한다.
+ * @param element
  * @return Elements
  */
-export const getNavBtnsElement = (): NodeListOf<Element> => {
-  const btns = document.querySelector(".nav__btn");
+export const getNavBtnsElement = (element: Element): NodeListOf<Element> => {
+  const btns = element.querySelector(".nav__btn");
   if (!btns) throw new Error("Called before rendering");
 
-  return document.querySelectorAll(".nav__btn")!;
+  return element.querySelectorAll(".nav__btn")!;
 };
 
 export default App;
