@@ -42,8 +42,8 @@ class App extends React.Component<iProps, iState> {
       const sec = getCurrentSection(CV, getPosition);
       if (sec !== this.beforeSec) {
         this.beforeSec = sec;
-        attachNavbar(CV, sec);
-        setActive(CV, sec);
+        attachNavbar(sec, CV);
+        setActive(sec, CV);
       }
     });
 
@@ -73,8 +73,9 @@ class App extends React.Component<iProps, iState> {
  * * : section 매개변수가 navigation button인지 확인합니다.
  * TODO 다른 element 의 id의 결과가 true인 경우도 생길것같은 생각이 든다.
  * @param section
+ * @return boolean
  */
-const isNavBtn = (section: string) => {
+const isNavBtn = (section: string): boolean => {
   const keys = Object.keys(getCV());
   for (const key in keys) {
     if (keys[key] === section) return true;
@@ -84,9 +85,10 @@ const isNavBtn = (section: string) => {
 
 /**
  * * goTo
- *
+ * * : 매개변수로 입력받은 section(home, navbar ..)로 이동시킨다.
  * @param section
  * @param CV
+ * @return void
  */
 const goTo = (section: string, CV: iConst): void => {
   const top: number = CV[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
@@ -101,11 +103,13 @@ const goTo = (section: string, CV: iConst): void => {
 };
 
 /**
- *
+ * * attachNavbar
+ * * : 스크롤이 홈 영역 밖에 있을 때, 네비게이션 바를 화면 상단에 고정한다.
  * @param CV
  * @param sec
+ * @return void
  */
-const attachNavbar = (CV: iConst, sec: string): void => {
+const attachNavbar = (sec: string, CV: iConst): void => {
   if (sec !== "home" && CV.nav !== null) {
     CV.nav.classList.add(`${nav_style.fixed}`);
     CV.nav.classList.remove(`${nav_style.notFixed}`);
@@ -116,38 +120,13 @@ const attachNavbar = (CV: iConst, sec: string): void => {
 };
 
 /**
- *
- * @param CV
- * @param sec
- */
-const setActive = (CV: iConst, sec: string): void => {
-  switch (sec) {
-    case "home":
-      addAndRemove(CV, sec);
-      break;
-    case "about":
-      addAndRemove(CV, sec);
-      break;
-    case "skills":
-      addAndRemove(CV, sec);
-      break;
-    case "work":
-      addAndRemove(CV, sec);
-      break;
-    case "contact":
-      addAndRemove(CV, sec);
-      break;
-  }
-};
-
-/**
- * * addAndRemove
- * * : add and remove className to Html Element
+ * * setActive
+ * * : 매개변수로 받은 section을 활성화시킨다.
  * @param CV
  * @param sec
  * @return void
  */
-const addAndRemove = (CV: iConst, sec: string): void => {
+const setActive = (sec: string, CV: iConst): void => {
   const navList: Array<Element> = Array.from((CV.nav?.querySelector("ul") as any).children);
   navList.forEach((element) => {
     const target = element.id.split("__")[1];
@@ -157,9 +136,11 @@ const addAndRemove = (CV: iConst, sec: string): void => {
 };
 
 /**
- *
+ * * getCurrentSection
+ * * : 현재 스크롤이 있는 섹션을 리턴한다.
  * @param CV
  * @param getPosition
+ * @return string
  */
 const getCurrentSection = (CV: iConst, getPosition: Function): string => {
   const pageY = window.pageYOffset;
@@ -186,9 +167,11 @@ const getCurrentSection = (CV: iConst, getPosition: Function): string => {
 };
 
 /**
- *
+ * * getPosition
+ * * : 매개변수로 받은 element의 top | bottom Y 좌표를 리턴한다.
  * @param element
  * @param direction
+ * @return number
  */
 const getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
   if (!element) throw new Error("Element is null or undefined");
@@ -197,7 +180,10 @@ const getPosition = (element: Element, direction: string & ("bottom" | "top")): 
 };
 
 /**
- *
+ * * getCV
+ * * : 각 섹션의 Html Element를 담은 객체를 반환한다.
+ * TODO 함수명 변경 필요
+ * @return iConst
  */
 const getCV = (): iConst => {
   const home = document.querySelector(`#${home_style.home}`);
