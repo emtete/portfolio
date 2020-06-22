@@ -13,15 +13,8 @@ import contact_style from "./style/contact.module.css";
 
 require("./style/initialization.css");
 
-type iConst = {
+type Elements = {
   [key: string]: Element | null;
-
-  home: Element | null;
-  nav: Element | null;
-  about: Element | null;
-  skills: Element | null;
-  work: Element | null;
-  contact: Element | null;
 };
 
 interface iProps {}
@@ -37,7 +30,8 @@ class App extends React.Component<iProps, iState> {
   beforeSec: string = "home";
 
   componentDidMount() {
-    const CV = getCV();
+    const CV = getSectionsElement();
+    const NavBtnElements = getNavBtnsElement();
     window.addEventListener("scroll", () => {
       const sec = getCurrentSection(CV, getPosition);
       if (sec !== this.beforeSec) {
@@ -46,12 +40,12 @@ class App extends React.Component<iProps, iState> {
         setActive(sec, CV);
       }
     });
-
-    document.addEventListener("click", (event) => {
-      let section = (event.target as Element).id.split("__")[1];
-      if (!isNavBtn(section)) return;
-      if (!CV[section]) throw new Error("Called before rendering");
-      goTo(section, CV);
+    NavBtnElements.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        let section = (event.target as Element).id.split("__")[1];
+        if (!CV[section]) throw new Error("Called before rendering");
+        goTo(section, CV);
+      });
     });
   }
 
@@ -69,28 +63,13 @@ class App extends React.Component<iProps, iState> {
 }
 
 /**
- * * isNavBtn
- * * : section 매개변수가 navigation button인지 확인합니다.
- * TODO 다른 element 의 id의 결과가 true인 경우도 생길것같은 생각이 든다.
- * @param section
- * @return boolean
- */
-const isNavBtn = (section: string): boolean => {
-  const keys = Object.keys(getCV());
-  for (const key in keys) {
-    if (keys[key] === section) return true;
-  }
-  return false;
-};
-
-/**
  * * goTo
  * * : 매개변수로 입력받은 section(home, navbar ..)로 이동시킨다.
  * @param section
  * @param CV
  * @return void
  */
-const goTo = (section: string, CV: iConst): void => {
+const goTo = (section: string, CV: Elements): void => {
   const top: number = CV[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
   const navList: Array<Element> = Array.from((CV.nav!.querySelector("ul") as any).children);
 
@@ -109,7 +88,7 @@ const goTo = (section: string, CV: iConst): void => {
  * @param sec
  * @return void
  */
-const attachNavbar = (sec: string, CV: iConst): void => {
+const attachNavbar = (sec: string, CV: Elements): void => {
   if (sec !== "home" && CV.nav !== null) {
     CV.nav.classList.add(`${nav_style.fixed}`);
     CV.nav.classList.remove(`${nav_style.notFixed}`);
@@ -126,7 +105,7 @@ const attachNavbar = (sec: string, CV: iConst): void => {
  * @param sec
  * @return void
  */
-const setActive = (sec: string, CV: iConst): void => {
+const setActive = (sec: string, CV: Elements): void => {
   const navList: Array<Element> = Array.from((CV.nav?.querySelector("ul") as any).children);
   navList.forEach((element) => {
     const target = element.id.split("__")[1];
@@ -142,7 +121,7 @@ const setActive = (sec: string, CV: iConst): void => {
  * @param getPosition
  * @return string
  */
-const getCurrentSection = (CV: iConst, getPosition: Function): string => {
+const getCurrentSection = (CV: Elements, getPosition: Function): string => {
   const pageY = window.pageYOffset;
   const gp = getPosition;
   let sec: string;
@@ -180,16 +159,15 @@ const getPosition = (element: Element, direction: string & ("bottom" | "top")): 
 };
 
 /**
- * * getCV
+ * * getSectionsElement
  * * : 각 섹션의 Html Element를 담은 객체를 반환한다.
- * TODO 함수명 변경 필요
- * @return iConst
+ * @return Elements
  */
-const getCV = (): iConst => {
+const getSectionsElement = (): Elements => {
   const home = document.querySelector(`#${home_style.home}`);
   if (!home) throw new Error("Called before rendering");
 
-  let CV: iConst = {
+  const CV: Elements = {
     home: document.querySelector(`#${home_style.home}`),
     nav: document.querySelector(`#${nav_style.navbar}`),
     about: document.querySelector(`#${about_style.about}`),
@@ -198,6 +176,18 @@ const getCV = (): iConst => {
     contact: document.querySelector(`#${contact_style.contact}`),
   };
   return CV;
+};
+
+/**
+ * * getNavBtnsElement
+ * * : 각 섹션에 있는 Nav버튼 Html Element를 담은 Html Element를 반환한다.
+ * @return Elements
+ */
+const getNavBtnsElement = (): NodeListOf<Element> => {
+  const btns = document.querySelector(".nav__btn");
+  if (!btns) throw new Error("Called before rendering");
+
+  return document.querySelectorAll(".nav__btn")!;
 };
 
 export default App;
