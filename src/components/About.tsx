@@ -2,34 +2,9 @@ import React from "react";
 import style from "../style/about.module.css";
 
 class About extends React.Component {
-  private aboutRef = React.createRef<HTMLDivElement>();
-
-  getAboutPosition = (): number => {
-    const relY = this.aboutRef.current?.getBoundingClientRect();
-
-    if (relY) {
-      return relY.bottom + window.pageYOffset;
-    } else {
-      throw new Error("about bottom position is null");
-    }
-  };
-
-  getAbout = (): any => {
-    const about = this.aboutRef.current;
-    if (about) {
-      return about;
-    } else {
-      throw new Error("about is null");
-    }
-  };
-
   render() {
     return (
-      <section
-        id={`${style.about}`}
-        className={`${style.flex_column_center}`}
-        ref={this.aboutRef}
-      >
+      <section id={`${style.about}`} className={`${style.flex_column_center}`}>
         <h1 className={`${style.about__h1}`}>About Me</h1>
         <p>hi, 저는 현재 서울 관악구 신림동에 거주중이며,...</p>
         <div className={`${style.about__content}`}>

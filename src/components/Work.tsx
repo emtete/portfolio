@@ -3,34 +3,9 @@ import style from "../style/work.module.css";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
 
 class Work extends React.Component {
-  private workRef = React.createRef<HTMLDivElement>();
-
-  getWorkPosition = (): number => {
-    const relY = this.workRef.current?.getBoundingClientRect();
-
-    if (relY) {
-      return relY.bottom + window.pageYOffset;
-    } else {
-      throw new Error("work bottom position is null");
-    }
-  };
-
-  getWork = (): any => {
-    const work = this.workRef.current;
-    if (work) {
-      return work;
-    } else {
-      throw new Error("work is null");
-    }
-  };
-
   render() {
     return (
-      <section
-        id={`${style.work}`}
-        className={`${style.flex_column_center}`}
-        ref={this.workRef}
-      >
+      <section id={`${style.work}`} className={`${style.flex_column_center}`}>
         <div className={`${style.work__h1}`}>My Works</div>
         <div className={`${style.work__categories}`}>
           <button className={`${style.category__btn}`}>

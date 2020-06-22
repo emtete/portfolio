@@ -1,48 +1,20 @@
 import React from "react";
 import style from "../style/navbar.module.css";
-import { iConst } from "./Const";
-import { exception } from "console";
 
 interface NavProps {}
 
-interface NavState {
-  navActiveFlag: string;
-  isFixed: boolean;
-}
+interface NavState {}
 
 class Navbar extends React.Component<NavProps, NavState> {
   constructor(props: NavProps) {
     super(props);
-    this.state = {
-      navActiveFlag: "",
-      isFixed: false,
-    };
   }
-  private navRef = React.createRef<HTMLDivElement>();
 
   componentDidMount() {}
 
-  getNavItems = (): Array<Element> => {
-    const ul = this.navRef.current?.querySelector(`.${style.navbar__menu} ul`);
-    if (ul) {
-      return Array.from(ul.children);
-    } else {
-      throw new Error("Navbar items are null");
-    }
-  };
-
-  getNav = (): any => {
-    const nav = this.navRef.current;
-    if (nav) {
-      return nav;
-    } else {
-      throw new Error("Navbar items are null");
-    }
-  };
-
   render() {
     return (
-      <nav id={`${style.navbar}`} className={`${style.notFixed}`} ref={this.navRef}>
+      <nav id={`${style.navbar}`} className={`${style.notFixed}`}>
         <div className={`${style.navbar__menu}`}>
           <ul>
             <li id='nav__home' className={`${style.navbar__home} ${style.active} nav__btn`}>

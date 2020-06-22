@@ -21,16 +21,12 @@ interface iProps {}
 interface iState {}
 
 class App extends React.Component<iProps, iState> {
-  private sec_homeRef = React.createRef<Home>();
-  private sec_aboutRef = React.createRef<About>();
-  private sec_skillsRef = React.createRef<Skills>();
-  private sec_workRef = React.createRef<Work>();
-  private sec_contactRef = React.createRef<Contact>();
+  private appRef = React.createRef<HTMLDivElement>();
 
   beforeSec: string = "home";
 
   componentDidMount() {
-    const SE = getSectionsElement();
+    const SE = getSectionsElement(this.getElement());
     const NavBtnElements = getNavBtnsElement();
 
     // scroll 이벤트 바인딩
@@ -53,14 +49,23 @@ class App extends React.Component<iProps, iState> {
     });
   }
 
+  getElement = (): HTMLDivElement => {
+    const app = this.appRef.current;
+    if (app) {
+      return app;
+    } else {
+      throw new Error("app is null");
+    }
+  };
+
   render() {
     return (
-      <div>
-        <Home ref={this.sec_homeRef} />
-        <About ref={this.sec_aboutRef} />
-        <Skills ref={this.sec_skillsRef} />
-        <Work ref={this.sec_workRef} />
-        <Contact ref={this.sec_contactRef} />
+      <div ref={this.appRef}>
+        <Home />
+        <About />
+        <Skills />
+        <Work />
+        <Contact />
       </div>
     );
   }
@@ -165,20 +170,16 @@ const getPosition = (element: Element, direction: string & ("bottom" | "top")): 
 /**
  * * getSectionsElement
  * * : 각 섹션의 Html Element를 담은 객체를 반환한다.
- * TODO 가끔씩 객체를 가져올 때 에러가 난다. ref를 통해서 가져오는게 안정적일것 같다.
  * @return Elements
  */
-const getSectionsElement = (): Elements => {
-  const home = document.querySelector(`#${home_style.home}`);
-  if (!home) throw new Error("Called before rendering");
-
+const getSectionsElement = (element: Element): Elements => {
   const SE: Elements = {
-    home: document.querySelector(`#${home_style.home}`),
-    nav: document.querySelector(`#${nav_style.navbar}`),
-    about: document.querySelector(`#${about_style.about}`),
-    skills: document.querySelector(`#${skills_style.skills}`),
-    work: document.querySelector(`#${work_style.work}`),
-    contact: document.querySelector(`#${contact_style.contact}`),
+    home: element.querySelector(`#${home_style.home}`),
+    nav: element.querySelector(`#${nav_style.navbar}`),
+    about: element.querySelector(`#${about_style.about}`),
+    skills: element.querySelector(`#${skills_style.skills}`),
+    work: element.querySelector(`#${work_style.work}`),
+    contact: element.querySelector(`#${contact_style.contact}`),
   };
   return SE;
 };

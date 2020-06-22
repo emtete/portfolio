@@ -3,34 +3,9 @@ import style from "../style/skills.module.css";
 import hexagon from "../style/hexagon.module.css";
 
 class Skills extends React.Component {
-  private skillsRef = React.createRef<HTMLDivElement>();
-
-  getSkillsPosition = (): number => {
-    const relY = this.skillsRef.current?.getBoundingClientRect();
-
-    if (relY) {
-      return relY.bottom + window.pageYOffset;
-    } else {
-      throw new Error("skills bottom position is null");
-    }
-  };
-
-  getSkills = (): any => {
-    const skills = this.skillsRef.current;
-    if (skills) {
-      return skills;
-    } else {
-      throw new Error("skills is null");
-    }
-  };
-
   render() {
     return (
-      <section
-        id={`${style.skills}`}
-        className={`${style.flex_column_center}`}
-        ref={this.skillsRef}
-      >
+      <section id={`${style.skills}`} className={`${style.flex_column_center}`}>
         <h1 className={`${style.skills__h1}`}>Skills</h1>
         <div className={`${style.hex_wrap3}`}>
           <div className={`${style.hex_wrap2}`}>
@@ -50,9 +25,7 @@ class Skills extends React.Component {
                 </div>
               </div>
               <h2 className={`${style.skills__h2}`}>React</h2>
-              <h4 className={`${style.skills__h4}`}>
-                JavaScript, React, TypeScript
-              </h4>
+              <h4 className={`${style.skills__h4}`}>JavaScript, React, TypeScript</h4>
             </div>
           </div>
 
@@ -86,9 +59,7 @@ class Skills extends React.Component {
         </div>
 
         <div className={`${style.skills__set}`}>
-          <div
-            className={`${style.skills__progress} ${style.flex_column_center}`}
-          >
+          <div className={`${style.skills__progress} ${style.flex_column_center}`}>
             <h4 className={`${style.skills__h4}`}>Skills</h4>
             <div className={`${style.skills__one_set}`}>
               <div className={`${style.skills__description}`}>
@@ -96,10 +67,7 @@ class Skills extends React.Component {
                 <span>99%</span>
               </div>
               <div className={`${style.skills__bar}`}>
-                <div
-                  className={`${style.skills__value}`}
-                  style={{ width: "99%" }}
-                ></div>
+                <div className={`${style.skills__value}`} style={{ width: "99%" }}></div>
               </div>
             </div>
 
@@ -109,10 +77,7 @@ class Skills extends React.Component {
                 <span>90%</span>
               </div>
               <div className={`${style.skills__bar}`}>
-                <div
-                  className={`${style.skills__value}`}
-                  style={{ width: "90%" }}
-                ></div>
+                <div className={`${style.skills__value}`} style={{ width: "90%" }}></div>
               </div>
             </div>
 
@@ -122,10 +87,7 @@ class Skills extends React.Component {
                 <span>80%</span>
               </div>
               <div className={`${style.skills__bar}`}>
-                <div
-                  className={`${style.skills__value}`}
-                  style={{ width: "80%" }}
-                ></div>
+                <div className={`${style.skills__value}`} style={{ width: "80%" }}></div>
               </div>
             </div>
 
@@ -135,10 +97,7 @@ class Skills extends React.Component {
                 <span>70%</span>
               </div>
               <div className={`${style.skills__bar}`}>
-                <div
-                  className={`${style.skills__value}`}
-                  style={{ width: "70%" }}
-                ></div>
+                <div className={`${style.skills__value}`} style={{ width: "70%" }}></div>
               </div>
             </div>
 
@@ -148,10 +107,7 @@ class Skills extends React.Component {
                 <span>60%</span>
               </div>
               <div className={`${style.skills__bar}`}>
-                <div
-                  className={`${style.skills__value}`}
-                  style={{ width: "60%" }}
-                ></div>
+                <div className={`${style.skills__value}`} style={{ width: "60%" }}></div>
               </div>
             </div>
 
@@ -161,25 +117,16 @@ class Skills extends React.Component {
                 <span>50%</span>
               </div>
               <div className={`${style.skills__bar}`}>
-                <div
-                  className={`${style.skills__value}`}
-                  style={{ width: "50%" }}
-                ></div>
+                <div className={`${style.skills__value}`} style={{ width: "50%" }}></div>
               </div>
             </div>
           </div>
-          <div
-            className={`${style.skills__side_set} ${style.flex_column_center}`}
-          >
-            <div
-              className={`${style.skills__detail} ${style.flex_column_center}`}
-            >
+          <div className={`${style.skills__side_set} ${style.flex_column_center}`}>
+            <div className={`${style.skills__detail} ${style.flex_column_center}`}>
               <h4 className={`${style.skills__h4}`}>Details</h4>
               <span>abcdefghijklmn</span>
             </div>
-            <div
-              className={`${style.skills__tools} ${style.flex_column_center}`}
-            >
+            <div className={`${style.skills__tools} ${style.flex_column_center}`}>
               <h4 className={`${style.skills__h4}`}>Tools</h4>
               <ul>
                 <li>git</li>
