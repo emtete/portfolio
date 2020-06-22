@@ -172,7 +172,7 @@ const getPosition = (element: Element, direction: string & ("bottom" | "top")): 
  * * : 각 섹션의 Html Element를 담은 객체를 반환한다.
  * @return Elements
  */
-const getSectionsElement = (element: Element): Elements => {
+export const getSectionsElement = (element: Element): Elements => {
   const SE: Elements = {
     home: element.querySelector(`#${home_style.home}`),
     nav: element.querySelector(`#${nav_style.navbar}`),

@@ -625,7 +625,7 @@
       "62": {
         "start": {
           "line": 175,
-          "column": 27
+          "column": 34
         },
         "end": {
           "line": 185,
@@ -1021,17 +1021,17 @@
         "decl": {
           "start": {
             "line": 175,
-            "column": 27
+            "column": 34
           },
           "end": {
             "line": 175,
-            "column": 28
+            "column": 35
           }
         },
         "loc": {
           "start": {
             "line": 175,
-            "column": 59
+            "column": 66
           },
           "end": {
             "line": 185,
@@ -1753,12 +1753,12 @@
       "60": 0,
       "61": 0,
       "62": 1,
-      "63": 0,
-      "64": 0,
+      "63": 1,
+      "64": 1,
       "65": 1,
-      "66": 1,
-      "67": 1,
-      "68": 1,
+      "66": 0,
+      "67": 0,
+      "68": 0,
       "69": 0
     },
     "f": {
@@ -1775,8 +1775,8 @@
       "10": 0,
       "11": 0,
       "12": 0,
-      "13": 0,
-      "14": 1
+      "13": 1,
+      "14": 0
     },
     "b": {
       "0": [
@@ -1845,12 +1845,12 @@
         0
       ],
       "16": [
-        1,
+        0,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "530e0d82f6fadf809ac162d40615189256e06bdc"
+    "hash": "92d03ea92c24ca61b22dc979e86f15249d91e560"
   },
   "/Users/victor/dev/portfolio/src/components/Home.tsx": {
     "path": "/Users/victor/dev/portfolio/src/components/Home.tsx",
