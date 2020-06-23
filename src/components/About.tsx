@@ -7,6 +7,7 @@ class About extends React.Component {
   componentDidMount() {
     const rootElement = this.getElement();
     const listElements = getListElement(rootElement);
+    console.log(listElements);
 
     // click 이벤트 바인딩
     listElements.forEach((element) => {
@@ -62,9 +63,9 @@ class About extends React.Component {
  */
 export const setActive = (target: Element, listElements: NodeListOf<Element>): void => {
   listElements.forEach((element) => {
-    element.classList.remove(".active");
+    element.classList.remove("li_active");
   });
-  target.classList.add(".active");
+  target.classList.add("li_active");
 };
 
 /**
@@ -74,7 +75,7 @@ export const setActive = (target: Element, listElements: NodeListOf<Element>): v
  * @return Elements
  */
 export const getListElement = (element: Element): NodeListOf<Element> => {
-  const lis = element.querySelectorAll(".about_about__content__3Zl7G li");
+  const lis = element.querySelectorAll(".about__menu li");
   if (!lis) throw new Error("Called before rendering");
 
   return lis;
