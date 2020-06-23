@@ -1,41 +1,42 @@
 import React from "react";
-import style from "../style/work.module.css";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
+
+require("../style/work.css");
 
 class Work extends React.Component {
   render() {
     return (
-      <section id={`${style.work}`} className={`${style.flex_column_center}`}>
-        <div className={`${style.work__h1}`}>My Works</div>
-        <div className={`${style.work__categories}`}>
-          <button className={`${style.category__btn}`}>
-            All<span className={`${style.category__count}`}>4</span>
+      <section id='work' className='flex_column_center'>
+        <div className='work__h1'>My Works</div>
+        <div className='work__categories'>
+          <button className='category__btn'>
+            All<span className='category__count'>4</span>
           </button>
-          <button className={`${style.category__btn}`}>
-            Projects<span className={`${style.category__count}`}>1</span>
+          <button className='category__btn'>
+            Projects<span className='category__count'>1</span>
           </button>
-          <button className={`${style.category__btn}`}>
-            Sub Projects<span className={`${style.category__count}`}>1</span>
+          <button className='category__btn'>
+            Sub Projects<span className='category__count'>1</span>
           </button>
-          <button className={`${style.category__btn}`}>
-            etc<span className={`${style.category__count}`}>2</span>
+          <button className='category__btn'>
+            etc<span className='category__count'>2</span>
           </button>
         </div>
-        <div className={`${style.work__img__set}`}>
-          <div className={`${style.work__img__one_set}`}>
-            <img src={taeyoungImg} alt='' className={`${style.work__img}`} />
+        <div className='work__img__set'>
+          <div className='work__img__one_set'>
+            <img src={taeyoungImg} alt='' className='work__img' />
           </div>
 
-          <div className={`${style.work__img__one_set}`}>
-            <img src={taeyoungImg} alt='' className={`${style.work__img}`} />
+          <div className='work__img__one_set'>
+            <img src={taeyoungImg} alt='' className='work__img' />
           </div>
 
-          <div className={`${style.work__img__one_set}`}>
-            <img src={taeyoungImg} alt='' className={`${style.work__img}`} />
+          <div className='work__img__one_set'>
+            <img src={taeyoungImg} alt='' className='work__img' />
           </div>
 
-          <div className={`${style.work__img__one_set}`}>
-            <img src={taeyoungImg} alt='' className={`${style.work__img}`} />
+          <div className='work__img__one_set'>
+            <img src={taeyoungImg} alt='' className='work__img' />
           </div>
         </div>
       </section>

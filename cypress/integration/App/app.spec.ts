@@ -29,34 +29,34 @@ describe("App", () => {
     });
   });
 
-  // dependency : getCurruntSection, getSectionElement
+  // dependency: getCurruntSection, getSectionElement;
   it("check setActive", () => {
     cy.document().then((doc) => {
       const section = getSectionElement(doc);
       App.setActive("skills", section);
       const nav__skills = doc.documentElement.querySelector("#nav__skills");
       const navClass = nav__skills.getAttribute("class").split(" ");
-      expect(navClass).to.contain("navbar_active__24dlj");
+      expect(navClass).to.contain("active");
     });
   });
 
   // dependency : getCurruntSection, getSectionElement
   it("check attachNavbar", () => {
-    cy.get("#work_work__3-S2O").scrollIntoView({ easing: "linear" });
+    cy.get("#work").scrollIntoView({ easing: "linear" });
     cy.document().then((doc) => {
-      const navbar = doc.documentElement.querySelector("#navbar_navbar__3hoUK");
+      const navbar = doc.documentElement.querySelector("#navbar");
       const navY = navbar.getBoundingClientRect().top;
 
-      expect(navY).to.equal(-1221);
+      expect(navY).to.equal(-1229);
     });
   });
 
   // dependency : getCurruntSection, getSectionElement
-  it("check goTo", () => {
-    // cy.document().then((doc) => {
-    // expect(false).to.equal(true);
-    // });
-  });
+  // it("check goTo", () => {
+  //   // cy.document().then((doc) => {
+  //   // expect(false).to.equal(true);
+  //   // });
+  // });
 });
 
 function getSectionElement(doc) {

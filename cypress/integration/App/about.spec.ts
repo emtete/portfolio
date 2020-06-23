@@ -22,11 +22,3 @@ describe("App", () => {
     });
   });
 });
-
-// cy.get("#work_work__3-S2O").scrollIntoView({ easing: "linear" });
-
-// function getSectionElement(doc) {
-//   const root = doc.documentElement.querySelector("#root");
-//   const section = About.getSectionsElement(root);
-//   return section;
-// }

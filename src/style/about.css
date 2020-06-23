@@ -59,7 +59,16 @@ li:hover {
   cursor: pointer;
 }
 
-.active {
+.li_active {
   color: #e31b6d;
   cursor: pointer;
+}
+
+.ct_deactive {
+  display: none;
+}
+
+p {
+  margin: 20px;
+  text-align: center;
 }

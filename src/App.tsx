@@ -4,12 +4,13 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
-import home_style from "./style/home.module.css";
-import nav_style from "./style/navbar.module.css";
-import about_style from "./style/about.module.css";
-import skills_style from "./style/skills.module.css";
-import work_style from "./style/work.module.css";
-import contact_style from "./style/contact.module.css";
+
+// import home_style from "./style/home.module.css";
+// import nav_style from "./style/navbar.module.css";
+// import about_style from "./style/about.module.css";
+// import skills_style from "./style/skills.module.css";
+// import work_style from "./style/work.module.css";
+// import contact_style from "./style/contact.module.css";
 
 require("./style/initialization.css");
 
@@ -29,7 +30,6 @@ class App extends React.Component<iProps, iState> {
     const rootElement = this.getElement();
     const SE = getSectionsElement(rootElement);
     const NavBtnElements = getNavBtnsElement(rootElement);
-
     // scroll 이벤트 바인딩
     window.addEventListener("scroll", () => {
       const sec = getCurrentSection(SE, getPosition);
@@ -100,11 +100,11 @@ export const goTo = (section: string, SE: Elements, rootElement: Element): void 
  */
 export const attachNavbar = (sec: string, SE: Elements): void => {
   if (sec !== "home" && SE.nav !== null) {
-    SE.nav.classList.add(`${nav_style.fixed}`);
-    SE.nav.classList.remove(`${nav_style.notFixed}`);
+    SE.nav.classList.add("fixed");
+    SE.nav.classList.remove("notFixed");
   } else if (sec === "home" && SE.nav !== null) {
-    SE.nav.classList.remove(`${nav_style.fixed}`);
-    SE.nav.classList.add(`${nav_style.notFixed}`);
+    SE.nav.classList.remove("fixed");
+    SE.nav.classList.add("notFixed");
   }
 };
 
@@ -119,8 +119,8 @@ export const setActive = (sec: string, SE: Elements): void => {
   const navList: Array<Element> = Array.from((SE.nav?.querySelector("ul") as any).children);
   navList.forEach((element) => {
     const target = element.id.split("__")[1];
-    element.classList.remove(`${nav_style.active}`);
-    if (sec === target) element.classList.add(`${nav_style.active}`);
+    element.classList.remove("active");
+    if (sec === target) element.classList.add("active");
   });
 };
 
@@ -176,12 +176,12 @@ export const getPosition = (element: Element, direction: string & ("bottom" | "t
  */
 export const getSectionsElement = (element: Element): Elements => {
   const SE: Elements = {
-    home: element.querySelector(`#${home_style.home}`),
-    nav: element.querySelector(`#${nav_style.navbar}`),
-    about: element.querySelector(`#${about_style.about}`),
-    skills: element.querySelector(`#${skills_style.skills}`),
-    work: element.querySelector(`#${work_style.work}`),
-    contact: element.querySelector(`#${contact_style.contact}`),
+    home: element.querySelector("#home"),
+    nav: element.querySelector("#navbar"),
+    about: element.querySelector("#about"),
+    skills: element.querySelector("#skills"),
+    work: element.querySelector("#work"),
+    contact: element.querySelector("#contact"),
   };
   return SE;
 };

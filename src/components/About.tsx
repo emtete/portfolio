@@ -1,5 +1,6 @@
 import React from "react";
-import style from "../style/about.module.css";
+
+require("../style/about.css");
 
 class About extends React.Component {
   private aboutRef = React.createRef<HTMLDivElement>();
@@ -26,26 +27,25 @@ class About extends React.Component {
 
   render() {
     return (
-      <section id={`${style.about}`} className={`${style.flex_column_center}`} ref={this.aboutRef}>
-        <h1 className={`${style.about__h1}`}>About Me</h1>
+      <section id='about' className='flex_column_center' ref={this.aboutRef}>
+        <h1 className='about__h1'>About Me</h1>
         <p>현재 서울 관악구 신림동에 거주중입니다.</p>
-        <div className={`${style.about__content}`}>
-          <div className={`${style.about__menu__warp}`}>
-            <ul className={`${style.about__menu}`}>
-              <li className={`${style.active}`}>2008 ~ 2009 : 군 입대sssss</li>
+        <div className='about__content'>
+          <div className='about__menu__warp'>
+            <ul className='about__menu'>
+              <li className='li_active'>2008 ~ 2009 : 군 입대sssss</li>
               <li>2008 ~ 2009 : 군 입대</li>
               <li>2008 ~ 2009 : 군 입대</li>
               <li>2008 ~ 2009 : 군 입대</li>
               <li>2008 ~ 2009 : 군 입대</li>
             </ul>
           </div>
-          <div className={`${style.about__detail}`}>
-            <p>
-              가나다라마바사가나다라마바사가나다라마바사가나다라마바
-              사가나다라마바사가나다라마바사가나다라마바사가나다라마
-              바사가나다라마바사가나다라마바사가나다라마바사가나다라
-              마바사가나다라마바사가나다라마바사
-            </p>
+          <div id='content' className='about__detail'>
+            <p>내용1</p>
+            <p className='ct_deactive'>내용2</p>
+            <p className='ct_deactive'>내용3</p>
+            <p className='ct_deactive'>내용4</p>
+            <p className='ct_deactive'>내용5</p>
           </div>
         </div>
       </section>
@@ -62,9 +62,9 @@ class About extends React.Component {
  */
 export const setActive = (target: Element, listElements: NodeListOf<Element>): void => {
   listElements.forEach((element) => {
-    element.classList.remove(`${style.active}`);
+    element.classList.remove(".active");
   });
-  target.classList.add(`${style.active}`);
+  target.classList.add(".active");
 };
 
 /**

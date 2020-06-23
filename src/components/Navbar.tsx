@@ -1,5 +1,6 @@
 import React from "react";
-import style from "../style/navbar.module.css";
+
+require("../style/navbar.css");
 
 interface NavProps {}
 
@@ -14,22 +15,22 @@ class Navbar extends React.Component<NavProps, NavState> {
 
   render() {
     return (
-      <nav id={`${style.navbar}`} className={`${style.notFixed}`}>
-        <div className={`${style.navbar__menu}`}>
+      <nav id='navbar' className='notFixed'>
+        <div className='navbar__menu'>
           <ul>
-            <li id='nav__home' className={`${style.navbar__home} ${style.active} nav__btn`}>
+            <li id='nav__home' className='navbar__home nav__btn active'>
               Home
             </li>
-            <li id='nav__about' className={`${style.navbar__about} nav__btn`}>
+            <li id='nav__about' className='navbar__about nav__btn'>
               About
             </li>
-            <li id='nav__skills' className={`${style.navbar__skills} nav__btn`}>
+            <li id='nav__skills' className='navbar__skills nav__btn'>
               Skills
             </li>
-            <li id='nav__work' className={`${style.navbar__work} nav__btn`}>
+            <li id='nav__work' className='navbar__work nav__btn'>
               My Work
             </li>
-            <li id='nav__contact' className={`${style.navbar__contact} nav__btn`}>
+            <li id='nav__contact' className='navbar__contact nav__btn'>
               Contact
             </li>
           </ul>
