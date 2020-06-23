@@ -1,0 +1,25 @@
+import React from "react";
+require("../style/hexagon.css");
+
+interface iProps {
+  [key: string]: string;
+  icon: string;
+  h2: string;
+  h4: string;
+}
+class Hexagon extends React.Component<iProps> {
+  render() {
+    return (
+      <div className='hex_wrap1 flex_column_center'>
+        <div className='hex_wrap'>
+          <div className='hexagon'>
+            <i className={`${this.props.icon} hexagon__icon`}></i>
+          </div>
+        </div>
+        <h2 className='skills__h2'>{this.props.h2}</h2>
+        <h4 className='skills__h4'>{this.props.h4}</h4>
+      </div>
+    );
+  }
+}
+export default Hexagon;
