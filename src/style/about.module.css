@@ -53,3 +53,13 @@
   flex-direction: column;
   align-items: center;
 }
+
+li:hover {
+  color: #e31b6d;
+  cursor: pointer;
+}
+
+.active {
+  color: #e31b6d;
+  cursor: pointer;
+}
