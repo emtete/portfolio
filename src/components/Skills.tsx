@@ -1,5 +1,6 @@
 import React from "react";
 import Hexagon from "./Hexagon";
+import ProgressBar from "./ProgressBar";
 
 require("../style/skills.css");
 
@@ -23,65 +24,12 @@ class Skills extends React.Component {
         <div className='skills__set'>
           <div className='skills__progress flex_column_center'>
             <h4 className='skills__h4'>Skills</h4>
-            <div className='skills__one_set'>
-              <div className='skills__description'>
-                <span>HTML</span>
-                <span>99%</span>
-              </div>
-              <div className='skills__bar'>
-                <div className='skills__value' style={{ width: "99%" }}></div>
-              </div>
-            </div>
-
-            <div className='skills__one_set'>
-              <div className='skills__description'>
-                <span>CSS</span>
-                <span>90%</span>
-              </div>
-              <div className='skills__bar'>
-                <div className='skills__value' style={{ width: "90%" }}></div>
-              </div>
-            </div>
-
-            <div className='skills__one_set'>
-              <div className='skills__description'>
-                <span>JavaScript</span>
-                <span>80%</span>
-              </div>
-              <div className='skills__bar'>
-                <div className='skills__value' style={{ width: "80%" }}></div>
-              </div>
-            </div>
-
-            <div className='skills__one_set'>
-              <div className='skills__description'>
-                <span>React</span>
-                <span>70%</span>
-              </div>
-              <div className='skills__bar'>
-                <div className='skills__value' style={{ width: "70%" }}></div>
-              </div>
-            </div>
-
-            <div className='skills__one_set'>
-              <div className='skills__description'>
-                <span>Java</span>
-                <span>60%</span>
-              </div>
-              <div className='skills__bar'>
-                <div className='skills__value' style={{ width: "60%" }}></div>
-              </div>
-            </div>
-
-            <div className='skills__one_set'>
-              <div className='skills__description'>
-                <span>SQL</span>
-                <span>50%</span>
-              </div>
-              <div className='skills__bar'>
-                <div className='skills__value' style={{ width: "50%" }}></div>
-              </div>
-            </div>
+            <ProgressBar title='HTML' per='99%' />
+            <ProgressBar title='CSS' per='90%' />
+            <ProgressBar title='JavaScript' per='80%' />
+            <ProgressBar title='React' per='70%' />
+            <ProgressBar title='Java' per='60%' />
+            <ProgressBar title='SQL' per='50%' />
           </div>
           <div className='skills__side_set flex_column_center'>
             <div className='skills__detail flex_column_center'>
