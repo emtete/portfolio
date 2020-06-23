@@ -1,4 +1,5 @@
 import React from "react";
+import Project from "./Project";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
 
 require("../style/work.css");
@@ -23,21 +24,10 @@ class Work extends React.Component {
           </button>
         </div>
         <div className='work__img__set'>
-          <div className='work__img__one_set'>
-            <img src={taeyoungImg} alt='' className='work__img' />
-          </div>
-
-          <div className='work__img__one_set'>
-            <img src={taeyoungImg} alt='' className='work__img' />
-          </div>
-
-          <div className='work__img__one_set'>
-            <img src={taeyoungImg} alt='' className='work__img' />
-          </div>
-
-          <div className='work__img__one_set'>
-            <img src={taeyoungImg} alt='' className='work__img' />
-          </div>
+          <Project img={`${taeyoungImg}`} />
+          <Project img={`${taeyoungImg}`} />
+          <Project img={`${taeyoungImg}`} />
+          <Project img={`${taeyoungImg}`} />
         </div>
       </section>
     );
