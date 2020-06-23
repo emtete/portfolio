@@ -5,13 +5,6 @@ import Skills from "./components/Skills";
 import Work from "./components/Work";
 import Contact from "./components/Contact";
 
-// import home_style from "./style/home.module.css";
-// import nav_style from "./style/navbar.module.css";
-// import about_style from "./style/about.module.css";
-// import skills_style from "./style/skills.module.css";
-// import work_style from "./style/work.module.css";
-// import contact_style from "./style/contact.module.css";
-
 require("./style/initialization.css");
 
 type Elements = {

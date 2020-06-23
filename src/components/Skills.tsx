@@ -1,7 +1,7 @@
 import React from "react";
+import Hexagon from "./Hexagon";
 
 require("../style/skills.css");
-require("../style/hexagon.css");
 
 class Skills extends React.Component {
   render() {
@@ -10,52 +10,13 @@ class Skills extends React.Component {
         <h1 className='skills__h1'>Skills</h1>
         <div className='hex_wrap3'>
           <div className='hex_wrap2'>
-            <div className='hex_wrap1 flex_column_center'>
-              <div className='hex_wrap'>
-                <div className='hexagon.hexagon'>
-                  <i className='fab fa-html5 hexagon__icon'></i>
-                </div>
-              </div>
-              <h2 className='skills__h2'>HTML</h2>
-              <h4 className='skills__h4'>HTML, CSS</h4>
-            </div>
-            <div className='hex_wrap1 flex_column_center'>
-              <div className='hex_wrap'>
-                <div className='hexagon.hexagon'>
-                  <i className='fab fa-react hexagon__icon'></i>
-                </div>
-              </div>
-              <h2 className='skills__h2'>React</h2>
-              <h4 className='skills__h4'>JavaScript, React, TypeScript</h4>
-            </div>
+            <Hexagon icon='fab fa-html5' h2='HTML' h4='HTML, CSS' />
+            <Hexagon icon='fab fa-react' h2='FrontEnd' h4='Javascript, React, Typescript' />
           </div>
 
           <div className='hex_wrap2'>
-            <div className='hex_wrap1 flex_column_center'>
-              <div className='hex_wrap'>
-                <div className='hexagon.hexagon'>
-                  <i className='fas fa-leaf hexagon__icon'></i>
-                </div>
-              </div>
-              <h2 className='skills__h2'>JAVA</h2>
-              <h4 className='skills__h4'>
-                Java, Spring, Servlet,
-                <br />
-                Jsp, Mybatis, Maven
-              </h4>
-            </div>
-            <div className='hex_wrap1 flex_column_center'>
-              <div className='hex_wrap'>
-                <div className='hexagon.hexagon'>
-                  <i className='fas fa-server hexagon__icon'></i>
-                </div>
-              </div>
-              <h2 className='skills__h2'>DBMS</h2>
-              <h4 className='skills__h4'>
-                Oracle, MySql, <br />
-                Stored Procedure
-              </h4>
-            </div>
+            <Hexagon icon='fas fa-leaf' h2='Java' h4='Java, Spring, Servlet, Jsp, Mybatis, Maven' />
+            <Hexagon icon='fas fa-server' h2='DBMS' h4='Oracle, MySql, Stored Procedure' />
           </div>
         </div>
 
