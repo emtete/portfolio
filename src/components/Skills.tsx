@@ -5,9 +5,36 @@ import ProgressBar from "./ProgressBar";
 require("../style/skills.css");
 
 class Skills extends React.Component {
+  private skillsRef = React.createRef<HTMLDivElement>();
+
+  componentDidMount() {
+    const rootElement = this.getElement();
+    const spans = getTitleElements(rootElement);
+
+    spans.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        setActive(event.target as Element, spans);
+      });
+    });
+  }
+
+  /**
+   * * getElement
+   * * : Skills의 root Element를 반환한다.
+   * @return HTMLDivElement
+   */
+  getElement = (): HTMLDivElement => {
+    const skills = this.skillsRef.current;
+    if (skills) {
+      return skills;
+    } else {
+      throw new Error("skills is null");
+    }
+  };
+
   render() {
     return (
-      <section id='skills' className='flex_column_center'>
+      <section id='skills' className='flex_column_center' ref={this.skillsRef}>
         <h1 className='skills__h1'>Skills</h1>
         <div className='hex_wrap3'>
           <div className='hex_wrap2'>
@@ -24,12 +51,12 @@ class Skills extends React.Component {
         <div className='skills__set'>
           <div className='skills__progress flex_column_center'>
             <h4 className='skills__h4'>Skills</h4>
-            <ProgressBar title='HTML' per='99%' />
-            <ProgressBar title='CSS' per='90%' />
-            <ProgressBar title='JavaScript' per='80%' />
-            <ProgressBar title='React' per='70%' />
-            <ProgressBar title='Java' per='60%' />
-            <ProgressBar title='SQL' per='50%' />
+            <ProgressBar title='HTML' per='99%' clas='active' />
+            <ProgressBar title='CSS' per='90%' clas='' />
+            <ProgressBar title='JavaScript' per='80%' clas='' />
+            <ProgressBar title='React' per='70%' clas='' />
+            <ProgressBar title='Java' per='60%' clas='' />
+            <ProgressBar title='SQL' per='50%' clas='' />
           </div>
           <div className='skills__side_set flex_column_center'>
             <div className='skills__detail flex_column_center'>
@@ -50,5 +77,31 @@ class Skills extends React.Component {
     );
   }
 }
+
+/**
+ * * getTitleElements
+ * * : Progressbar의 title span Element들을 반환한다.
+ * @param element
+ * @return Element
+ */
+export const getTitleElements = (element: Element): NodeListOf<Element> => {
+  const span = element.querySelectorAll(".skills__description span:nth-child(1)");
+  if (!span) throw new Error("Called before rendering");
+  return span;
+};
+
+/**
+ * * setActive
+ * * : 매개변수로 받은 section을 활성화시킨다.
+ * @param target
+ * @param nodeList
+ * @return void
+ */
+export const setActive = (target: Element, nodeList: NodeListOf<Element>): void => {
+  nodeList.forEach((element) => {
+    element.classList.remove("active");
+  });
+  target.classList.add("active");
+};
 
 export default Skills;

@@ -7,7 +7,6 @@ class About extends React.Component {
   componentDidMount() {
     const rootElement = this.getElement();
     const listElements = getListElement(rootElement);
-    console.log(listElements);
 
     // click 이벤트 바인딩
     listElements.forEach((element) => {
