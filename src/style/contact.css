@@ -1,0 +1,26 @@
+#contact {
+  background-color: #0c2a40;
+  color: #ebebeb;
+  padding: 50px;
+}
+
+.contact__email {
+  font-size: 20px;
+  font-weight: 300;
+  padding-top: 40px;
+}
+
+.contact__icons {
+  font-size: 40px;
+  padding-top: 30px;
+}
+
+.contact__copylight {
+  padding-top: 30px;
+}
+
+.flex_column_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
