@@ -1,3 +1,11 @@
+// @use 'common';
+
+// %flex-column-center {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
 :root {
   /* Color */
   --white-color: white;
@@ -30,21 +38,13 @@ ul {
   list-style: none;
 }
 
-h1 {
-  margin: 0;
-}
-
-h2 {
-  margin: 0;
-}
-
-h3 {
-  margin: 0;
-}
-
+h1,
+h2,
+h3,
 h4 {
   margin: 0;
 }
+
 button,
 button:focus {
   border: none;
@@ -52,19 +52,6 @@ button:focus {
   outline: none;
   background-color: transparent;
   /* opacity: 0.5; */
-}
-
-a:link {
-  color: white;
-  text-decoration: none;
-}
-a:visited {
-  color: white;
-  text-decoration: none;
-}
-a:hover {
-  color: #e31b6d;
-  text-decoration: none;
 }
 
 .flex_column_center {

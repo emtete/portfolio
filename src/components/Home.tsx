@@ -1,13 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
-
-require("../style/home.css");
+import "../style/home.scss";
 
 class Home extends React.Component {
   render() {
     return (
-      <section id='home' className='flex_column_center'>
-        <div className='home__box flex_column_center'>
+      <section id='home'>
+        <div className='home__container'>
           <div className='home__title'>
             Full stack web developer.
             <br />
