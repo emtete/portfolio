@@ -9,9 +9,10 @@ class About extends React.Component {
     const listElements = getListElement(rootElement);
 
     // click 이벤트 바인딩
-    listElements.forEach((element) => {
-      element.addEventListener("click", (event) => {
-        setActive(event.target as Element, listElements);
+    listElements.forEach((li) => {
+      li.addEventListener("click", () => {
+        setActive(li, listElements);
+        bindingContent(rootElement, listElements, li);
       });
     });
   }
@@ -33,11 +34,11 @@ class About extends React.Component {
         <div className='about__content'>
           <div className='about__menu__warp'>
             <ul className='about__menu'>
-              <li className='li_active'>2008 ~ 2009 : 군 입대sssss</li>
-              <li>2008 ~ 2009 : 군 입대</li>
-              <li>2008 ~ 2009 : 군 입대</li>
-              <li>2008 ~ 2009 : 군 입대</li>
-              <li>2008 ~ 2009 : 군 입대</li>
+              <li className='li_active'>2014 ~ 2015 : 학원 수료</li>
+              <li>2015 ~ 2016 : 회사 뉴테크 근무</li>
+              <li>2016 ~ 2019 : 타 직업 종사</li>
+              <li>2019 ~ 2020 : ERP 프로젝트</li>
+              <li>2020 ~ </li>
             </ul>
           </div>
           <div id='content' className='about__detail'>
@@ -78,6 +79,30 @@ export const getListElement = (element: Element): NodeListOf<Element> => {
   if (!lis) throw new Error("Called before rendering");
 
   return lis;
+};
+
+/**
+ * * getContent
+ * * : 매개변수로 전달된 li와 매칭되는 p태그를 리턴한다.
+ * @param element
+ * @param lis
+ * @param clickedElement
+ * @return Elements
+ */
+export const bindingContent = (
+  element: Element,
+  lis: NodeListOf<Element>,
+  clickedElement: Element
+): void => {
+  const text = clickedElement.textContent;
+  lis.forEach((ele, index) => {
+    const p = element.querySelectorAll(".about__detail p");
+    if (ele.textContent === text) {
+      p[index].classList.remove("ct_deactive");
+    } else {
+      p[index].classList.add("ct_deactive");
+    }
+  });
 };
 
 export default About;
