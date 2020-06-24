@@ -1,5 +1,8 @@
+@import "common";
+
 /* ABOUT */
 #about {
+  @extend %flex-column-center;
   background-color: #ebebeb;
   width: 100%;
 }
@@ -14,10 +17,7 @@
   text-align: center;
 }
 
-.about__h3 {
-}
-
-.about__content {
+.about__container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,14 +31,16 @@
 .about__menu {
   float: right;
   padding-right: 50px;
-}
-
-.about__menu__warp {
   font-size: 20px;
-}
 
-.about__menu li {
-  padding: 10px 0;
+  & li {
+    padding: 10px 0;
+  }
+
+  & li:hover {
+    color: #e31b6d;
+    cursor: pointer;
+  }
 }
 
 .about__detail {
@@ -46,19 +48,14 @@
   background-color: #ffffff;
   height: 225px;
   border-radius: 0.5em;
+
+  & p {
+    margin: 20px;
+    text-align: center;
+  }
 }
 
-.flex_column_center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-li:hover {
-  color: #e31b6d;
-  cursor: pointer;
-}
-
+//common??
 .li_active {
   color: #e31b6d;
   cursor: pointer;
@@ -66,9 +63,4 @@ li:hover {
 
 .ct_deactive {
   display: none;
-}
-
-p {
-  margin: 20px;
-  text-align: center;
 }

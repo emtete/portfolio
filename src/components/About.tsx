@@ -1,6 +1,5 @@
 import React from "react";
-
-require("../style/about.css");
+import "../style/about.scss";
 
 class About extends React.Component {
   private aboutRef = React.createRef<HTMLDivElement>();
@@ -28,19 +27,17 @@ class About extends React.Component {
 
   render() {
     return (
-      <section id='about' className='flex_column_center' ref={this.aboutRef}>
+      <section id='about' ref={this.aboutRef}>
         <h1 className='about__h1'>About Me</h1>
         <p>현재 서울 관악구 신림동에 거주중입니다.</p>
-        <div className='about__content'>
-          <div className='about__menu__warp'>
-            <ul className='about__menu'>
-              <li className='li_active'>2014 ~ 2015 : 학원 수료</li>
-              <li>2015 ~ 2016 : 회사 뉴테크 근무</li>
-              <li>2016 ~ 2019 : 타 직업 종사</li>
-              <li>2019 ~ 2020 : ERP 프로젝트</li>
-              <li>2020 ~ </li>
-            </ul>
-          </div>
+        <div className='about__container'>
+          <ul className='about__menu'>
+            <li className='li_active'>2014 ~ 2015 : 학원 수료</li>
+            <li>2015 ~ 2016 : 회사 뉴테크 근무</li>
+            <li>2016 ~ 2019 : 타 직업 종사</li>
+            <li>2019 ~ 2020 : ERP 프로젝트</li>
+            <li>2020 ~ </li>
+          </ul>
           <div id='content' className='about__detail'>
             <p>내용1</p>
             <p className='ct_deactive'>내용2</p>
