@@ -1,3 +1,8 @@
+@import "common";
+
+#skills {
+  @extend %flex-column-center;
+}
 .skills__h1 {
   font-size: 30px;
   font-weight: 700;
@@ -40,14 +45,15 @@
 
 .skills__h2 {
   padding-top: 10px;
+  font-weight: 200;
 }
 
-.skills__h4 {
+.skills__h3 {
   padding-top: 10px;
   font-weight: 200;
 }
 
-.skills__set {
+.skills__container {
   width: 80%;
   color: white;
 
@@ -57,12 +63,13 @@
 }
 
 .skills__progress {
+  @extend %flex-column-center;
   flex-basis: 50%;
   background-color: #4e4d4f;
   padding: 20px;
 }
 
-.skills__side_set {
+.skills__right-wrap {
   flex-basis: 50%;
 }
 
@@ -70,37 +77,38 @@
   background-color: #626162;
   width: 100%;
   flex-basis: 50%;
+
+  & ul {
+    padding-top: 5px;
+    text-align: center;
+  }
+
+  & li {
+    padding-top: 5px;
+  }
 }
 
 .skills__detail-wrap {
+  @extend %flex-column-center;
   padding: 20px;
 }
 
 .skills__tools {
   flex-basis: 50%;
+
+  & ul {
+    padding-top: 5px;
+    text-align: center;
+  }
+
+  & li {
+    padding-top: 10px;
+  }
 }
 
 .skills__one_set {
   width: 100%;
   padding-top: 20px;
-}
-
-.skills__detail ul {
-  padding-top: 5px;
-  text-align: center;
-}
-
-.skills__detail li {
-  padding-top: 5px;
-}
-
-.skills__tools ul {
-  padding-top: 5px;
-  text-align: center;
-}
-
-.skills__tools li {
-  padding-top: 10px;
 }
 
 .skills__description {
@@ -117,10 +125,4 @@
 .skills__value {
   height: 3px;
   background-color: orange;
-}
-
-.flex_column_center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

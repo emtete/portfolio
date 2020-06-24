@@ -1,8 +1,7 @@
 import React from "react";
 import Hexagon from "./Hexagon";
 import ProgressBar from "./ProgressBar";
-
-require("../style/skills.css");
+import "../style/skills.scss";
 
 class Skills extends React.Component {
   private skillsRef = React.createRef<HTMLDivElement>();
@@ -34,7 +33,7 @@ class Skills extends React.Component {
 
   render() {
     return (
-      <section id='skills' className='flex_column_center' ref={this.skillsRef}>
+      <section id='skills' ref={this.skillsRef}>
         <h1 className='skills__h1'>Skills</h1>
         <div className='hex_wrap3'>
           <div className='hex_wrap2'>
@@ -48,9 +47,9 @@ class Skills extends React.Component {
           </div>
         </div>
 
-        <div className='skills__set'>
-          <div className='skills__progress flex_column_center'>
-            <h4 className='skills__h4'>Skills</h4>
+        <div className='skills__container'>
+          <div className='skills__progress'>
+            <h3 className='skills__h3'>Skills</h3>
             <ProgressBar title='HTML' per='99%' clas='' />
             <ProgressBar title='CSS' per='90%' clas='' />
             <ProgressBar title='JavaScript' per='80%' clas='' />
@@ -58,10 +57,10 @@ class Skills extends React.Component {
             <ProgressBar title='Java' per='60%' clas='' />
             <ProgressBar title='SQL' per='50%' clas='' />
           </div>
-          <div className='skills__side_set flex_column_center'>
+          <div className='skills__right-wrap'>
             <div className='skills__detail'>
-              <div className='skills__detail-wrap flex_column_center'>
-                <h4 className='skills__h4'>Tools</h4>
+              <div className='skills__detail-wrap'>
+                <h3 className='skills__h3'>Tools</h3>
                 <ul>
                   <li>VSCode</li>
                   <li>STS</li>
@@ -71,8 +70,8 @@ class Skills extends React.Component {
               </div>
             </div>
             <div className='skills__tools'>
-              <div className='skills__detail-wrap flex_column_center'>
-                <h4 className='skills__h4'>ETC</h4>
+              <div className='skills__detail-wrap'>
+                <h3 className='skills__h3'>ETC</h3>
                 <ul>
                   <li>Git</li>
                   <li></li>
