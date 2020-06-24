@@ -51,7 +51,7 @@ class Skills extends React.Component {
         <div className='skills__set'>
           <div className='skills__progress flex_column_center'>
             <h4 className='skills__h4'>Skills</h4>
-            <ProgressBar title='HTML' per='99%' clas='active' />
+            <ProgressBar title='HTML' per='99%' clas='' />
             <ProgressBar title='CSS' per='90%' clas='' />
             <ProgressBar title='JavaScript' per='80%' clas='' />
             <ProgressBar title='React' per='70%' clas='' />
@@ -59,17 +59,26 @@ class Skills extends React.Component {
             <ProgressBar title='SQL' per='50%' clas='' />
           </div>
           <div className='skills__side_set flex_column_center'>
-            <div className='skills__detail flex_column_center'>
-              <h4 className='skills__h4'>Details</h4>
-              <span>abcdefghijklmn</span>
+            <div className='skills__detail'>
+              <div className='skills__detail-wrap flex_column_center'>
+                <h4 className='skills__h4'>Tools</h4>
+                <ul>
+                  <li>VSCode</li>
+                  <li>STS</li>
+                  <li>DBeaver</li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
-            <div className='skills__tools flex_column_center'>
-              <h4 className='skills__h4'>Tools</h4>
-              <ul>
-                <li>git</li>
-                <li>VSCode</li>
-                <li>STS</li>
-              </ul>
+            <div className='skills__tools'>
+              <div className='skills__detail-wrap flex_column_center'>
+                <h4 className='skills__h4'>ETC</h4>
+                <ul>
+                  <li>Git</li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

@@ -72,6 +72,10 @@
   flex-basis: 50%;
 }
 
+.skills__detail-wrap {
+  padding: 20px;
+}
+
 .skills__tools {
   flex-basis: 50%;
 }
@@ -81,10 +85,22 @@
   padding-top: 20px;
 }
 
-.skills__detail {
+.skills__detail ul {
+  padding-top: 5px;
+  text-align: center;
 }
 
-.skills__tools {
+.skills__detail li {
+  padding-top: 5px;
+}
+
+.skills__tools ul {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.skills__tools li {
+  padding-top: 10px;
 }
 
 .skills__description {

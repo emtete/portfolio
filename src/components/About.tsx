@@ -82,12 +82,12 @@ export const getListElement = (element: Element): NodeListOf<Element> => {
 };
 
 /**
- * * getContent
- * * : 매개변수로 전달된 li와 매칭되는 p태그를 리턴한다.
+ * * bindingContent
+ * * : 매개변수로 전달된 li와 매칭되는 p태그의 display 속성을 바꾼다.
  * @param element
  * @param lis
  * @param clickedElement
- * @return Elements
+ * @return void
  */
 export const bindingContent = (
   element: Element,
