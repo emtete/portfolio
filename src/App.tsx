@@ -36,7 +36,7 @@ class App extends React.Component<iProps, iState> {
     // Nav btn Click 이벤트 바인딩
     NavBtnElements.forEach((element) => {
       element.addEventListener("click", (event) => {
-        let section = (event.target as Element).id.split("__")[1];
+        let section = element.id.split("__")[1];
         if (!SE[section]) throw new Error("Called before rendering");
         goTo(section, SE, rootElement);
       });
