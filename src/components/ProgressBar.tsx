@@ -1,6 +1,5 @@
 import React from "react";
-
-require("../style/progressbar.css");
+import "../style/progressbar.scss";
 
 interface iProps {
   [key: string]: string; // | boolean | undefined;
