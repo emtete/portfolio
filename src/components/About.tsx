@@ -39,11 +39,35 @@ class About extends React.Component {
             <li>2020 ~ </li>
           </ul>
           <div id='content' className='about__detail'>
-            <p>내용1</p>
-            <p className='ct_deactive'>내용2</p>
-            <p className='ct_deactive'>내용3</p>
-            <p className='ct_deactive'>내용4</p>
-            <p className='ct_deactive'>내용5</p>
+            <p>약 6개월, 비트컴퓨터 학원 수료했습니다.</p>
+            <p className='ct_deactive'>
+              1년간 여러가지 업무를 했지만
+              <br /> 딱히 기억나는것도 없고 실력도 별로였습니다.
+              <br /> 경영악화로 퇴사했습니다.
+            </p>
+            <p className='ct_deactive'>
+              책을 간간히 읽으면서 레노버 콜센터에서 3개월
+              <br /> 인조대리석 1년
+              <br /> 구매자재팀에서 창고관리 1년
+              <br /> 그렇게 일해보니 개발일이 나에게 제일 잘 맞았다고 생각됐습니다.
+            </p>
+            <p className='ct_deactive'>
+              인력파견업체에 취직하였습니다.
+              <br />
+              그리고 6년차 과장으로 태영건설에 파견되었습니다.
+              <br />
+              차세대 ERP 프로젝트에서 구매자재 업무 중 구매를 담당했습니다.
+              <br />
+            </p>
+            <p className='ct_deactive'>
+              프로젝트 철수 후, 한달동안 구직활동을 했습니다.
+              <br />
+              붙은곳도 있었고 입사해서 1주일동안 일하기도 했습니다.
+              <br />
+              그런데 지금까지 나온 새로운 기술들도 많았고 자바만 계속 하긴 싫었습니다.
+              <br />
+              그래서 현재는 프론트엔드 개발자로 일하기 위해 React로 이것저것 만들어보는 중입니다.
+            </p>
           </div>
         </div>
       </section>
