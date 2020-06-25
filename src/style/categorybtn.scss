@@ -22,6 +22,7 @@
 
   &.active,
   &:hover {
+    border: 1px solid #c5c4c5;
     background-color: var(--blue-light-color);
     color: var(--white-color);
 

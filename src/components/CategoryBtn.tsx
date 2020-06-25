@@ -9,17 +9,7 @@ interface iProps {
 }
 class CategoryBtn extends React.Component<iProps, {}> {
   componentDidMount() {
-    const btnArr = document.querySelectorAll(".category__btn, .category__count");
-    btnArr.forEach((btn) => {
-      btn.addEventListener("click", (event) => {
-        const activeBtn = document.querySelector(".category__btn.active");
-        const t = event.target as Element;
-        const target = t.nodeName === "SPAN" ? t.parentElement : t;
-
-        if (activeBtn) activeBtn.classList.remove("active");
-        if (target) target.classList.add("active");
-      });
-    });
+    bindingEventToBtn();
   }
   render() {
     const { text, count, clas } = this.props;
@@ -31,4 +21,24 @@ class CategoryBtn extends React.Component<iProps, {}> {
     );
   }
 }
+
+/**
+ * * bindingEventToBtn
+ * * : 카테고리 버튼 이벤트 바인딩
+ * @return void
+ */
+export const bindingEventToBtn = (): void => {
+  const btnArr = document.querySelectorAll(".category__btn, .category__count");
+  btnArr.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const activeBtn = document.querySelector(".category__btn.active");
+      const t = event.target as Element;
+      const target = t.nodeName === "SPAN" ? t.parentElement : t;
+
+      if (activeBtn) activeBtn.classList.remove("active");
+      if (target) target.classList.add("active");
+    });
+  });
+};
+
 export default CategoryBtn;
