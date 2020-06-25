@@ -132,7 +132,7 @@ export const getCurrentSection = (SE: Elements, getPosition: Function): string =
 
   if (pageY < gp(SE.home!, "bottom") - 53) {
     sec = "home";
-  } else if (gp(SE.home!, "bottom") - 53 < pageY && pageY < gp(SE.about!, "bottom") - 53) {
+  } else if (gp(SE.home!, "bottom") - 54 < pageY && pageY < gp(SE.about!, "bottom") - 53) {
     sec = "about";
   } else if (gp(SE.about!, "bottom") - 53 < pageY && pageY < gp(SE.skills!, "bottom") - 53) {
     sec = "skills";
