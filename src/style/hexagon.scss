@@ -1,0 +1,69 @@
+@import "common";
+
+/* Hexagon */
+.hexagon {
+  width: 100px;
+  height: 60px;
+  background: #04c2c9;
+  position: relative;
+  top: 20px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  transform: rotateZ(90deg);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid #04c2c9;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid #04c2c9;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.hexagon__icon {
+  font-size: 60px;
+  color: white;
+  transform: rotateZ(270deg);
+}
+
+.hex_wrap {
+  width: 100px;
+  height: 100px;
+}
+
+.hex_wrap1 {
+  @extend %flex-column-center;
+  width: 50%;
+  height: 230px;
+  justify-content: center;
+}

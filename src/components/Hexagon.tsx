@@ -1,5 +1,5 @@
 import React from "react";
-require("../style/hexagon.css");
+import "../style/hexagon.scss";
 
 interface iProps {
   [key: string]: string;
@@ -10,7 +10,7 @@ interface iProps {
 class Hexagon extends React.Component<iProps> {
   render() {
     return (
-      <div className='hex_wrap1 flex_column_center'>
+      <div className='hex_wrap1'>
         <div className='hex_wrap'>
           <div className='hexagon'>
             <i className={`${this.props.icon} hexagon__icon`}></i>
