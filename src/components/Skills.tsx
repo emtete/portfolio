@@ -54,8 +54,8 @@ class Skills extends React.Component {
         <div className='skills__container'>
           <div className='skills__progress'>
             <h3 className='skills__h3'>Skills</h3>
-            <ProgressBar title='HTML' per='80%' clas='' />
-            <ProgressBar title='CSS' per='68%' clas='' />
+            <ProgressBar title='HTML' per='72%' clas='' />
+            <ProgressBar title='CSS' per='62%' clas='' />
             <ProgressBar title='ES5 / ES6 / TypeScript' per='75%' clas='' />
             <ProgressBar title='React' per='70%' clas='' />
             <ProgressBar title='Java / Spring' per='80%' clas='' />
