@@ -6,15 +6,16 @@ interface iProps {
   text: string;
   count: number;
   clas: string;
+  dataFilter: string;
 }
 class CategoryBtn extends React.Component<iProps, {}> {
   componentDidMount() {
     bindingEventToBtn();
   }
   render() {
-    const { text, count, clas } = this.props;
+    const { text, count, clas, dataFilter } = this.props;
     return (
-      <button className={`category__btn ${clas}`}>
+      <button className={`category__btn ${clas}`} data-filter={dataFilter}>
         {text}
         <span className='category__count'>{count}</span>
       </button>

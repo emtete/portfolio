@@ -1,12 +1,15 @@
-.work__img {
-  width: 100%;
-}
-
-.work__img-wrap {
+.project {
   width: 400px;
   height: 280px;
   background-color: white;
   display: flex;
   align-items: center;
   margin: 2px;
+  &.deactive {
+    display: none;
+  }
+}
+
+.project__img {
+  width: 100%;
 }
