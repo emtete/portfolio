@@ -10,10 +10,10 @@ class Work extends React.Component {
       <section id='work'>
         <div className='work__h1'>My Works</div>
         <div className='work__categories'>
-          <CtgyBtn text='All' count={4} />
-          <CtgyBtn text='Projects' count={1} />
-          <CtgyBtn text='Sub Projects' count={1} />
-          <CtgyBtn text='etc' count={2} />
+          <CtgyBtn text='All' count={4} clas='active' />
+          <CtgyBtn text='Projects' count={1} clas='' />
+          <CtgyBtn text='Sub Projects' count={1} clas='' />
+          <CtgyBtn text='etc' count={2} clas='' />
         </div>
         <div className='work__img-container'>
           <Project img={`${taeyoungImg}`} />
