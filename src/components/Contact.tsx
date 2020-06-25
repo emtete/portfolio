@@ -1,11 +1,10 @@
 import React from "react";
-
-require("../style/contact.css");
+import "../style/contact.scss";
 
 class Contact extends React.Component {
   render() {
     return (
-      <section id='contact' className='flex_column_center'>
+      <section id='contact'>
         <h1 className='contact__title'>CONTACT</h1>
         <h2 className='contact__email'>victor_77@naver.com</h2>
         <div className='contact__icons'>

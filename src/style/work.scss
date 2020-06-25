@@ -1,4 +1,7 @@
+@import "common";
+
 #work {
+  @extend %flex-column-center;
   background-color: #ebebeb;
   padding-bottom: 50px;
 }
@@ -12,25 +15,12 @@
   padding-top: 30px;
 }
 
-.work__img__set {
+.work__img-container {
   padding-top: 30px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-}
-
-.work__img__one_set {
-  width: 400px;
-  height: 280px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  margin: 2px;
-}
-
-.work__img {
-  width: 100%;
 }
 
 .category__btn {
@@ -39,10 +29,4 @@
   font-size: 16px;
   font-weight: 100;
   padding: 8px 48px;
-}
-
-.flex_column_center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

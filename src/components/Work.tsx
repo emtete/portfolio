@@ -1,13 +1,12 @@
 import React from "react";
 import Project from "./Project";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
-
-require("../style/work.css");
+import "../style/work.scss";
 
 class Work extends React.Component {
   render() {
     return (
-      <section id='work' className='flex_column_center'>
+      <section id='work'>
         <div className='work__h1'>My Works</div>
         <div className='work__categories'>
           <button className='category__btn'>
@@ -23,7 +22,7 @@ class Work extends React.Component {
             etc<span className='category__count'>2</span>
           </button>
         </div>
-        <div className='work__img__set'>
+        <div className='work__img-container'>
           <Project img={`${taeyoungImg}`} />
           <Project img={`${taeyoungImg}`} />
           <Project img={`${taeyoungImg}`} />

@@ -1,6 +1,5 @@
 import React from "react";
-
-require("../style/project.css");
+import "../style/project.scss";
 
 interface iProps {
   [key: string]: string;
@@ -9,7 +8,7 @@ interface iProps {
 class Project extends React.Component<iProps> {
   render() {
     return (
-      <div className='work__img__one_set'>
+      <div className='work__img-wrap'>
         <img src={this.props.img} alt='' className='work__img' />
       </div>
     );

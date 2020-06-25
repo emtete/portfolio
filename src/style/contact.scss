@@ -1,4 +1,7 @@
+@import "common";
+
 #contact {
+  @extend %flex-column-center;
   background-color: #0c2a40;
   color: #ebebeb;
   padding: 50px;
@@ -17,10 +20,4 @@
 
 .contact__copylight {
   padding-top: 30px;
-}
-
-.flex_column_center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
