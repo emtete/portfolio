@@ -38,12 +38,16 @@ class Skills extends React.Component {
         <div className='hex_wrap3'>
           <div className='hex_wrap2'>
             <Hexagon icon='fab fa-html5' h2='HTML' h4='HTML, CSS' />
-            <Hexagon icon='fab fa-react' h2='FrontEnd' h4='Javascript, React, Typescript' />
+            <Hexagon icon='fab fa-react' h2='FrontEnd' h4='Javascript, React,\n Typescript' />
           </div>
 
           <div className='hex_wrap2'>
-            <Hexagon icon='fas fa-leaf' h2='Java' h4='Java, Spring, Servlet, Jsp, Mybatis, Maven' />
-            <Hexagon icon='fas fa-server' h2='DBMS' h4='Oracle, MySql, Stored Procedure' />
+            <Hexagon
+              icon='fas fa-leaf'
+              h2='Java'
+              h4='Java, Spring, Servlet,\n Jsp, Mybatis, Maven'
+            />
+            <Hexagon icon='fas fa-server' h2='DBMS' h4='Oracle, MySql,\n Stored Procedure' />
           </div>
         </div>
 
