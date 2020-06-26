@@ -36,13 +36,18 @@ class Work extends React.Component {
  * @return void
  */
 export const filterProjects = (): void => {
+  const projectContainer = document.querySelector(".work__projects");
   const projects = document.querySelectorAll(".project");
   const btns = document.querySelector(".work__categories");
+
   btns!.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
     const filter =
       target.getAttribute("data-filter") || target?.parentElement?.getAttribute("data-filter");
 
+    if (filter === null) return;
+
+    projectContainer?.classList.add("anime-out");
     projects.forEach((project) => {
       const type = project.getAttribute("data-type");
       if (filter !== type && filter !== "*") {
@@ -51,6 +56,10 @@ export const filterProjects = (): void => {
         project.classList.remove("deactive");
       }
     });
+
+    setTimeout(() => {
+      projectContainer?.classList.remove("anime-out");
+    }, 300);
   });
 };
 

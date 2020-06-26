@@ -21,4 +21,11 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  opacity: 1;
+  transition: all 0.3s ease;
+
+  &.anime-out {
+    opacity: 0;
+    transform: scale(0.96) translateY(40px);
+  }
 }
