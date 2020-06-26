@@ -6,22 +6,7 @@ import "../style/work.scss";
 
 class Work extends React.Component {
   componentDidMount() {
-    const projects = document.querySelectorAll(".project");
-    const btns = document.querySelector(".work__categories");
-    btns!.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
-      const filter =
-        target.getAttribute("data-filter") || target?.parentElement?.getAttribute("data-filter");
-
-      projects.forEach((project) => {
-        const type = project.getAttribute("data-type");
-        if (filter !== type && filter !== "*") {
-          project.classList.add("deactive");
-        } else {
-          project.classList.remove("deactive");
-        }
-      });
-    });
+    filterProjects();
   }
 
   render() {
@@ -44,5 +29,29 @@ class Work extends React.Component {
     );
   }
 }
+
+/**
+ * * filterProjects
+ * * : 카테고리에 맞는 프로젝트를 노출시킨다.
+ * @return void
+ */
+export const filterProjects = (): void => {
+  const projects = document.querySelectorAll(".project");
+  const btns = document.querySelector(".work__categories");
+  btns!.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    const filter =
+      target.getAttribute("data-filter") || target?.parentElement?.getAttribute("data-filter");
+
+    projects.forEach((project) => {
+      const type = project.getAttribute("data-type");
+      if (filter !== type && filter !== "*") {
+        project.classList.add("deactive");
+      } else {
+        project.classList.remove("deactive");
+      }
+    });
+  });
+};
 
 export default Work;
