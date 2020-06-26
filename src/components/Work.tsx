@@ -4,6 +4,8 @@ import CtgyBtn from "./CategoryBtn";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
 import "../style/work.scss";
 
+import "../style/modal.scss";
+
 class Work extends React.Component {
   componentDidMount() {
     filterProjects();
@@ -24,6 +26,24 @@ class Work extends React.Component {
           <Project img={`${taeyoungImg}`} dataType='Sub Projects' />
           <Project img={`${taeyoungImg}`} dataType='etc' />
           <Project img={`${taeyoungImg}`} dataType='etc' />
+        </div>
+
+        {/* The Modal */}
+        <div id='myModal' className='modal'>
+          {/* Modal content */}
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <span className='close'>&times;</span>
+              <h2>Modal Header</h2>
+            </div>
+            <div className='modal-body'>
+              <p>Some text in the Modal Body</p>
+              <p>Some other text...</p>
+            </div>
+            <div className='modal-footer'>
+              <h3>Modal Footer</h3>
+            </div>
+          </div>
         </div>
       </section>
     );
