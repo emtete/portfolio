@@ -1,5 +1,5 @@
 .modal {
-  // display: none; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
@@ -10,10 +10,13 @@
   overflow: auto; /* Enable scroll if needed */
   // background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  &.active {
+    display: block;
+  }
 }
 
 /* Modal Content */
-.modal-content {
+.modal__content {
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -65,17 +68,17 @@
   cursor: pointer;
 }
 
-.modal-header {
+.modal__header {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: white;
 }
 
-.modal-body {
+.modal__body {
   padding: 2px 16px;
 }
 
-.modal-footer {
+.modal__footer {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: white;

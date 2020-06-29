@@ -9,6 +9,9 @@
   &.deactive {
     display: none;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .project__img {
