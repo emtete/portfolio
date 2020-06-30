@@ -63,23 +63,56 @@
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: var(--pink-light-color);
   text-decoration: none;
   cursor: pointer;
 }
 
 .modal__header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: var(--blue-dark-color);
   color: white;
 }
 
 .modal__body {
   padding: 2px 16px;
+  display: flex;
+
+  & .modal__img-wrap {
+    width: auto;
+    height: auto;
+    max-width: 60%;
+
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+
+    & .modal__img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  & article {
+    width: 40%;
+    margin-left: 10px;
+
+    & ul {
+      padding-top: 10px;
+    }
+
+    & li {
+      padding-top: 5px;
+    }
+  }
 }
 
 .modal__footer {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: var(--blue-light-color);
   color: white;
 }
