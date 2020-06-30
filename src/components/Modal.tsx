@@ -21,7 +21,7 @@ class Modal extends React.Component<{}, {}> {
             </div>
             <article>
               <ul>
-                <li>태영건설 ERP 프로젝트</li>
+                <li>태영건설 차세대 ERP 프로젝트</li>
                 <br />
                 <li>개발기간 : 2019.04~2020.04(1년 1개월)</li>
                 <li>담당업무 : 구매자재 부서의 구매업무(입찰, 계약 등) 담당</li>
@@ -43,6 +43,11 @@ class Modal extends React.Component<{}, {}> {
                 <li>9. 보증서</li>
                 <li>10. 인지세</li>
               </ul>
+              <span className='modal__icons'>
+                <a href='https://erp.taeyoung.com/' target='_blank'>
+                  <i className='fas fa-link'></i>
+                </a>
+              </span>
             </article>
           </div>
 
@@ -60,6 +65,15 @@ class Modal extends React.Component<{}, {}> {
                 <li>남는 시간에 틈틈히 개발했던 웹앱입니다.</li>
                 <li>미완성</li>
               </ul>
+              <span className='modal__icons'>
+                <a href='https://emtete.github.io/black_note/' target='_blank'>
+                  <i className='fas fa-link'></i>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href='https://github.com/emtete/black_note' target='_blank'>
+                  <i className='fab fa-github-square'></i>
+                </a>
+              </span>
             </article>
           </div>
 
@@ -74,6 +88,15 @@ class Modal extends React.Component<{}, {}> {
                 <li>개발기간 : 2020.05, 약 1주일</li>
                 <li>기술스펙 : React, ES6, TypeScript, Axios </li>
               </ul>
+              <span className='modal__icons'>
+                <a href='https://emtete.github.io/movie_app/' target='_blank'>
+                  <i className='fas fa-link'></i>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href='https://github.com/emtete/movie_app' target='_blank'>
+                  <i className='fab fa-github-square'></i>
+                </a>
+              </span>
             </article>
           </div>
 
@@ -88,6 +111,15 @@ class Modal extends React.Component<{}, {}> {
                 <li>개발기간 : 2020.05, 약 1주일</li>
                 <li>기술스펙 : HTML, CSS, ES6, FlexBox, 반응형</li>
               </ul>
+              <span className='modal__icons'>
+                <a href='https://emtete.github.io/youtube_mobile/' target='_blank'>
+                  <i className='fas fa-link'></i>
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href='https://github.com/emtete/youtube_mobile' target='_blank'>
+                  <i className='fab fa-github-square'></i>
+                </a>
+              </span>
             </article>
           </div>
 

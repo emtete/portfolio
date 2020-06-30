@@ -16,6 +16,9 @@
 .contact__icons {
   font-size: 40px;
   padding-top: 30px;
+  & a {
+    color: #ebebeb;
+  }
 }
 
 .contact__copylight {

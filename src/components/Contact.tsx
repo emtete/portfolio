@@ -8,7 +8,9 @@ class Contact extends React.Component {
         <h1 className='contact__title'>CONTACT</h1>
         <h2 className='contact__email'>victor_77@naver.com</h2>
         <div className='contact__icons'>
-          <i className='fab fa-github-square'></i>
+          <a href='https://github.com/emtete' target='_blank'>
+            <i className='fab fa-github-square'></i>
+          </a>
         </div>
         <span className='contact__copylight'>2020 choi jongho - All right reserved</span>
       </section>

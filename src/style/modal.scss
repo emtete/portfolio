@@ -104,6 +104,9 @@
   & article {
     width: 40%;
     margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     & ul {
       padding-top: 10px;
@@ -111,6 +114,22 @@
 
     & li {
       padding-top: 5px;
+    }
+
+    & .modal__icons {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    & .modal__icons i {
+      font-size: 34px;
+      padding-bottom: 10px;
+      color: var(--blue-dark-color);
+    }
+
+    & .modal__icons i:hover {
+      cursor: pointer;
+      color: var(--pink-light-color);
     }
   }
 }
