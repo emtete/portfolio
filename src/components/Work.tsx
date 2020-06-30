@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
 import movieAppImg from "../projects/movie_app.png";
 import youtubeMobileImg from "../projects/youtube_mobile.png";
+import blackNoteImg from "../projects/black_note.png";
 import "../style/work.scss";
 
 interface WorkState {
@@ -38,6 +39,7 @@ class Work extends React.Component<{}, WorkState> {
     projects.forEach((project) => {
       project.addEventListener("click", (e) => {
         const clasName = (e.target as Element).className.split(" ")[1].replace("project", "modal");
+        console.log(clasName);
         const target = document.querySelector(`.${clasName}`);
         this.setState({ activeModal: clasName });
         modal?.classList.add("active");
@@ -75,7 +77,7 @@ class Work extends React.Component<{}, WorkState> {
         </div>
         <div className='work__projects'>
           <Project name='project__taeyoung' img={`${taeyoungImg}`} dataType='Projects' />
-          <Project name='project__abc' img={`${taeyoungImg}`} dataType='Sub Projects' />
+          <Project name='project__blackNote' img={`${blackNoteImg}`} dataType='Sub Projects' />
           <Project name='project__movieApp' img={`${movieAppImg}`} dataType='etc' />
           <Project name='project__youtubeMobile' img={`${youtubeMobileImg}`} dataType='etc' />
         </div>

@@ -3,6 +3,7 @@ import "../style/modal.scss";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
 import movieAppImg from "../projects/movie_app.png";
 import youtubeMobileImg from "../projects/youtube_mobile.png";
+import blackNoteImg from "../projects/black_note.png";
 
 class Modal extends React.Component<{}, {}> {
   render() {
@@ -41,6 +42,23 @@ class Modal extends React.Component<{}, {}> {
                 <li>8. 전자결재</li>
                 <li>9. 보증서</li>
                 <li>10. 인지세</li>
+              </ul>
+            </article>
+          </div>
+
+          <div className='modal__body modal__blackNote deactive'>
+            <div className='modal__img-wrap'>
+              <img src={blackNoteImg} alt='' className='modal__img' />
+            </div>
+            <article>
+              <ul>
+                <li>Black Note front-end</li>
+                <br />
+                <li>개발기간 : 2019, 약 6개월</li>
+                <li>기술스펙 : Html, Css, ES5, BootStrap </li>
+                <br />
+                <li>남는 시간에 틈틈히 개발했던 웹앱입니다.</li>
+                <li>미완성</li>
               </ul>
             </article>
           </div>
