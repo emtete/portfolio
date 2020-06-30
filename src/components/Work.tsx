@@ -3,6 +3,8 @@ import Project from "./Project";
 import CtgyBtn from "./CategoryBtn";
 import Modal from "./Modal";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
+import movieAppImg from "../projects/movie_app.png";
+import youtubeMobileImg from "../projects/youtube_mobile.png";
 import "../style/work.scss";
 
 interface WorkState {
@@ -74,8 +76,8 @@ class Work extends React.Component<{}, WorkState> {
         <div className='work__projects'>
           <Project name='project__taeyoung' img={`${taeyoungImg}`} dataType='Projects' />
           <Project name='project__abc' img={`${taeyoungImg}`} dataType='Sub Projects' />
-          <Project name='project__movieApp' img={`${taeyoungImg}`} dataType='etc' />
-          <Project name='project__ghi' img={`${taeyoungImg}`} dataType='etc' />
+          <Project name='project__movieApp' img={`${movieAppImg}`} dataType='etc' />
+          <Project name='project__youtubeMobile' img={`${youtubeMobileImg}`} dataType='etc' />
         </div>
       </section>
     );

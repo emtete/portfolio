@@ -2,6 +2,7 @@ import React from "react";
 import "../style/modal.scss";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
 import movieAppImg from "../projects/movie_app.png";
+import youtubeMobileImg from "../projects/youtube_mobile.png";
 
 class Modal extends React.Component<{}, {}> {
   render() {
@@ -50,10 +51,24 @@ class Modal extends React.Component<{}, {}> {
             </div>
             <article>
               <ul>
-                <li>Movie App</li>
+                <li>Movie App front-end</li>
                 <br />
                 <li>개발기간 : 2020.05, 약 1주일</li>
                 <li>기술스펙 : React, ES6, TypeScript, Axios </li>
+              </ul>
+            </article>
+          </div>
+
+          <div className='modal__body modal__youtubeMobile deactive'>
+            <div className='modal__img-wrap'>
+              <img src={youtubeMobileImg} alt='' className='modal__img' />
+            </div>
+            <article>
+              <ul>
+                <li>Youtube Mobile front-end</li>
+                <br />
+                <li>개발기간 : 2020.05, 약 1주일</li>
+                <li>기술스펙 : HTML, CSS, ES6, FlexBox, 반응형</li>
               </ul>
             </article>
           </div>
