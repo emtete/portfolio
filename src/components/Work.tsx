@@ -38,7 +38,6 @@ class Work extends React.Component<{}, WorkState> {
     const projects = document.querySelectorAll(".project");
     projects.forEach((project) => {
       project.addEventListener("click", (e) => {
-        console.log((e.target as Element).className);
         const clasName = (e.target as Element).className.split(" ")[1].replace("project", "modal");
         const target = document.querySelector(`.${clasName}`);
         this.setState({ activeModal: clasName });

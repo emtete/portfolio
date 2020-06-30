@@ -20,9 +20,9 @@ class Project extends React.Component<iProps> {
       <div className={`project ${clasName}`} data-type={dataType}>
         <img src={img} alt='' className={`project__img ${clasName}`} />
         <div className={`project__description ${clasName}`}>
-          <h3>{title}</h3>
+          <h3 className={`dummy ${clasName}`}>{title}</h3>
           <br />
-          <span>{value}</span>
+          <span className={`dummy ${clasName}`}>{value}</span>
         </div>
       </div>
     );
