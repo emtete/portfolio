@@ -74,7 +74,7 @@ class Work extends React.Component<{}, WorkState> {
         <div className='work__projects'>
           <Project name='project__taeyoung' img={`${taeyoungImg}`} dataType='Projects' />
           <Project name='project__abc' img={`${taeyoungImg}`} dataType='Sub Projects' />
-          <Project name='project__def' img={`${taeyoungImg}`} dataType='etc' />
+          <Project name='project__movieApp' img={`${taeyoungImg}`} dataType='etc' />
           <Project name='project__ghi' img={`${taeyoungImg}`} dataType='etc' />
         </div>
       </section>
