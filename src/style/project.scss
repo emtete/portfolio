@@ -1,19 +1,41 @@
 .project {
+  position: relative;
   width: 400px;
   height: 280px;
   background-color: white;
   display: flex;
   align-items: center;
   margin: 2px;
+  // background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 
   &.deactive {
     display: none;
   }
+
   &:hover {
     cursor: pointer;
+  }
+
+  &:hover .project__description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 280px;
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 .project__img {
   width: 100%;
+}
+
+.project__description {
+  display: none;
 }

@@ -38,8 +38,8 @@ class Work extends React.Component<{}, WorkState> {
     const projects = document.querySelectorAll(".project");
     projects.forEach((project) => {
       project.addEventListener("click", (e) => {
+        console.log((e.target as Element).className);
         const clasName = (e.target as Element).className.split(" ")[1].replace("project", "modal");
-        console.log(clasName);
         const target = document.querySelector(`.${clasName}`);
         this.setState({ activeModal: clasName });
         modal?.classList.add("active");
@@ -76,10 +76,34 @@ class Work extends React.Component<{}, WorkState> {
           <CtgyBtn text='etc' count={2} clas='' dataFilter='etc' />
         </div>
         <div className='work__projects'>
-          <Project name='project__taeyoung' img={`${taeyoungImg}`} dataType='Projects' />
-          <Project name='project__blackNote' img={`${blackNoteImg}`} dataType='Sub Projects' />
-          <Project name='project__movieApp' img={`${movieAppImg}`} dataType='etc' />
-          <Project name='project__youtubeMobile' img={`${youtubeMobileImg}`} dataType='etc' />
+          <Project
+            clasName='project__taeyoung'
+            img={`${taeyoungImg}`}
+            dataType='Projects'
+            title='태영건설 차세대 ERP프로젝트'
+            value=''
+          />
+          <Project
+            clasName='project__blackNote'
+            img={`${blackNoteImg}`}
+            dataType='Sub Projects'
+            title='Black Note'
+            value='Note Web App'
+          />
+          <Project
+            clasName='project__movieApp'
+            img={`${movieAppImg}`}
+            dataType='etc'
+            title='Movie App'
+            value='front-end clone coding'
+          />
+          <Project
+            clasName='project__youtubeMobile'
+            img={`${youtubeMobileImg}`}
+            dataType='etc'
+            title='Youtube Mobile'
+            value='front-end clone coidng'
+          />
         </div>
       </section>
     );

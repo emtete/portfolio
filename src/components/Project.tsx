@@ -6,17 +6,24 @@ interface iProps {
   [key: string]: string;
   img: string;
   dataType: string;
-  name: string;
+  clasName: string;
+  title: string;
+  value: string;
 }
 
 class Project extends React.Component<iProps> {
   componentDidMount() {}
 
   render() {
-    const { dataType, img, name } = this.props;
+    const { dataType, img, clasName, title, value } = this.props;
     return (
-      <div className={`project ${name}`} data-type={dataType}>
-        <img src={img} alt='' className={`project__img ${name}`} />
+      <div className={`project ${clasName}`} data-type={dataType}>
+        <img src={img} alt='' className={`project__img ${clasName}`} />
+        <div className={`project__description ${clasName}`}>
+          <h3>{title}</h3>
+          <br />
+          <span>{value}</span>
+        </div>
       </div>
     );
   }
