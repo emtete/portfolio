@@ -5,12 +5,60 @@ import Modal from "./Modal";
 import taeyoungImg from "../projects/taeyoung_erp_img.png";
 import "../style/work.scss";
 
-class Work extends React.Component {
+interface WorkState {
+  [key: string]: string;
+}
+
+interface Props {}
+
+class Work extends React.Component<{}, WorkState> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      activeModal: "",
+    };
+  }
+
   componentDidMount() {
     filterProjects();
-    openModal("abc");
-    closeModal("abc");
+    this.openModal();
+    this.closeModal();
   }
+
+  /**
+   * * openModal
+   * * : modal을 연다
+   * @return void
+   */
+  openModal = (): void => {
+    const modal = document.querySelector(".modal");
+    const projects = document.querySelectorAll(".project");
+    projects.forEach((project) => {
+      project.addEventListener("click", (e) => {
+        const clasName = (e.target as Element).className.split(" ")[1].replace("project", "modal");
+        const target = document.querySelector(`.${clasName}`);
+        this.setState({ activeModal: clasName });
+        modal?.classList.add("active");
+        target?.classList.remove("deactive");
+      });
+    });
+  };
+
+  /**
+   * * closeModal
+   * * : modal을 닫는다.
+   * @return void
+   */
+  closeModal = (): void => {
+    const closeBtn = document.querySelector(".modal .close");
+    const modal = document.querySelector(".modal");
+    closeBtn?.addEventListener("click", (e) => {
+      const clasName = this.state.activeModal;
+      const target = document.querySelector(`.${clasName}`);
+      modal?.classList.remove("active");
+      target?.classList.add("deactive");
+    });
+  };
 
   render() {
     return (
@@ -24,10 +72,10 @@ class Work extends React.Component {
           <CtgyBtn text='etc' count={2} clas='' dataFilter='etc' />
         </div>
         <div className='work__projects'>
-          <Project key='0' title='taeyoung' img={`${taeyoungImg}`} dataType='Projects' />
-          <Project key='1' title='abc' img={`${taeyoungImg}`} dataType='Sub Projects' />
-          <Project key='2' title='def' img={`${taeyoungImg}`} dataType='etc' />
-          <Project key='3' title='ghi' img={`${taeyoungImg}`} dataType='etc' />
+          <Project name='project__taeyoung' img={`${taeyoungImg}`} dataType='Projects' />
+          <Project name='project__abc' img={`${taeyoungImg}`} dataType='Sub Projects' />
+          <Project name='project__def' img={`${taeyoungImg}`} dataType='etc' />
+          <Project name='project__ghi' img={`${taeyoungImg}`} dataType='etc' />
         </div>
       </section>
     );
@@ -67,31 +115,4 @@ export const filterProjects = (): void => {
   });
 };
 
-/**
- * * openModal
- * * : 프로젝트 클릭시 호출된다.
- * @return void
- */
-export const openModal = (title: string): void => {
-  const modal = document.querySelector(".modal");
-  const projects = document.querySelectorAll(".project");
-  projects.forEach((project) => {
-    project.addEventListener("click", () => {
-      modal?.classList.add("active");
-    });
-  });
-};
-
-/**
- * * closeModal
- * * : 프로젝트 클릭시 호출된다.
- * @return void
- */
-export const closeModal = (title: string): void => {
-  const closeBtn = document.querySelector(".modal .close");
-  const modal = document.querySelector(".modal");
-  closeBtn?.addEventListener("click", () => {
-    modal?.classList.remove("active");
-  });
-};
 export default Work;
