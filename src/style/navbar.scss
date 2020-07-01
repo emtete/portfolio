@@ -50,6 +50,7 @@
 @media screen and (max-width: 620px) {
   #navbar {
     justify-content: center;
+    box-sizing: border-box;
   }
   .navbar__menu {
     width: 80vw;

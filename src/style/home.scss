@@ -51,6 +51,9 @@
 }
 
 @media screen and (max-width: 380px) {
+  .home__container {
+    width: 90%;
+  }
   .home__title {
     text-align: center;
   }
