@@ -48,6 +48,9 @@
 }
 
 @media screen and (max-width: 620px) {
+  #navbar {
+    justify-content: center;
+  }
   .navbar__menu {
     & .navbar__dot {
       display: flex;
