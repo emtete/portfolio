@@ -39,3 +39,13 @@
 .project__description {
   display: none;
 }
+
+@media screen and (max-width: 420px) {
+  .project {
+    width: 90vw;
+
+    &:hover .project__description {
+      width: 90vw;
+    }
+  }
+}
