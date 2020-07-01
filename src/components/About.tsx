@@ -31,13 +31,20 @@ class About extends React.Component {
         <h1 className='about__h1'>About Me</h1>
         <p>현재 서울 관악구 신림동에 거주중입니다.</p>
         <div className='about__container'>
-          <ul className='about__menu'>
+          <ul className='about__menu-text'>
             <li className='li_active'>2014 ~ 2015 : 학원 수료</li>
             <li>2015 ~ 2016 : 회사 뉴테크 근무</li>
             <li>2016 ~ 2019 : 타 직업 종사</li>
             <li>2019 ~ 2020 : ERP 프로젝트</li>
             <li>2020 ~ </li>
           </ul>
+          <select className='about__menu-select'>
+            <option value='0'>2014 ~ 2015 : 학원 수료</option>
+            <option value='1'>2015 ~ 2016 : 회사 뉴테크 근무</option>
+            <option value='2'>2016 ~ 2019 : 타 직업 종사</option>
+            <option value='3'>2019 ~ 2020 : ERP 프로젝트</option>
+            <option value='4'>2020 ~ </option>
+          </select>
           <div id='content' className='about__detail'>
             <p>약 6개월, 비트컴퓨터 학원 수료했습니다.</p>
             <p className='ct_deactive'>
