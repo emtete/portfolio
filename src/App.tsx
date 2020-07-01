@@ -76,12 +76,16 @@ class App extends React.Component<iProps, iState> {
 export const goTo = (section: string, SE: Elements, rootElement: Element): void => {
   const top: number = SE[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
   const navList: Array<Element> = Array.from((SE.nav!.querySelector("ul") as any).children);
+  const dotNavList: Array<Element> = Array.from(
+    (SE.nav?.querySelector(".navbar__dot") as any).children
+  );
 
   window.scrollTo({
     top: top,
     behavior: "smooth",
   });
   navList.forEach((element) => element.classList.remove("active"));
+  dotNavList.forEach((element) => element.classList.remove("active"));
   rootElement.querySelector("#nav__about")!.classList.add("active");
 };
 
