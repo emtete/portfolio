@@ -110,8 +110,19 @@ export const attachNavbar = (sec: string, SE: Elements): void => {
  * @return void
  */
 export const setActive = (sec: string, SE: Elements): void => {
-  const navList: Array<Element> = Array.from((SE.nav?.querySelector("ul") as any).children);
+  const navList: Array<Element> = Array.from(
+    (SE.nav?.querySelector(".navbar__text") as any).children
+  );
+  const dotNavList: Array<Element> = Array.from(
+    (SE.nav?.querySelector(".navbar__dot") as any).children
+  );
   navList.forEach((element) => {
+    const target = element.id.split("__")[1];
+    element.classList.remove("active");
+    if (sec === target) element.classList.add("active");
+  });
+
+  dotNavList.forEach((element) => {
     const target = element.id.split("__")[1];
     element.classList.remove("active");
     if (sec === target) element.classList.add("active");
