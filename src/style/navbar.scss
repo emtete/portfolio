@@ -41,4 +41,20 @@
     color: #e31b6d;
     cursor: pointer;
   }
+
+  & .navbar__dot {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .navbar__menu {
+    & .navbar__dot {
+      display: flex;
+    }
+
+    & .navbar__text {
+      display: none;
+    }
+  }
 }
