@@ -6,13 +6,14 @@ class About extends React.Component {
   componentDidMount() {
     const rootElement = this.getElement();
     const listElements = getListElement(rootElement);
-    const selectElement = getSelectElement(rootElement);
+    const selectElement: HTMLSelectElement = getSelectElement(rootElement);
 
     // click 이벤트 바인딩
-    listElements.forEach((li) => {
+    listElements.forEach((li, index) => {
       li.addEventListener("click", () => {
         setActive(li, listElements);
         bindingContent(rootElement, listElements, li);
+        selectElement.value = index + "";
       });
     });
 
@@ -125,10 +126,10 @@ export const getListElement = (element: Element): NodeListOf<Element> => {
  * * getSelectElement
  * * : select Element를 담은 Html Element를 반환한다.
  * @param element
- * @return Elements
+ * @return HTMLSelectElement
  */
-export const getSelectElement = (element: Element): Element => {
-  const select = element.querySelector(".about__menu-select");
+export const getSelectElement = (element: Element): HTMLSelectElement => {
+  const select = element.querySelector(".about__menu-select") as HTMLSelectElement;
   if (!select) throw new Error("Called before rendering");
 
   return select;

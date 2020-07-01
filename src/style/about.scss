@@ -42,6 +42,10 @@
     }
   }
 
+  & .about__menu-select {
+    display: none;
+  }
+
   & .about__detail {
     width: 50vw;
     background-color: #ffffff;
@@ -81,6 +85,7 @@
     }
 
     & .about__menu-select {
+      display: inline-block;
       width: 80vw;
       padding: 0.8em 0.5em;
       border: 1px solid #999;
