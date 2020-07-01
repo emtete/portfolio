@@ -2,20 +2,45 @@ import React from "react";
 import "../style/navbar.scss";
 
 interface NavProps {}
-interface NavState {}
+interface NavState {
+  [key: string]: string | boolean;
+  isResize: boolean;
+}
 
 class Navbar extends React.Component<NavProps, NavState> {
   constructor(props: NavProps) {
     super(props);
+    this.state = {
+      isResize: false,
+    };
   }
 
-  componentDidMount() {}
+  /**
+   * * setResizeEvent
+   * * : 화면크기 변경시 state값을 변경한다.
+   * @param SE
+   * @param getPosition
+   * @return string
+   */
+  setResizeEvent = (): void => {
+    window.addEventListener("resize", () => {
+      this.setState({ isResize: true });
+    });
+  };
+
+  componentDidMount() {
+    this.setResizeEvent();
+  }
+
+  componentDidUpdate() {
+    changeLiText();
+  }
 
   render() {
     return (
       <nav id='navbar' className='notFixed'>
         <div className='navbar__menu'>
-          <ul className='navbar__text'>
+          <ul>
             <li id='nav__home' className='nav__btn active'>
               Home
             </li>
@@ -32,28 +57,64 @@ class Navbar extends React.Component<NavProps, NavState> {
               Contact
             </li>
           </ul>
-
-          <ul className='navbar__dot'>
-            <li id='nav__home' className='nav__btn active'>
-              H
-            </li>
-            <li id='nav__about' className='nav__btn'>
-              A
-            </li>
-            <li id='nav__skills' className='nav__btn'>
-              S
-            </li>
-            <li id='nav__work' className='nav__btn'>
-              W
-            </li>
-            <li id='nav__contact' className='nav__btn'>
-              C
-            </li>
-          </ul>
         </div>
       </nav>
     );
   }
 }
+
+/**
+ * * getCurrentSection
+ * * : 현재 스크롤이 있는 섹션을 리턴한다.
+ * @param SE
+ * @param getPosition
+ * @return string
+ */
+export const changeLiText = (): void => {
+  const mq = window.matchMedia("(max-width: 620px)").matches;
+  const ul = document.querySelector(".navbar__menu ul") as HTMLUListElement;
+  const lis = Array.from(ul.children);
+  if (mq) {
+    lis.forEach((li) => {
+      switch (li.id) {
+        case "nav__home":
+          li.textContent = "H";
+          break;
+        case "nav__about":
+          li.textContent = "A";
+          break;
+        case "nav__skills":
+          li.textContent = "S";
+          break;
+        case "nav__work":
+          li.textContent = "W";
+          break;
+        case "nav__contact":
+          li.textContent = "C";
+          break;
+      }
+    });
+  } else {
+    lis.forEach((li) => {
+      switch (li.id) {
+        case "nav__home":
+          li.textContent = "Home";
+          break;
+        case "nav__about":
+          li.textContent = "About";
+          break;
+        case "nav__skills":
+          li.textContent = "Skills";
+          break;
+        case "nav__work":
+          li.textContent = "Work";
+          break;
+        case "nav__contact":
+          li.textContent = "Contact";
+          break;
+      }
+    });
+  }
+};
 
 export default Navbar;

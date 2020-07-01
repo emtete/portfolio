@@ -42,9 +42,9 @@
     cursor: pointer;
   }
 
-  & .navbar__dot {
-    display: none;
-  }
+  // & .navbar__dot {
+  //   display: none;
+  // }
 }
 
 @media screen and (max-width: 620px) {
@@ -57,7 +57,7 @@
     padding-left: 0;
 
     justify-content: center;
-    & .navbar__dot {
+    & ul {
       display: table;
       margin: 0 auto;
 
@@ -67,8 +67,44 @@
       }
     }
 
-    & .navbar__text {
-      display: none;
-    }
+    // & #nav__home {
+    //   visibility: hidden;
+    //   &:after {
+    //     visibility: visible;
+    //     content: "H";
+    //   }
+    // }
+
+    // & #nav__about {
+    //   visibility: hidden;
+    //   &:after {
+    //     visibility: visible;
+    //     content: "A";
+    //   }
+    // }
+
+    // & #nav__skills {
+    //   visibility: hidden;
+    //   &:after {
+    //     visibility: visible;
+    //     content: "S";
+    //   }
+    // }
+
+    // & #nav__work {
+    //   visibility: hidden;
+    //   &:after {
+    //     visibility: visible;
+    //     content: "W";
+    //   }
+    // }
+
+    // & #nav__contact {
+    //   visibility: hidden;
+    //   &:after {
+    //     visibility: visible;
+    //     content: "C";
+    //   }
+    // }
   }
 }

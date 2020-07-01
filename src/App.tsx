@@ -76,16 +76,12 @@ class App extends React.Component<iProps, iState> {
 export const goTo = (section: string, SE: Elements, rootElement: Element): void => {
   const top: number = SE[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
   const navList: Array<Element> = Array.from((SE.nav!.querySelector("ul") as any).children);
-  const dotNavList: Array<Element> = Array.from(
-    (SE.nav?.querySelector(".navbar__dot") as any).children
-  );
 
   window.scrollTo({
     top: top,
     behavior: "smooth",
   });
   navList.forEach((element) => element.classList.remove("active"));
-  dotNavList.forEach((element) => element.classList.remove("active"));
   rootElement.querySelector("#nav__about")!.classList.add("active");
 };
 
@@ -114,19 +110,8 @@ export const attachNavbar = (sec: string, SE: Elements): void => {
  * @return void
  */
 export const setActive = (sec: string, SE: Elements): void => {
-  const navList: Array<Element> = Array.from(
-    (SE.nav?.querySelector(".navbar__text") as any).children
-  );
-  const dotNavList: Array<Element> = Array.from(
-    (SE.nav?.querySelector(".navbar__dot") as any).children
-  );
+  const navList: Array<Element> = Array.from((SE.nav?.querySelector("ul") as any).children);
   navList.forEach((element) => {
-    const target = element.id.split("__")[1];
-    element.classList.remove("active");
-    if (sec === target) element.classList.add("active");
-  });
-
-  dotNavList.forEach((element) => {
     const target = element.id.split("__")[1];
     element.classList.remove("active");
     if (sec === target) element.classList.add("active");
@@ -154,11 +139,9 @@ export const getCurrentSection = (SE: Elements, getPosition: Function): string =
   } else if (
     gp(SE.skills!, "bottom") - 53 < pageY &&
     pageY < gp(SE.work!, "bottom") - 53 &&
-    pageY !== document.body.scrollHeight - window.innerHeight
+    pageY !== gp(SE.contact!, "bottom") - window.innerHeight
   ) {
     sec = "work";
-  } else if (pageY === document.body.scrollHeight - window.innerHeight) {
-    sec = "contact";
   } else {
     sec = "contact";
   }
