@@ -49,3 +49,9 @@
     padding: 5px;
   }
 }
+
+@media screen and (max-width: 380px) {
+  .home__title {
+    text-align: center;
+  }
+}
