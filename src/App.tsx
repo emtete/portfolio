@@ -142,6 +142,8 @@ export const getCurrentSection = (SE: Elements, getPosition: Function): string =
     pageY !== gp(SE.contact!, "bottom") - window.innerHeight
   ) {
     sec = "work";
+  } else if (pageY === gp(SE.contact!, "bottom") - window.innerHeight) {
+    sec = "contact";
   } else {
     sec = "contact";
   }
