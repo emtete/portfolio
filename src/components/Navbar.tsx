@@ -74,47 +74,26 @@ export const changeLiText = (): void => {
   const mq = window.matchMedia("(max-width: 620px)").matches;
   const ul = document.querySelector(".navbar__menu ul") as HTMLUListElement;
   const lis = Array.from(ul.children);
-  if (mq) {
-    lis.forEach((li) => {
-      switch (li.id) {
-        case "nav__home":
-          li.textContent = "H";
-          break;
-        case "nav__about":
-          li.textContent = "A";
-          break;
-        case "nav__skills":
-          li.textContent = "S";
-          break;
-        case "nav__work":
-          li.textContent = "W";
-          break;
-        case "nav__contact":
-          li.textContent = "C";
-          break;
-      }
-    });
-  } else {
-    lis.forEach((li) => {
-      switch (li.id) {
-        case "nav__home":
-          li.textContent = "Home";
-          break;
-        case "nav__about":
-          li.textContent = "About";
-          break;
-        case "nav__skills":
-          li.textContent = "Skills";
-          break;
-        case "nav__work":
-          li.textContent = "Work";
-          break;
-        case "nav__contact":
-          li.textContent = "Contact";
-          break;
-      }
-    });
-  }
+
+  lis.forEach((li) => {
+    switch (li.id) {
+      case "nav__home":
+        li.textContent = mq ? "H" : "Home";
+        break;
+      case "nav__about":
+        li.textContent = mq ? "A" : "About";
+        break;
+      case "nav__skills":
+        li.textContent = mq ? "S" : "Skills";
+        break;
+      case "nav__work":
+        li.textContent = mq ? "W" : "Work";
+        break;
+      case "nav__contact":
+        li.textContent = mq ? "C" : "Contact";
+        break;
+    }
+  });
 };
 
 export default Navbar;

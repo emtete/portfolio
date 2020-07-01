@@ -41,10 +41,6 @@
     color: #e31b6d;
     cursor: pointer;
   }
-
-  // & .navbar__dot {
-  //   display: none;
-  // }
 }
 
 @media screen and (max-width: 620px) {
@@ -66,45 +62,5 @@
         margin: 0 5vw;
       }
     }
-
-    // & #nav__home {
-    //   visibility: hidden;
-    //   &:after {
-    //     visibility: visible;
-    //     content: "H";
-    //   }
-    // }
-
-    // & #nav__about {
-    //   visibility: hidden;
-    //   &:after {
-    //     visibility: visible;
-    //     content: "A";
-    //   }
-    // }
-
-    // & #nav__skills {
-    //   visibility: hidden;
-    //   &:after {
-    //     visibility: visible;
-    //     content: "S";
-    //   }
-    // }
-
-    // & #nav__work {
-    //   visibility: hidden;
-    //   &:after {
-    //     visibility: visible;
-    //     content: "W";
-    //   }
-    // }
-
-    // & #nav__contact {
-    //   visibility: hidden;
-    //   &:after {
-    //     visibility: visible;
-    //     content: "C";
-    //   }
-    // }
   }
 }
