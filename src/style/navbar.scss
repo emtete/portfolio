@@ -52,8 +52,18 @@
     justify-content: center;
   }
   .navbar__menu {
+    width: 80vw;
+    padding-left: 0;
+
+    justify-content: center;
     & .navbar__dot {
-      display: flex;
+      display: table;
+      margin: 0 auto;
+
+      & li {
+        float: left;
+        margin: 0 5vw;
+      }
     }
 
     & .navbar__text {
