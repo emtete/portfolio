@@ -6,6 +6,7 @@ class About extends React.Component {
   componentDidMount() {
     const rootElement = this.getElement();
     const listElements = getListElement(rootElement);
+    const selectElement = getSelectElement(rootElement);
 
     // click 이벤트 바인딩
     listElements.forEach((li) => {
@@ -13,6 +14,14 @@ class About extends React.Component {
         setActive(li, listElements);
         bindingContent(rootElement, listElements, li);
       });
+    });
+
+    selectElement.addEventListener("change", (e) => {
+      const target = e.target as HTMLSelectElement;
+      const index = target.selectedIndex;
+      const li = listElements[index];
+      setActive(li, listElements);
+      bindingContent(rootElement, listElements, li);
     });
   }
 
@@ -106,10 +115,23 @@ export const setActive = (target: Element, listElements: NodeListOf<Element>): v
  * @return Elements
  */
 export const getListElement = (element: Element): NodeListOf<Element> => {
-  const lis = element.querySelectorAll(".about__menu li");
+  const lis = element.querySelectorAll(".about__menu-text li");
   if (!lis) throw new Error("Called before rendering");
 
   return lis;
+};
+
+/**
+ * * getSelectElement
+ * * : select Element를 담은 Html Element를 반환한다.
+ * @param element
+ * @return Elements
+ */
+export const getSelectElement = (element: Element): Element => {
+  const select = element.querySelector(".about__menu-select");
+  if (!select) throw new Error("Called before rendering");
+
+  return select;
 };
 
 /**
