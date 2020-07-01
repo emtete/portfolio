@@ -37,7 +37,7 @@ class Skills extends React.Component {
         <h1 className='skills__h1'>Skills</h1>
         <div className='hex_wrap3'>
           <div className='hex_wrap2'>
-            <Hexagon icon='fab fa-html5' h2='HTML' h4='HTML, CSS' />
+            <Hexagon icon='fab fa-html5' h2='HTML' h4='HTML,\n CSS' />
             <Hexagon icon='fab fa-react' h2='FrontEnd' h4='Javascript, React,\n Typescript' />
           </div>
 

@@ -9,14 +9,6 @@
   padding-top: var(--bet-padding);
 }
 
-.hex_wrap2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  padding: 0 10px;
-}
-
 .hex_wrap3 {
   display: flex;
   align-items: center;
@@ -24,6 +16,14 @@
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
+
+  & .hex_wrap2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 0 10px;
+  }
 }
 
 .skills__h2,
@@ -40,37 +40,37 @@
   background-color: #7d7a7c;
   display: flex;
   margin-bottom: 50px;
-}
 
-.skills__progress {
-  @extend %flex-column-center;
-  flex-basis: 50%;
-  background-color: #4e4d4f;
-  padding: 20px;
-}
+  & .skills__progress {
+    @extend %flex-column-center;
+    flex-basis: 50%;
+    background-color: #4e4d4f;
+    padding: 20px;
 
-.skills__right-wrap {
-  flex-basis: 50%;
-}
+    & .skills__right-wrap {
+      flex-basis: 50%;
 
-.skills__detail {
-  background-color: #626162;
-  width: 100%;
-  flex-basis: 50%;
+      & .skills__detail {
+        background-color: #626162;
+        width: 100%;
+        flex-basis: 50%;
 
-  & ul {
-    padding-top: 5px;
-    text-align: center;
+        & ul {
+          padding-top: 5px;
+          text-align: center;
+        }
+
+        & li {
+          padding-top: 5px;
+        }
+
+        & .skills__detail-wrap {
+          @extend %flex-column-center;
+          padding: 20px;
+        }
+      }
+    }
   }
-
-  & li {
-    padding-top: 5px;
-  }
-}
-
-.skills__detail-wrap {
-  @extend %flex-column-center;
-  padding: 20px;
 }
 
 .skills__tools {
@@ -105,4 +105,29 @@
 .skills__value {
   height: 3px;
   background-color: orange;
+}
+
+@media screen and (max-width: 690px) {
+  .hex_wrap3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & .hex_wrap2 {
+      width: 80vw;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hex_wrap3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & .hex_wrap2 {
+      width: 100vw;
+      flex-direction: column;
+    }
+  }
 }
