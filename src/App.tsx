@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import "./style/initialization.scss";
 
 type Elements = {
-  [key: string]: HTMLElement | null;
+  [key: string]: HTMLElement;
 };
 
 interface iProps {}
@@ -15,7 +15,7 @@ interface iState {
   [key: string]: string;
   beforeSec: string;
 }
-//
+
 class App extends React.Component<iProps, iState> {
   constructor(props: iProps) {
     super(props);
@@ -23,17 +23,16 @@ class App extends React.Component<iProps, iState> {
       beforeSec: "home",
     };
   }
-  private appRef = React.createRef<HTMLDivElement>();
 
   componentDidMount() {
-    const rootElement = this.getElement();
     const SE = getSectionsElement();
-    const NavBtnElements = getNavBtnsElement(rootElement);
+    const NavBtnElements = document.querySelectorAll(".nav__btn");
 
     // scroll 이벤트 바인딩
     window.addEventListener("scroll", () => {
       const sec = getCurrentSection(SE, getPosition);
       const { beforeSec } = this.state;
+
       if (sec !== beforeSec) {
         this.setState({ beforeSec: sec });
         attachNavbar(sec, SE);
@@ -43,26 +42,16 @@ class App extends React.Component<iProps, iState> {
 
     // Nav btn Click 이벤트 바인딩
     NavBtnElements.forEach((element) => {
-      element.addEventListener("click", (event) => {
-        let section = element.id.split("__")[1];
-        if (!SE[section]) throw new Error("Called before rendering");
-        goTo(section, SE, rootElement);
+      element.addEventListener("click", (e) => {
+        const section = element.id.split("__")[1];
+        goTo(section, SE);
       });
     });
   }
 
-  getElement = (): HTMLDivElement => {
-    const app = this.appRef.current;
-    if (app) {
-      return app;
-    } else {
-      throw new Error("app is null");
-    }
-  };
-
   render() {
     return (
-      <div ref={this.appRef}>
+      <div>
         <Home />
         <About />
         <Skills />
@@ -80,16 +69,13 @@ class App extends React.Component<iProps, iState> {
  * @param SE
  * @return void
  */
-export const goTo = (section: string, SE: Elements, rootElement: Element): void => {
+export const goTo = (section: string, SE: Elements): void => {
   const top: number = SE[section]!.getBoundingClientRect().top + window.pageYOffset - 50;
-  const navList: Array<Element> = Array.from((SE.nav!.querySelector("ul") as any).children);
 
   window.scrollTo({
     top: top,
     behavior: "smooth",
   });
-  navList.forEach((element) => element.classList.remove("active"));
-  rootElement.querySelector("#nav__about")!.classList.add("active");
 };
 
 /**
@@ -143,15 +129,8 @@ export const getCurrentSection = (SE: Elements, getPosition: Function): string =
     sec = "about";
   } else if (gp(SE.about!, "bottom") - 53 < pageY && pageY < gp(SE.skills!, "bottom") - 53) {
     sec = "skills";
-  } else if (
-    gp(SE.skills!, "bottom") - 53 < pageY &&
-    pageY < gp(SE.work!, "bottom") - 553
-    //  &&
-    // pageY !== document.body.scrollHeight - window.innerHeight
-  ) {
+  } else if (gp(SE.skills!, "bottom") - 53 < pageY && pageY < gp(SE.work!, "bottom") - 553) {
     sec = "work";
-    // } else if (document.body.scrollHeight - window.innerHeight) {
-    // sec = "contact";
   } else {
     sec = "contact";
   }
@@ -167,7 +146,6 @@ export const getCurrentSection = (SE: Elements, getPosition: Function): string =
  * @return number
  */
 export const getPosition = (element: Element, direction: string & ("bottom" | "top")): number => {
-  if (!element) throw new Error("Element is null or undefined");
   const bcr = element.getBoundingClientRect();
   return bcr[direction] + window.pageYOffset;
 };
@@ -180,28 +158,14 @@ export const getPosition = (element: Element, direction: string & ("bottom" | "t
  */
 export const getSectionsElement = (): Elements => {
   const SE: Elements = {
-    // home: element.querySelector("#home"),
-    home: document.querySelector("#home"),
-    nav: document.querySelector("#navbar"),
-    about: document.querySelector("#about"),
-    skills: document.querySelector("#skills"),
-    work: document.querySelector("#work"),
-    contact: document.querySelector("#contact"),
+    home: document.querySelector("#home") as HTMLElement,
+    nav: document.querySelector("#navbar") as HTMLElement,
+    about: document.querySelector("#about") as HTMLElement,
+    skills: document.querySelector("#skills") as HTMLElement,
+    work: document.querySelector("#work") as HTMLElement,
+    contact: document.querySelector("#contact") as HTMLElement,
   };
   return SE;
-};
-
-/**
- * * getNavBtnsElement
- * * : 각 섹션에 있는 Nav버튼 Html Element를 담은 Html Element를 반환한다.
- * @param element
- * @return Elements
- */
-export const getNavBtnsElement = (element: Element): NodeListOf<Element> => {
-  const btns = element.querySelector(".nav__btn");
-  if (!btns) throw new Error("Called before rendering");
-
-  return element.querySelectorAll(".nav__btn")!;
 };
 
 export default App;
