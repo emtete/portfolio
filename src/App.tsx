@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import "./style/initialization.scss";
 
 type Elements = {
-  [key: string]: Element | null;
+  [key: string]: HTMLElement | null;
 };
 
 interface iProps {}
@@ -27,7 +27,7 @@ class App extends React.Component<iProps, iState> {
 
   componentDidMount() {
     const rootElement = this.getElement();
-    const SE = getSectionsElement(rootElement);
+    const SE = getSectionsElement();
     const NavBtnElements = getNavBtnsElement(rootElement);
 
     // scroll 이벤트 바인딩
@@ -178,14 +178,15 @@ export const getPosition = (element: Element, direction: string & ("bottom" | "t
  * @param element
  * @return Elements
  */
-export const getSectionsElement = (element: Element): Elements => {
+export const getSectionsElement = (): Elements => {
   const SE: Elements = {
-    home: element.querySelector("#home"),
-    nav: element.querySelector("#navbar"),
-    about: element.querySelector("#about"),
-    skills: element.querySelector("#skills"),
-    work: element.querySelector("#work"),
-    contact: element.querySelector("#contact"),
+    // home: element.querySelector("#home"),
+    home: document.querySelector("#home"),
+    nav: document.querySelector("#navbar"),
+    about: document.querySelector("#about"),
+    skills: document.querySelector("#skills"),
+    work: document.querySelector("#work"),
+    contact: document.querySelector("#contact"),
   };
   return SE;
 };
