@@ -2,42 +2,32 @@ import React from "react";
 import "../style/about.scss";
 
 class About extends React.Component {
-  private aboutRef = React.createRef<HTMLDivElement>();
   componentDidMount() {
-    const rootElement = this.getElement();
-    const listElements = getListElement(rootElement);
-    const selectElement: HTMLSelectElement = getSelectElement(rootElement);
+    const listElements = document.querySelectorAll(".about__menu-text li") as NodeListOf<Element>;
+    const selectElement = document.querySelector(".about__menu-select") as HTMLSelectElement;
 
-    // click 이벤트 바인딩
+    // li click 이벤트 바인딩
     listElements.forEach((li, index) => {
       li.addEventListener("click", () => {
         setActive(li, listElements);
-        bindingContent(rootElement, listElements, li);
+        bindingContent(listElements, li);
         selectElement.value = index + "";
       });
     });
 
+    // select box click 이벤트 바인딩
     selectElement.addEventListener("change", (e) => {
       const target = e.target as HTMLSelectElement;
       const index = target.selectedIndex;
       const li = listElements[index];
       setActive(li, listElements);
-      bindingContent(rootElement, listElements, li);
+      bindingContent(listElements, li);
     });
   }
 
-  getElement = (): HTMLDivElement => {
-    const about = this.aboutRef.current;
-    if (about) {
-      return about;
-    } else {
-      throw new Error("about is null");
-    }
-  };
-
   render() {
     return (
-      <section id='about' ref={this.aboutRef}>
+      <section id='about'>
         <h1 className='about__h1'>About Me</h1>
         <p>현재 서울 관악구 신림동에 거주중입니다.</p>
         <div className='about__container'>
@@ -110,32 +100,6 @@ export const setActive = (target: Element, listElements: NodeListOf<Element>): v
 };
 
 /**
- * * getListElement
- * * : li Element를 담은 Html Element를 반환한다.
- * @param element
- * @return Elements
- */
-export const getListElement = (element: Element): NodeListOf<Element> => {
-  const lis = element.querySelectorAll(".about__menu-text li");
-  if (!lis) throw new Error("Called before rendering");
-
-  return lis;
-};
-
-/**
- * * getSelectElement
- * * : select Element를 담은 Html Element를 반환한다.
- * @param element
- * @return HTMLSelectElement
- */
-export const getSelectElement = (element: Element): HTMLSelectElement => {
-  const select = element.querySelector(".about__menu-select") as HTMLSelectElement;
-  if (!select) throw new Error("Called before rendering");
-
-  return select;
-};
-
-/**
  * * bindingContent
  * * : 매개변수로 전달된 li와 매칭되는 p태그의 display 속성을 바꾼다.
  * @param element
@@ -143,14 +107,10 @@ export const getSelectElement = (element: Element): HTMLSelectElement => {
  * @param clickedElement
  * @return void
  */
-export const bindingContent = (
-  element: Element,
-  lis: NodeListOf<Element>,
-  clickedElement: Element
-): void => {
+export const bindingContent = (lis: NodeListOf<Element>, clickedElement: Element): void => {
   const text = clickedElement.textContent;
   lis.forEach((ele, index) => {
-    const p = element.querySelectorAll(".about__detail p");
+    const p = document.querySelectorAll(".about__detail p");
     if (ele.textContent === text) {
       p[index].classList.remove("ct_deactive");
     } else {
