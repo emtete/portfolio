@@ -36,9 +36,13 @@
     font-size: 20px;
   }
 
-  & li:hover,
-  & li.active {
+  & li:hover {
     color: #e31b6d;
+    cursor: pointer;
+  }
+
+  & li.active {
+    color: #e31b6d !important;
     cursor: pointer;
   }
 }
@@ -60,6 +64,10 @@
       & li {
         float: left;
         margin: 0 5vw;
+      }
+
+      & li:hover {
+        color: white;
       }
     }
   }
