@@ -11,6 +11,7 @@ class About extends React.Component {
       li.addEventListener("click", () => {
         setActive(li, listElements);
         bindingContent(listElements, li);
+        //select box 의 선택된 값을 변경한다.
         selectElement.value = index + "";
       });
     });
@@ -19,6 +20,7 @@ class About extends React.Component {
     selectElement.addEventListener("change", (e) => {
       const target = e.target as HTMLSelectElement;
       const index = target.selectedIndex;
+      // 선택된 select box 의 값에 해당하는 li 요소를 변수에 할당한다.
       const li = listElements[index];
       setActive(li, listElements);
       bindingContent(listElements, li);
@@ -38,6 +40,7 @@ class About extends React.Component {
             <li>2019 ~ 2020 : ERP 프로젝트</li>
             <li>2020 ~ </li>
           </ul>
+
           <select className='about__menu-select'>
             <option value='0'>2014 ~ 2015 : 학원 수료</option>
             <option value='1'>2015 ~ 2016 : 회사 뉴테크 근무</option>
@@ -45,13 +48,16 @@ class About extends React.Component {
             <option value='3'>2019 ~ 2020 : ERP 프로젝트</option>
             <option value='4'>2020 ~ </option>
           </select>
+
           <div id='content' className='about__detail'>
             <p>약 6개월, 비트컴퓨터 학원 수료했습니다.</p>
+
             <p className='ct_deactive'>
               1년간 여러가지 업무를 했지만
               <br /> 딱히 기억나는것도 없고 실력도 별로였습니다.
               <br /> 경영악화로 퇴사했습니다.
             </p>
+
             <p className='ct_deactive'>
               간간히 책을 읽으면서
               <br />
@@ -60,6 +66,7 @@ class About extends React.Component {
               <br /> 구매자재팀에서 창고관리 1년
               <br /> 그렇게 일해보니 개발일이 저에게 제일 잘 맞았다고 생각됐습니다.
             </p>
+
             <p className='ct_deactive'>
               인력파견업체에 취직하였습니다.
               <br />
@@ -69,6 +76,7 @@ class About extends React.Component {
               <br />
               차세대 ERP 프로젝트에서 구매자재 업무 중 구매를 담당했습니다.
             </p>
+
             <p className='ct_deactive'>
               프로젝트 철수 후, 한달동안 구직활동을 했습니다.
               <br />
