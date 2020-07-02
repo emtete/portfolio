@@ -3,7 +3,7 @@ import "../style/navbar.scss";
 
 interface NavProps {}
 interface NavState {
-  [key: string]: string | boolean;
+  [key: string]: boolean;
   isResize: boolean;
 }
 
@@ -18,9 +18,7 @@ class Navbar extends React.Component<NavProps, NavState> {
   /**
    * * setResizeEvent
    * * : 화면크기 변경시 state값을 변경한다.
-   * @param SE
-   * @param getPosition
-   * @return string
+   * @return void
    */
   setResizeEvent = (): void => {
     window.addEventListener("resize", () => {
@@ -67,9 +65,7 @@ class Navbar extends React.Component<NavProps, NavState> {
 /**
  * * changeLiText
  * * : 브라우저 사이즈가 변경되면 li text를 수정한다.
- * @param SE
- * @param getPosition
- * @return string
+ * @return void
  */
 export const changeLiText = (): void => {
   const mq = window.matchMedia("(max-width: 620px)").matches;
