@@ -36,13 +36,17 @@ class Work extends React.Component<{}, WorkState> {
   openModal = (): void => {
     const modal = document.querySelector(".modal");
     const projects = document.querySelectorAll(".project");
+
+    // project click event binding
     projects.forEach((project) => {
       project.addEventListener("click", (e) => {
         const clasName = (e.target as Element).className.split(" ")[1].replace("project", "modal");
-        const target = document.querySelector(`.${clasName}`);
+        const modalContent = document.querySelector(`.${clasName}`);
         this.setState({ activeModal: clasName });
+
+        // modal, modalContent 활성화
         modal?.classList.add("active");
-        target?.classList.remove("deactive");
+        modalContent?.classList.remove("deactive");
       });
     });
   };
@@ -57,9 +61,11 @@ class Work extends React.Component<{}, WorkState> {
     const modal = document.querySelector(".modal");
     closeBtn?.addEventListener("click", (e) => {
       const clasName = this.state.activeModal;
-      const target = document.querySelector(`.${clasName}`);
+      const modalContent = document.querySelector(`.${clasName}`);
+
+      // modal, modalContent 비활성화
       modal?.classList.remove("active");
-      target?.classList.add("deactive");
+      modalContent?.classList.add("deactive");
     });
   };
 
