@@ -65,8 +65,8 @@ class Navbar extends React.Component<NavProps, NavState> {
 }
 
 /**
- * * getCurrentSection
- * * : 현재 스크롤이 있는 섹션을 리턴한다.
+ * * changeLiText
+ * * : 브라우저 사이즈가 변경되면 li text를 수정한다.
  * @param SE
  * @param getPosition
  * @return string
