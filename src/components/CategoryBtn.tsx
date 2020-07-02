@@ -30,14 +30,18 @@ class CategoryBtn extends React.Component<iProps, {}> {
  */
 export const bindingEventToBtn = (): void => {
   const btnArr = document.querySelectorAll(".category__btn, .category__count");
+
+  // category button click event binding
   btnArr.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       const activeBtn = document.querySelector(".category__btn.active");
       const t = event.target as Element;
-      const target = t.nodeName === "SPAN" ? t.parentElement : t;
+      // 클릭한 노드가 span 일 경우 제대로 작동 안하는걸 방지하기 위함
+      const ctgrBtn = t.nodeName === "SPAN" ? t.parentElement : t;
 
+      // button 활성화 / 비활성화
       if (activeBtn) activeBtn.classList.remove("active");
-      if (target) target.classList.add("active");
+      if (ctgrBtn) ctgrBtn.classList.add("active");
     });
   });
 };
