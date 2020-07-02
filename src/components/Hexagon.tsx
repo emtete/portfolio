@@ -18,6 +18,7 @@ class Hexagon extends React.Component<iProps> {
         </div>
         <h2 className='skills__h2'>{this.props.h2}</h2>
         <h4 className='skills__h4'>
+          {/* h4의 문자열에 \n가 포함되어 있을 경우 줄바꿈 해준다. */}
           {this.props.h4.split("\\n").map((line, index) => {
             return (
               <span key={index}>
