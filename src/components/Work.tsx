@@ -59,6 +59,8 @@ class Work extends React.Component<{}, WorkState> {
   closeModal = (): void => {
     const closeBtn = document.querySelector(".modal .close");
     const modal = document.querySelector(".modal");
+
+    // close button click event binding
     closeBtn?.addEventListener("click", (e) => {
       const clasName = this.state.activeModal;
       const modalContent = document.querySelector(`.${clasName}`);
