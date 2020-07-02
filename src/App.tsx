@@ -6,29 +6,36 @@ import Work from "./components/Work";
 import Contact from "./components/Contact";
 import "./style/initialization.scss";
 
-// require("./style/initialization.css");
-
 type Elements = {
   [key: string]: Element | null;
 };
 
 interface iProps {}
-interface iState {}
+interface iState {
+  [key: string]: string;
+  beforeSec: string;
+}
 //
 class App extends React.Component<iProps, iState> {
+  constructor(props: iProps) {
+    super(props);
+    this.state = {
+      beforeSec: "home",
+    };
+  }
   private appRef = React.createRef<HTMLDivElement>();
-
-  beforeSec: string = "home";
 
   componentDidMount() {
     const rootElement = this.getElement();
     const SE = getSectionsElement(rootElement);
     const NavBtnElements = getNavBtnsElement(rootElement);
+
     // scroll 이벤트 바인딩
     window.addEventListener("scroll", () => {
       const sec = getCurrentSection(SE, getPosition);
-      if (sec !== this.beforeSec) {
-        this.beforeSec = sec;
+      const { beforeSec } = this.state;
+      if (sec !== beforeSec) {
+        this.setState({ beforeSec: sec });
         attachNavbar(sec, SE);
         setActive(sec, SE);
       }
