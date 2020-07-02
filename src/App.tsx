@@ -139,10 +139,10 @@ export const getCurrentSection = (SE: Elements, getPosition: Function): string =
   } else if (
     gp(SE.skills!, "bottom") - 53 < pageY &&
     pageY < gp(SE.work!, "bottom") - 53 &&
-    pageY !== gp(SE.contact!, "bottom") - window.innerHeight
+    pageY !== document.body.scrollHeight - window.innerHeight
   ) {
     sec = "work";
-  } else if (pageY === gp(SE.contact!, "bottom") - window.innerHeight) {
+  } else if (document.body.scrollHeight - window.innerHeight) {
     sec = "contact";
   } else {
     sec = "contact";

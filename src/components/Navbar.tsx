@@ -29,6 +29,7 @@ class Navbar extends React.Component<NavProps, NavState> {
   };
 
   componentDidMount() {
+    changeLiText();
     this.setResizeEvent();
   }
 
