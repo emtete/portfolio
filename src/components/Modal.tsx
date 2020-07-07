@@ -112,11 +112,17 @@ class Modal extends React.Component<{}, {}> {
                 <li>기술스펙 : HTML, CSS, ES6, FlexBox, 반응형</li>
               </ul>
               <span className='modal__icons'>
-                <a href='https://emtete.github.io/youtube_mobile/' target='_blank'>
+                <a
+                  href='https://emtete.github.io/youtube_mobile/'
+                  target='_blank'
+                >
                   <i className='fas fa-link'></i>
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href='https://github.com/emtete/youtube_mobile' target='_blank'>
+                <a
+                  href='https://github.com/emtete/youtube_mobile'
+                  target='_blank'
+                >
                   <i className='fab fa-github-square'></i>
                 </a>
               </span>
