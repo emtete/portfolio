@@ -2,7 +2,7 @@
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 5px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -20,9 +20,10 @@
   background-color: #fefefe;
   margin: auto;
   padding: 0;
-  border: 1px solid #888;
+  border: 1px solid black;
   width: 80%;
-  max-height: 500px;
+  height: 98%;
+  // max-height: 500px;
   overflow-y: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
@@ -75,7 +76,7 @@
 
 .modal__header {
   padding: 2px 16px;
-  background-color: var(--blue-dark-color);
+  // background-color: var(--blue-dark-color);
   color: white;
 }
 
@@ -89,7 +90,7 @@
   & .modal__img-wrap {
     width: auto;
     height: auto;
-    max-width: 60%;
+    max-width: 100%;
 
     display: flex;
     justify-content: center; /* align horizontal */
@@ -141,7 +142,7 @@
 
 .modal__footer {
   padding: 2px 16px;
-  background-color: var(--blue-light-color);
+  // background-color: var(--blue-light-color);
   color: white;
 }
 
