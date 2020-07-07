@@ -3,8 +3,12 @@ import "../style/about.scss";
 
 class About extends React.Component {
   componentDidMount() {
-    const listElements = document.querySelectorAll(".about__menu-text li") as NodeListOf<Element>;
-    const selectElement = document.querySelector(".about__menu-select") as HTMLSelectElement;
+    const listElements = document.querySelectorAll(
+      ".about__menu-text li"
+    ) as NodeListOf<Element>;
+    const selectElement = document.querySelector(
+      ".about__menu-select"
+    ) as HTMLSelectElement;
 
     // li click 이벤트 바인딩
     listElements.forEach((li, index) => {
@@ -64,7 +68,8 @@ class About extends React.Component {
               레노버 콜센터에서 3개월
               <br /> 인조대리석 1년
               <br /> 구매자재팀에서 창고관리 1년
-              <br /> 그렇게 일해보니 개발일이 저에게 제일 잘 맞았다고 생각됐습니다.
+              <br /> 그렇게 일해보니 개발일이 저에게 제일 잘 맞았다고
+              생각됐습니다.
             </p>
 
             <p className='ct_deactive'>
@@ -82,9 +87,11 @@ class About extends React.Component {
               <br />
               붙은곳도 있었고 입사해서 1주일동안 일하기도 했습니다.
               <br />
-              그런데 지금까지 나온 새로운 기술들도 많았고 자바만 계속 하긴 싫었습니다.
+              그런데 지금까지 나온 새로운 기술들이 많았고 자바 이외의 기술도
+              해보고 싶었습니다.
               <br />
-              그래서 현재는 프론트엔드 개발자로 일하기 위해 React로 이것저것 만들어보는 중입니다.
+              그래서 현재는 프론트엔드 개발자로 일하기 위해 React로 이것저것
+              만들어보는 중입니다.
             </p>
           </div>
         </div>
@@ -100,7 +107,10 @@ class About extends React.Component {
  * @param liElement
  * @return void
  */
-export const setActive = (target: Element, listElements: NodeListOf<Element>): void => {
+export const setActive = (
+  target: Element,
+  listElements: NodeListOf<Element>
+): void => {
   listElements.forEach((element) => {
     element.classList.remove("li_active");
   });
@@ -115,7 +125,10 @@ export const setActive = (target: Element, listElements: NodeListOf<Element>): v
  * @param clickedElement
  * @return void
  */
-export const bindingContent = (lis: NodeListOf<Element>, clickedElement: Element): void => {
+export const bindingContent = (
+  lis: NodeListOf<Element>,
+  clickedElement: Element
+): void => {
   const text = clickedElement.textContent;
   lis.forEach((ele, index) => {
     const p = document.querySelectorAll(".about__detail p");
