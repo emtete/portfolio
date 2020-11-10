@@ -57,11 +57,10 @@ class About extends React.Component {
             <p>약 6개월, 비트컴퓨터 학원 수료했습니다.</p>
 
             <p className='ct_deactive'>
-              1년간 여러가지 업무를 했지만
-              <br /> 딱히 기억나는것도 없고 실력도 별로였습니다.
-              <br /> 경영악화로 퇴사했습니다.
+            모니터링시스템 중 네이버 기사 크롤링 구현
+              <br /> 신한 O2O 프로젝트 중 각 화면구현과 이미지 업로드 구현
+              <br /> 그리드 순서변경 구현
             </p>
-
             <p className='ct_deactive'>
               간간히 책을 읽으면서
               <br />
@@ -73,9 +72,9 @@ class About extends React.Component {
             </p>
 
             <p className='ct_deactive'>
-              인력파견업체에 취직하였습니다.
+              위쉬정보기술에 취직하였습니다.
               <br />
-              그리고 6년차 과장으로 태영건설에 파견되었습니다.
+              태영건설에 파견되었습니다.
               <br />
               2019년 4월부터 2020년 4월까지 1년 1개월동안
               <br />
@@ -83,14 +82,9 @@ class About extends React.Component {
             </p>
 
             <p className='ct_deactive'>
-              프로젝트 철수 후, 한달동안 구직활동을 했습니다.
+              구직활동을 하기도 했지만 리액트로 sub project를 해야겠다는 생각이 들었습니다.
               <br />
-              붙은곳도 있었고 입사해서 1주일동안 일하기도 했습니다.
-              <br />
-              그런데 지금까지 나온 새로운 기술들이 많았고 자바 이외의 기술도
-              해보고 싶었습니다.
-              <br />
-              그래서 현재는 React로 이것저것 만들어보는 중입니다.
+              그래서 포트폴리오 사이트와 블로그를 개발했습니다.
             </p>
           </div>
         </div>
