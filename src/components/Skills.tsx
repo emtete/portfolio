@@ -11,14 +11,14 @@ class Skills extends React.Component {
         <div className='hex_wrap3'>
           <div className='hex_wrap2'>
             <Hexagon icon='fab fa-html5' h2='HTML' h4='HTML,\n CSS' />
-            <Hexagon icon='fab fa-react' h2='FrontEnd' h4='Javascript, React,\n Typescript' />
+            <Hexagon icon='fab fa-react' h2='FrontEnd' h4='Javascript, Vue, React,\n Typescript' />
           </div>
 
           <div className='hex_wrap2'>
             <Hexagon
               icon='fas fa-leaf'
-              h2='Java'
-              h4='Java, Spring, Servlet,\n Jsp, Mybatis, Maven'
+              h2='BackEnd'
+              h4='Java, Spring'
             />
             <Hexagon icon='fas fa-server' h2='DBMS' h4='Oracle, MySql,\n Stored Procedure' />
           </div>
@@ -30,7 +30,7 @@ class Skills extends React.Component {
             <ProgressBar title='HTML' per='72%' clas='' />
             <ProgressBar title='CSS' per='62%' clas='' />
             <ProgressBar title='ES5 / ES6 / TypeScript' per='75%' clas='' />
-            <ProgressBar title='React' per='70%' clas='' />
+            <ProgressBar title='Vue' per='70%' clas='' />
             <ProgressBar title='Java / Spring' per='80%' clas='' />
             <ProgressBar title='SQL' per='70%' clas='' />
           </div>

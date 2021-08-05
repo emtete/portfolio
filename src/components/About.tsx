@@ -37,20 +37,25 @@ class About extends React.Component {
         <h1 className='about__h1'>About Me</h1>
         <p>현재 서울 관악구 신림동에 거주중입니다.</p>
         <div className='about__container'>
+
+          {/* for desktop */}
           <ul className='about__menu-text'>
             <li className='li_active'>2014 ~ 2015 : 학원 수료</li>
             <li>2015 ~ 2016 : 회사 뉴테크 근무</li>
             <li>2016 ~ 2019 : 타 직업 종사</li>
             <li>2019 ~ 2020 : ERP 프로젝트</li>
-            <li>2020 ~ </li>
+            <li>2020 ~ 2020.10 : 구직 & 개인프로젝트</li>
+            <li>2020.10 ~ 2020.05 : 인텔렉투스 근무</li>
           </ul>
 
+          {/* for mobile */}
           <select className='about__menu-select'>
             <option value='0'>2014 ~ 2015 : 학원 수료</option>
             <option value='1'>2015 ~ 2016 : 회사 뉴테크 근무</option>
             <option value='2'>2016 ~ 2019 : 타 직업 종사</option>
             <option value='3'>2019 ~ 2020 : ERP 프로젝트</option>
-            <option value='4'>2020 ~ </option>
+            <option value='4'>2020 ~ 2020.10 : 구직 & 개인프로젝트</option>
+            <option value='5'>2020.10 ~ 2020.05 : 인텔렉투스 근무</option>
           </select>
 
           <div id='content' className='about__detail'>
@@ -86,6 +91,27 @@ class About extends React.Component {
               <br />
               그래서 포트폴리오 사이트와 블로그를 개발했습니다.
             </p>
+
+            <p className='ct_deactive'>
+              Vue.js를 사용하여
+              <br />
+              다양한 프로젝트에서 프론트엔드를 담당했습니다.
+              <br />
+              2021년 4월 28일, 가톨릭 수도자로의 진로변경 고민을 이유로
+              <br />
+              퇴사통보를 하고 5월 31일까지 근무하였습니다.
+              <br />
+              그리고 7월 20일까지 고민끝에 수도자는 제 길이 아니라고 판단하고
+              <br />
+              다시 개발일을 시작하려고 합니다.
+              
+            </p>
+
+            {/* <p className='ct_deactive'>
+              구직활동을 하기도 했지만 리액트로 sub project를 해야겠다는 생각이 들었습니다.
+              <br />
+              그래서 포트폴리오 사이트와 블로그를 개발했습니다.
+            </p> */}
           </div>
         </div>
       </section>

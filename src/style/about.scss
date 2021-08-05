@@ -57,6 +57,7 @@
     & p {
       margin: 20px;
       text-align: center;
+      line-height: 1.7;
     }
   }
 }
@@ -91,8 +92,8 @@
       padding: 0.8em 0.5em;
       border: 1px solid #999;
       font-family: inherit;
-      background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95%
-        50%; /* 네이티브 화살표 대체 */
+      background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg)
+        no-repeat 95% 50%; /* 네이티브 화살표 대체 */
       border-radius: 0px;
       -webkit-appearance: none;
       -moz-appearance: none;
